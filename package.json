@@ -14,5 +14,10 @@
     "react-dom": "16.13.1",
     "swr": "0.1.18"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.14.41",
+    "@types/react": "^17.0.3",
+    "typescript": "^4.2.4"
+  }
 }
