@@ -12,6 +12,7 @@
     "next": "latest",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "sass": "^1.32.10",
     "swr": "0.1.18"
   },
   "license": "MIT",

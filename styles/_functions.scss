@@ -1,0 +1,24 @@
+// padding and margin generator loop
+
+$spaceamounts: (1, 2, 3, 4, 5, 6, 10, 15, 20);
+$sides: (top, bottom, left, right, all);
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}rem;
+    }
+
+    .ma-#{space} {
+      margin: #{space}rem
+    }
+  
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}rem;
+    }
+
+    .pa-#{space} {
+      margin: #{space}rem
+    }
+  }
+}
