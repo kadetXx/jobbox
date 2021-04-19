@@ -1,0 +1,15 @@
+@import "@/styles/variables";
+@import '@/styles/mixins';
+
+.logo {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+
+  @include flex(center, center)
+}
+
+.logo_text {
+  font-size: 5rem;
+}

@@ -1,19 +1,17 @@
-import useSWR from 'swr'
-import { fetcher } from '@/helpers'
+import useSWR from "swr";
+import { fetcher } from "@/helpers";
 
-export default function Index() {
-  const { data, error } = useSWR('{ users { name } }', fetcher)
+import { Logo, Preloader } from "@/shared";
 
-  if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
+const Index = () => {
+  const { data, error } = useSWR("{ users { name } }", fetcher);
 
-  const { users } = data
+  if (error) return <div>Failed to load</div>;
+  if (!data) return <Preloader />;
 
-  return (
-    <div>
-      {users.map((user, i) => (
-        <div key={i}>{user.name}</div>
-      ))}
-    </div>
-  )
-}
+  // const { users } = data
+
+  return <Logo />;
+};
+
+export default Index;
