@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './logo.module.scss'
 
-const logo = () => {
+const logo = ({ title }: any) => {
   return (
     <div className={styles.logo} >
-      <h1 className={styles.logo_text} > PROJECT YODA</h1>
+      <h1 className={styles.logo_text} > {title}</h1>
     </div>
   )
 }

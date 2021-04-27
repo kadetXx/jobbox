@@ -1,10 +1,3 @@
-import  { gql } from 'apollo-server-micro'
+import userSchema from './user.schema'
 
-export const typeDefs = gql`
-  type Query {
-    users: [User!]!
-  }
-  type User {
-    name: String
-  }
-`
+export const typeDefs =  [userSchema];

@@ -9,9 +9,10 @@ const Index = () => {
   if (error) return <div>Failed to load</div>;
   if (!data) return <Preloader />;
 
-  // const { users } = data
+  const { users } = data
+  
 
-  return <Logo />;
+  return <Logo title={users[0].name} />;
 };
 
 export default Index;

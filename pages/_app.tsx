@@ -3,6 +3,10 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import "@/styles/index.scss";
 
+import { Provider } from "react-redux";
+import { createWrapper } from "next-redux-wrapper";
+import store from "@/store";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <React.Fragment>
@@ -14,9 +18,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Yoda</title>
         <meta name="description" content="Project Yoda" />
       </Head>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </React.Fragment>
   );
 }
 
-export default MyApp;
+const makeStore = () => store;
+const wrapper = createWrapper(makeStore)
+
+export default wrapper.withRedux(MyApp);

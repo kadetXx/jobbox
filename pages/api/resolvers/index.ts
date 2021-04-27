@@ -1,7 +1,5 @@
+import userResolver from './user.resolver'
+
 export const resolvers = {
-  Query: {
-    users(/* parent, args, context */) {
-      return [{ name: 'Yoda' }]
-    },
-  },
+  ...userResolver
 }

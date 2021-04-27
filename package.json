@@ -9,9 +9,16 @@
   "dependencies": {
     "apollo-server-micro": "2.11.0",
     "graphql": "14.6.0",
+    "graphql-request": "^3.4.0",
     "next": "latest",
+    "next-redux-wrapper": "^6.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "sass": "^1.32.10",
     "swr": "0.1.18"
   },
