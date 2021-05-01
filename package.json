@@ -10,6 +10,7 @@
     "apollo-server-micro": "2.11.0",
     "graphql": "14.6.0",
     "graphql-request": "^3.4.0",
+    "mongoose": "^5.12.7",
     "next": "latest",
     "next-redux-wrapper": "^6.0.2",
     "react": "16.13.1",

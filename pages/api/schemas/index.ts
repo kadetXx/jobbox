@@ -1,3 +1,3 @@
-import userSchema from './user.schema'
+import userDefs from './user.schema'
 
-export const typeDefs =  [userSchema];
+export const typeDefs =  [userDefs];
