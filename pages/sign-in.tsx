@@ -1,10 +1,12 @@
 import React from 'react'
 
+import { AuthLayout as Layout } from '@/layouts'
+
 const signIn = () => {
   return (
-    <div>
+    <Layout>
       
-    </div>
+    </Layout>
   )
 }
 

@@ -2,14 +2,12 @@
 @import '@/styles/mixins';
 
 .logo {
-  height: 100%;
-  width: 100%;
-  margin: auto;
+  width: fit-content;
   text-align: center;
 
-  @include flex(center, center)
-}
+  @include flex(center, center);
 
-.logo_text {
-  font-size: 5rem;
+  @include respondMax("tablet") {
+    max-width: 30%;
+  }
 }
