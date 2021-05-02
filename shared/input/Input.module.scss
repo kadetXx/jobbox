@@ -1,0 +1,31 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.input, .input__50 {
+  width: 100%;
+  position: relative;
+  margin-bottom: 1rem;
+
+  @include flex(space-between, center);
+}
+
+.input__50 {
+  @include respondMin("tablet") {
+    width: 48%;
+  }
+}
+
+.input_field {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #00000031;
+}
+
+.input_toggleIcon {
+  position: absolute;
+  right: 1rem;
+  font-size: 1.2rem;
+  color: #00000088;
+  cursor: pointer;
+  user-select: none;
+}

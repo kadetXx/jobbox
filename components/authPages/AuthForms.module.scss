@@ -1,0 +1,80 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.form {
+  width: 100%;
+}
+
+.form_header {
+  margin-bottom: 2.5rem;
+
+  .form_title {
+    font-size: 1.7rem;
+    color: $col-primary;
+    margin: 0;
+  }
+
+  .form_subtitle {
+    font-size: 0.9rem;
+    color: $col-primary-100;
+  }
+}
+
+.form_sectionTitle {
+  width: 100%;
+  color: $col-primary;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.form_optionBoxes {
+  padding-right: 20%;
+  margin-bottom: 1rem;
+
+  @include flex(space-between, center);
+
+  .form_optionBox {
+    width: 47%;
+    padding: 1.2rem 1rem;
+    box-shadow: 0 2px 5px #00000031;
+    border: 2px solid transparent;
+    cursor: pointer;
+    
+    @include flex(center, center);
+
+    @include respondMax("tablet") {
+      width: 100%;
+    }
+
+    &:hover {
+      box-shadow: 0 0px 5px #00000031;
+      border-color: $col-primary-100;
+      transition: all 0.3s linear;
+    }
+
+    &__selected {
+      background-color: lighten($color: $col-primary-100, $amount: 35);
+      border-color: $col-primary-100;
+      box-shadow: none;
+    }
+  }
+
+  .form_optionBoxIcon {
+    margin-right: 0.5rem;
+  
+  }
+
+  .form_optionBoxText {
+    margin: 0;
+  }
+}
+
+.form_fields {
+  @include flex(space-between, flex-start, row wrap);
+}
+
+.form_submit {
+  margin-top: 1rem;
+  width: 100%;
+}
+

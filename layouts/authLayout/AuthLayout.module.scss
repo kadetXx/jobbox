@@ -24,7 +24,10 @@
 .main {
   width: 60%;
   height: 100%;
+  padding: 4rem 7%;
   background-color: $col-white;
+
+  @include flex(center, center);
 
   @include respondMax("tablet") {
     width: 100%;
