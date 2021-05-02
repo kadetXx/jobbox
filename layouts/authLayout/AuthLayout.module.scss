@@ -31,5 +31,6 @@
 
   @include respondMax("tablet") {
     width: 100%;
+    height: auto;
   }
 }

@@ -31,6 +31,10 @@
   padding-right: 20%;
   margin-bottom: 1rem;
 
+  @include respondMax("tablet") {
+    padding-right: 0;
+  }
+
   @include flex(space-between, center);
 
   .form_optionBox {
@@ -42,8 +46,9 @@
     
     @include flex(center, center);
 
-    @include respondMax("tablet") {
+    @include respondMax("mobile") {
       width: 100%;
+      margin-bottom: 0.5rem;
     }
 
     &:hover {

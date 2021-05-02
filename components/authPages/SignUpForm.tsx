@@ -5,13 +5,22 @@ import { useForm } from "react-hook-form";
 
 import { Input } from "@/shared";
 
-const SignUpForm = ({ onSubmit }: any) => {
-  const [accountType, setAccountType] = useState<string>("");
+import { connect } from 'react-redux'
+import { setUser } from '@/store/user/user.actions'
+
+const SignUpForm = ({ onSubmit, user, setUser }: any) => {
+
+  const accountType = user.accountType
+
+  const setAccountType = (value: string) => {
+    setUser({
+      accountType: value
+    })
+  }
 
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -68,19 +77,19 @@ const SignUpForm = ({ onSubmit }: any) => {
           placeholder="Last Name"
           className="input__50"
           errors={errors}
-          register={register("firstName", { required: true })}
+          register={register("lastName", { required: true })}
         />
         <Input
           type="email"
           placeholder="Email Address"
           errors={errors}
-          register={register("firstName", { required: true })}
+          register={register("email", { required: true })}
         />
         <Input
           type="password"
           placeholder="New Password"
           errors={errors}
-          register={register("firstName", { required: true })}
+          register={register("password", { required: true })}
         />
         <div className={styles.form_submit} >
           <button className="btn btn__primary btn__100">Create Account</button>
@@ -90,4 +99,12 @@ const SignUpForm = ({ onSubmit }: any) => {
   );
 };
 
-export default SignUpForm;
+const mapStateToProps = (state: any) => ({
+  user: state.user
+})
+
+const mapDispatchToProps = (dispatch: any) => ({
+  setUser: (user: any) => dispatch(setUser(user))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);

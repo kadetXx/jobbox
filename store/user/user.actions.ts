@@ -1,5 +1,6 @@
+import { SET_USER } from './user.types'
 
-export const createUser = (user: any) => ({
-  type: "SET_USER",
+export const setUser = (user: any) => ({
+  type: SET_USER,
   payload: user
 })
