@@ -11,6 +11,7 @@ const userResolver = {
           lastName: "Enebeli",
           email: "collynizy@gmail.com",
           accountType: "employee",
+          isEmailVerified: false
         },
       ];
       

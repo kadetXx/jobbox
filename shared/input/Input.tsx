@@ -26,7 +26,7 @@ const Input = ({
           {pass ? "visibility" : "visibility_off"}{" "}
         </span>
       )}
-      {error && <small>Please fill this field correctly</small>}
+      {error && <small className={styles.input_error} >Please fill this field correctly</small>}
     </div>
   );
 };

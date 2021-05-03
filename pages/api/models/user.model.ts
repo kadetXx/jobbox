@@ -6,6 +6,7 @@ const userModel = new mongoose.Schema({
   lastName: String,
   email: String,
   accountType: String,
+  isEmailVerified: Boolean
 })
 
 export default mongoose.models.User || mongoose.model('User', userModel);

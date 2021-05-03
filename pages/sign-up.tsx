@@ -6,6 +6,12 @@ import { SignUpForm } from "@/components/authPages";
 
 import { connect } from "react-redux";
 
+import { createUserWithEmailAndPassword, sendVerification } from "@/firebase";
+
+import { fetcher } from '@/helpers'
+
+import { CREATE_ACCOUNT } from '@/store/user/user.queries'
+
 const signUp = ({ user }) => {
   const createUser = (formData: any) => {
     const userData = {
@@ -13,7 +19,24 @@ const signUp = ({ user }) => {
       ...formData,
     };
 
-    console.log(userData);
+    createUserWithEmailAndPassword(userData.email, userData.password)
+      .then(async (user) => {
+        const newUser = {
+          ...userData,
+          uid: user.user.uid,
+          isEmailVerified: user.user.emailVerified
+        }
+        
+        console.log(newUser);
+        
+        const { data } = await fetcher(CREATE_ACCOUNT, newUser);
+        console.log(data);
+        
+        sendVerification()
+          .then(() => console.log("email sent"))
+          .catch((err) => console.log(err.message));
+      })
+      .catch((err) => console.log(err.message));
   };
 
   return (
@@ -24,7 +47,7 @@ const signUp = ({ user }) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  user: state.user
-})
+  user: state.user,
+});
 
 export default connect(mapStateToProps)(signUp);

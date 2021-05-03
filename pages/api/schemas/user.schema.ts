@@ -12,6 +12,7 @@ const userDefs = gql`
       lastName: String!
       email: String!
       accountType: String!
+      isEmailVerified: Boolean!
     ): User!
   }
 
@@ -21,6 +22,7 @@ const userDefs = gql`
     lastName: String!
     email: String!
     accountType: String!
+    isEmailVerified: Boolean!
   }
 `;
 
