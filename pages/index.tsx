@@ -5,16 +5,19 @@ import { Logo, Preloader } from "@/shared";
 
 import Link from "next/link";
 
+import { GET_USERS } from '@/store/user/user.queries'
+
 const Index = () => {
-  const { data, error } = useSWR("{ users { firstName } }", fetcher);
+  const { data, error } = useSWR(GET_USERS, fetcher);
 
   if (error) return <div>Failed to load</div>;
   if (!data) return <Preloader />;
 
-  // const { users } = data;
+  const { users } = data;
 
   return (
     <div
+      onClick={() => console.log(users)}
       style={{
         margin: "auto",
         height: "100%",

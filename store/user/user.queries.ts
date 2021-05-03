@@ -23,3 +23,16 @@ export const CREATE_ACCOUNT = /* GraphQL */ `
     }
   }
 `;
+
+export const GET_USERS = /* GraphQL */ `
+  query {
+    users {
+      uid
+      firstName
+      lastName
+      email
+      accountType
+      isEmailVerified
+    }
+  }
+`;
