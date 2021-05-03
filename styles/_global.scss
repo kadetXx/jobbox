@@ -18,7 +18,21 @@ body {
     }
   }
 
+  &__white {
+    background-color: $col-white;
+    color: $col-primary;
+    border: 1px solid $col-primary;
+  }
+
   &__100 {
     width: 100%;
+  }
+
+  &_icon {
+    @include flex(center, center);
+  }
+
+  &_icon__prefix {
+    margin-right: 0.5rem;
   }
 }
