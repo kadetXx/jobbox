@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./AuthForms.module.scss";
+
+import Image from 'next/image';
 
 import { useForm } from "react-hook-form";
 
@@ -92,7 +94,11 @@ const SignUpForm = ({ onSubmit, user, setUser }: any) => {
           register={register("password", { required: true })}
         />
         <div className={styles.form_submit} >
-          <button className="btn btn__primary btn__100">Create Account</button>
+          <button className="btn btn__primary btn__100">
+            {
+              false ? <Image src="/svg/loading-white.svg" height="18" width="18" /> : "Create Account"
+            }
+          </button>
         </div>
       </form>
     </div>

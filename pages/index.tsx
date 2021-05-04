@@ -10,7 +10,6 @@ import { GET_USERS } from '@/store/user/user.queries'
 const Index = () => {
   const { data, error } = useSWR(GET_USERS, fetcher);
 
-  if (error) return <div>Failed to load</div>;
   if (!data) return <Preloader />;
 
   const { users } = data;

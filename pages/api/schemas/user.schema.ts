@@ -13,7 +13,7 @@ const userDefs = gql`
       email: String!
       accountType: String!
       isEmailVerified: Boolean!
-    ): User!
+    ): User
   }
 
   type User {

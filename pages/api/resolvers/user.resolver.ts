@@ -1,30 +1,23 @@
-import { User } from '@/api/models'
+import { User } from "@/api/models";
 
 const userResolver = {
-
   Query: {
     users(/* parent, args, context */) {
-      const users = User.find((err, users) => {
-        err && console.log(err);
+      const users = User.find();
 
-        return users
-      });
-
-      return users
+      return users;
     },
   },
 
   Mutation: {
     async createUser(parent: any, args: any, context: any, info: any) {
-      const user = new User({...args})
+      const user = new User({ ...args });
 
-      await user.save((err: any, user: any) => {
-        err && console.log(err);
-        
-        return user
-      });
-    }
-  }
+      const response = await user.save();
+
+      return response;
+    },
+  },
 };
 
 export default userResolver;

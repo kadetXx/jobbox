@@ -27,14 +27,12 @@ const signUp = ({ user }) => {
           isEmailVerified: user.user.emailVerified
         }
         
-        console.log(newUser);
-        
-        const { data } = await fetcher(CREATE_ACCOUNT, newUser);
+        const data = await fetcher(CREATE_ACCOUNT, newUser);
         console.log(data);
         
-        sendVerification()
-          .then(() => console.log("email sent"))
-          .catch((err) => console.log(err.message));
+        // sendVerification()
+        //   .then(() => console.log("email sent"))
+        //   .catch((err) => console.log(err.message));
       })
       .catch((err) => console.log(err.message));
   };
