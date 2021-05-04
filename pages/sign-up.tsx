@@ -11,13 +11,21 @@ import { createUserWithEmailAndPassword, sendVerification } from "@/firebase";
 import { fetcher } from '@/helpers'
 
 import { CREATE_ACCOUNT } from '@/store/user/user.queries'
+import { setUser } from '@/store/user/user.actions'
 
-const signUp = ({ user }) => {
+import Router from 'next/router'
+
+const signUp = ({ user, setUser }) => {
   const createUser = (formData: any) => {
     const userData = {
       ...user,
       ...formData,
     };
+
+    setUser({
+      ...user,
+      email: formData.email
+    })
 
     createUserWithEmailAndPassword(userData.email, userData.password)
       .then(async (user) => {
@@ -30,9 +38,9 @@ const signUp = ({ user }) => {
         const data = await fetcher(CREATE_ACCOUNT, newUser);
         console.log(data);
         
-        // sendVerification()
-        //   .then(() => console.log("email sent"))
-        //   .catch((err) => console.log(err.message));
+        sendVerification()
+          .then(() => Router.push('/verify-email'))
+          .catch((err) => console.log(err.message));
       })
       .catch((err) => console.log(err.message));
   };
@@ -48,4 +56,8 @@ const mapStateToProps = (state: any) => ({
   user: state.user,
 });
 
-export default connect(mapStateToProps)(signUp);
+const mapDispatchToProps = (dispatch: any) => ({
+  setUser: (user: any) => dispatch(setUser(user))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(signUp);
