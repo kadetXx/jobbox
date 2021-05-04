@@ -7,12 +7,14 @@ import Link from "next/link";
 
 import { GET_USERS } from '@/store/user/user.queries'
 
-const Index = () => {
-  const { data, error } = useSWR(GET_USERS, fetcher);
+const Index = (props: any) => {
+  const { data, error } = useSWR(GET_USERS, fetcher, { initialData: props.users });
 
+
+  if (error) return <div>Failed to load</div>;
   if (!data) return <Preloader />;
 
-  const { users } = data;
+  const { users } = props;
 
   return (
     <div
@@ -44,5 +46,15 @@ const Index = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const data = await fetcher(GET_USERS, fetcher);
+  
+  return {
+    props: {
+      users: data.users
+    }
+  }
+}
 
 export default Index;
