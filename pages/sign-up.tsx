@@ -17,7 +17,7 @@ import Router from 'next/router'
 
 const signUp = ({ user, setLoading, setUser }) => {
   const createUser = (formData: any) => {
-    setLoading(true);
+    
 
     const userData = {
       ...user,
@@ -26,6 +26,7 @@ const signUp = ({ user, setLoading, setUser }) => {
 
     setUser({
       ...user,
+      loading: true,
       email: formData.email
     })
 

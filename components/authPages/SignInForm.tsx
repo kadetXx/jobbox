@@ -45,6 +45,7 @@ const SignIn = ({ onSubmit, withGoogle, user }) => {
               "Sign In"
             )}
           </button>
+          
           <button
             className={`btn btn__white btn__100 ${styles.btn}`}
             onClick={() => withGoogle()}

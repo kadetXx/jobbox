@@ -10,7 +10,7 @@ import { Input } from "@/shared";
 import { connect } from "react-redux";
 import { setUser } from "@/store/user/user.actions";
 
-const SignUpForm = ({ onSubmit, user, setUser }: any) => {
+const SignUpForm = ({ onSubmit, setUser, user }: any) => {
   const accountType = user.accountType;
 
   const setAccountType = (value: string) => {
@@ -93,11 +93,16 @@ const SignUpForm = ({ onSubmit, user, setUser }: any) => {
           register={register("password", { required: true })}
         />
         <div className={styles.form_submit}>
-          <button className="btn btn__primary btn__100">
-            {user.loading ? (
+          <button
+            className={`btn btn__primary btn__100 ${styles.btn}`}
+            onClick={() => console.log(user.loading)}
+          >
+            {user.loading === true ? (
               <Image src="/svg/loading-white.svg" height="25" width="25" />
-            ) : (
+            ) : user.loading === false ? (
               "Create Account"
+            ) : (
+              ""
             )}
           </button>
         </div>
@@ -107,7 +112,7 @@ const SignUpForm = ({ onSubmit, user, setUser }: any) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  user: state.user
+  user: state.user,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
