@@ -48,7 +48,7 @@ const Index = (props: any) => {
 };
 
 export async function getStaticProps() {
-  const data = await fetcher(GET_USERS, fetcher);
+  const data = await fetcher(GET_USERS, {});
   
   return {
     props: {

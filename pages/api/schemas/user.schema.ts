@@ -3,6 +3,7 @@ import { gql } from "apollo-server-micro";
 const userDefs = gql`
   type Query {
     users: [User!]!
+    user(uid: String!): User!
   }
 
   type Mutation {
@@ -13,6 +14,14 @@ const userDefs = gql`
       email: String!
       accountType: String!
       isEmailVerified: Boolean!
+    ): User!
+
+    updateUser(
+      firstName: String
+      lastName: String
+      email: String
+      accountType: String
+      isEmailVerified: Boolean
     ): User!
   }
 

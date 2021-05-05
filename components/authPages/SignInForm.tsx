@@ -9,9 +9,8 @@ import { useForm } from "react-hook-form";
 import { Input } from "@/shared";
 
 import { connect } from "react-redux";
-import { setUser } from "@/store/user/user.actions";
 
-const SignIn = ({ onSubmit, user }) => {
+const SignIn = ({ onSubmit, withGoogle, user }) => {
   const {
     register,
     handleSubmit,
@@ -42,7 +41,7 @@ const SignIn = ({ onSubmit, user }) => {
           <button className={`btn btn__primary btn__100 ${styles.btn}`}>
             Sign In
           </button>
-          <button className={`btn btn__white btn__100 ${styles.btn}`}>
+          <button className={`btn btn__white btn__100 ${styles.btn}`} onClick={() => withGoogle()} >
             <i className="btn_icon btn_icon__prefix">
               <Image src="/img/google_logo.webp" width="18" height="18" />
             </i>

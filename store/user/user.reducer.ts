@@ -1,7 +1,6 @@
 import { SET_USER } from './user.types'
 const initialState = {
   uid: null,
-  accountType: ""
 }
 
 const userReducer = (state: any = initialState, action: any) => {

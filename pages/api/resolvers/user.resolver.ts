@@ -7,6 +7,12 @@ const userResolver = {
 
       return users;
     },
+
+    async user(parent, args, context ) {
+      const user = await User.find({ uid: args.uid }).exec();
+
+      return user;
+    },
   },
 
   Mutation: {
@@ -17,7 +23,13 @@ const userResolver = {
 
       return response;
     },
-  },
+
+    async updateUser(parent: any, args: any, context: any, info: any) {
+      const user = await User.findOneAndUpdate({ uid: args.uid }, { ...args }, { new: true });
+
+      return user;
+    },
+  }
 };
 
 export default userResolver;
