@@ -18,7 +18,12 @@
 .input_field {
   width: 100%;
   padding: 1rem;
+  height: 3rem;
   border: 1px solid #00000031;
+
+  @include respondMax("mobile") {
+    font-size: 16px;
+  }
 }
 
 .input_toggleIcon {

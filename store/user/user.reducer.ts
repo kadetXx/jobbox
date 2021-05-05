@@ -1,19 +1,26 @@
-import { SET_USER } from './user.types'
+import { SET_LOADING, SET_USER } from "./user.types";
 const initialState = {
   uid: null,
-}
+  loading: false,
+};
 
 const userReducer = (state: any = initialState, action: any) => {
   switch (action.type) {
     case SET_USER:
       return {
         ...state,
-        ...action.payload
-      }
-    
-    default:
-      return state
-  }
-}
+        loading: action.payload,
+      };
 
-export default userReducer
+    case SET_USER:
+      return {
+        ...state,
+        ...action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export default userReducer;

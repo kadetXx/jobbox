@@ -96,7 +96,7 @@ const SignUpForm = ({ onSubmit, user, setUser }: any) => {
         <div className={styles.form_submit} >
           <button className="btn btn__primary btn__100">
             {
-              false ? <Image src="/svg/loading-white.svg" height="18" width="18" /> : "Create Account"
+              user.loading ? <Image src="/svg/loading-white.svg" height="20" width="20" /> : "Create Account"
             }
           </button>
         </div>

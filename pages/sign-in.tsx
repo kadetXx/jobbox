@@ -7,53 +7,64 @@ import { SignInForm } from "@/components/authPages";
 
 import { signInWithGoogle, signInWithEmailAndPassword } from "@/firebase";
 
-import { connect } from "react-redux";
-
 import { fetcher } from "helpers";
 
+import { connect } from "react-redux";
 import { UPDATE_USER } from "@/store/user/user.queries";
+import { setLoading } from "@/store/user/user.actions";
 
-const signIn = ({ user }) => {
+const signIn = ({ user, setLoading }) => {
   const withEmail = (data: any) => {
+    setLoading(true);
+
     const { email, password } = data;
 
-    signInWithEmailAndPassword(email, password).then(async (user) => {
-      const emailVerified = user.user.emailVerified;
+    signInWithEmailAndPassword(email, password)
+      .then(async (user) => {
+        setLoading(false);
 
-      if (emailVerified) {
-        const { data } = await fetcher(UPDATE_USER, {
-          isEmailVerified: emailVerified,
-        });
-        
-        console.log(data);
-      } else {
-        Router.push("/verify-email");
-      }
-    });
+        const emailVerified = user.user.emailVerified;
+
+        if (emailVerified) {
+          const { data } = await fetcher(UPDATE_USER, {
+            isEmailVerified: emailVerified,
+          });
+
+          console.log(data);
+        } else {
+          Router.push("/verify-email");
+        }
+      })
+      .catch((err) => console.log(err.message));
   };
 
   const withGoogle = () => {
-    signInWithGoogle().then(async (user) => {
-      const emailVerified = user.user.emailVerified;
+    setLoading(true);
 
-      if (emailVerified) {
-        const { data } = await fetcher(UPDATE_USER, {
-          isEmailVerified: emailVerified,
-        });
-        console.log(data);
-      } else {
-        Router.push("/verify-email");
-      }
-    });
+    signInWithGoogle()
+      .then(async (user) => {
+        setLoading(false);
+
+        const emailVerified = user.user.emailVerified;
+
+        if (emailVerified) {
+          const { data } = await fetcher(UPDATE_USER, {
+            isEmailVerified: emailVerified,
+          });
+          console.log(data);
+        } else {
+          Router.push("/verify-email");
+        }
+      })
+      .catch((err) => console.log(err.message));
   };
 
   useEffect(() => {
-    user.uid !== null && Router.push("/dashboard")
-  }, [])
-
+    user.uid !== null && Router.push("/dashboard");
+  }, []);
 
   if (user.uid !== null) {
-    return null
+    return null;
   }
 
   return (
@@ -64,7 +75,11 @@ const signIn = ({ user }) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  user: state.user
-})
+  user: state.user,
+});
 
-export default connect(mapStateToProps)(signIn);
+const mapDispatchToProps = (dispatch: any) => ({
+  setLoading: (status: boolean) => dispatch(setLoading(status)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(signIn);

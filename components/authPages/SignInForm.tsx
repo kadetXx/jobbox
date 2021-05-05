@@ -39,9 +39,16 @@ const SignIn = ({ onSubmit, withGoogle, user }) => {
         />
         <div className={styles.form_submit}>
           <button className={`btn btn__primary btn__100 ${styles.btn}`}>
-            Sign In
+            {user.loading ? (
+              <Image src="/svg/loading-white.svg" height="25" width="25" />
+            ) : (
+              "Sign In"
+            )}
           </button>
-          <button className={`btn btn__white btn__100 ${styles.btn}`} onClick={() => withGoogle()} >
+          <button
+            className={`btn btn__white btn__100 ${styles.btn}`}
+            onClick={() => withGoogle()}
+          >
             <i className="btn_icon btn_icon__prefix">
               <Image src="/img/google_logo.webp" width="18" height="18" />
             </i>
