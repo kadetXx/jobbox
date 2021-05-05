@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import Router from "next/router";
 
-import { requireAuth } from "@/hooks";
-
 import { AuthLayout as Layout } from "@/layouts";
 
 import { SignInForm } from "@/components/authPages";
@@ -16,15 +14,12 @@ import { UPDATE_USER } from "@/store/user/user.queries";
 import { setUser } from "@/store/user/user.actions";
 
 const signIn = ({ user, setUser }) => {
-  const currentUser = requireAuth();
 
   const withEmail = (data: any) => {
     setUser({
       ...user,
       loading: true,
     });
-
-    console.log(currentUser);
 
     const { email, password } = data;
 
