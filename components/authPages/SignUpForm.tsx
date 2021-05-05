@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import styles from "./AuthForms.module.scss";
 
-import Image from 'next/image';
+import Image from "next/image";
 
 import { useForm } from "react-hook-form";
 
 import { Input } from "@/shared";
 
-import { connect } from 'react-redux'
-import { setUser } from '@/store/user/user.actions'
+import { connect } from "react-redux";
+import { setUser } from "@/store/user/user.actions";
 
 const SignUpForm = ({ onSubmit, user, setUser }: any) => {
-
-  const accountType = user.accountType
+  const accountType = user.accountType;
 
   const setAccountType = (value: string) => {
     setUser({
-      accountType: value
-    })
-  }
+      accountType: value,
+    });
+  };
 
   const {
     register,
@@ -93,11 +92,13 @@ const SignUpForm = ({ onSubmit, user, setUser }: any) => {
           errors={errors}
           register={register("password", { required: true })}
         />
-        <div className={styles.form_submit} >
+        <div className={styles.form_submit}>
           <button className="btn btn__primary btn__100">
-            {
-              user.loading ? <Image src="/svg/loading-white.svg" height="20" width="20" /> : "Create Account"
-            }
+            {user.loading ? (
+              <Image src="/svg/loading-white.svg" height="25" width="25" />
+            ) : (
+              "Create Account"
+            )}
           </button>
         </div>
       </form>
@@ -107,10 +108,10 @@ const SignUpForm = ({ onSubmit, user, setUser }: any) => {
 
 const mapStateToProps = (state: any) => ({
   user: state.user
-})
+});
 
 const mapDispatchToProps = (dispatch: any) => ({
-  setUser: (user: any) => dispatch(setUser(user))
-})
+  setUser: (user: any) => dispatch(setUser(user)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);

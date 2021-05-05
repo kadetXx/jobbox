@@ -37,10 +37,8 @@ const signUp = ({ user, setLoading, setUser }) => {
           isEmailVerified: user.user.emailVerified
         }
         
-        const data = await fetcher(CREATE_ACCOUNT, newUser);
+        const data = await fetcher(CREATE_ACCOUNT, newUser).then(setLoading(false));
         console.log(data);
-
-        setLoading(false)
         
         sendVerification()
           .then(() => Router.push('/verify-email'))

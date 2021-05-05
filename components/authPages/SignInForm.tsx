@@ -61,7 +61,7 @@ const SignIn = ({ onSubmit, withGoogle, user }) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  user: state.user,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(SignIn);
