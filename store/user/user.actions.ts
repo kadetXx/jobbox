@@ -1,9 +1,4 @@
-import { SET_LOADING,SET_USER } from './user.types'
-
-export const setLoading = (status: boolean) => ({
-  type: SET_LOADING,
-  payload: status
-})
+import { SET_USER } from './user.types'
 
 export const setUser = (user: any) => ({
   type: SET_USER,

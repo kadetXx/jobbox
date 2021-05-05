@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import Router from "next/router";
 
+import { requireAuth } from "@/hooks";
+
 import { AuthLayout as Layout } from "@/layouts";
 
 import { SignInForm } from "@/components/authPages";
@@ -11,44 +13,71 @@ import { fetcher } from "helpers";
 
 import { connect } from "react-redux";
 import { UPDATE_USER } from "@/store/user/user.queries";
-import { setLoading } from "@/store/user/user.actions";
+import { setUser } from "@/store/user/user.actions";
 
-const signIn = ({ user, setLoading }) => {
+const signIn = ({ user, setUser }) => {
+  const currentUser = requireAuth();
+
   const withEmail = (data: any) => {
-    setLoading(true);
+    setUser({
+      ...user,
+      loading: true,
+    });
+
+    console.log(currentUser);
 
     const { email, password } = data;
 
     signInWithEmailAndPassword(email, password)
-      .then(async (user) => {
-        setLoading(false);
+      .then(async (data) => {
+        setUser({
+          ...user,
+          email: email,
+          loading: false,
+        });
 
-        const emailVerified = user.user.emailVerified;
+        const {uid, emailVerified} = data.user;
 
         if (emailVerified) {
-          const { data } = await fetcher(UPDATE_USER, {
+          const { updateUser } = await fetcher(UPDATE_USER, {
+            uid: uid,
             isEmailVerified: emailVerified,
           });
 
-          console.log(data);
+          setUser({
+            ...user,
+            ...updateUser
+          })
+
+          Router.push("/dashboard")
         } else {
           Router.push("/verify-email");
         }
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        setUser({ ...user, loading: false });
+        alert(err.message);
+      });
   };
 
   const withGoogle = () => {
-    setLoading(true);
+    setUser({
+      ...user,
+      loading: true,
+    });
 
     signInWithGoogle()
-      .then(async (user) => {
-        setLoading(false);
+      .then(async (data) => {
+        setUser({
+          ...user,
+          loading: false,
+        });
 
-        const emailVerified = user.user.emailVerified;
+        const {uid, emailVerified} = data.user;
 
         if (emailVerified) {
           const { data } = await fetcher(UPDATE_USER, {
+            uid: uid,
             isEmailVerified: emailVerified,
           });
           console.log(data);
@@ -56,16 +85,11 @@ const signIn = ({ user, setLoading }) => {
           Router.push("/verify-email");
         }
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        setUser({ ...user, loading: false });
+        alert(err.message);
+      });
   };
-
-  useEffect(() => {
-    user.uid !== null && Router.push("/dashboard");
-  }, []);
-
-  if (user.uid !== null) {
-    return null;
-  }
 
   return (
     <Layout>
@@ -79,7 +103,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  setLoading: (status: boolean) => dispatch(setLoading(status)),
+  setUser: (user: boolean) => dispatch(setUser(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(signIn);

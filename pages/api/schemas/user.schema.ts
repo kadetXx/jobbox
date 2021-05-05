@@ -17,12 +17,13 @@ const userDefs = gql`
     ): User!
 
     updateUser(
+      uid: String!
       firstName: String
       lastName: String
       email: String
       accountType: String
       isEmailVerified: Boolean
-    ): User!
+    ): User
   }
 
   type User {

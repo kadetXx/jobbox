@@ -8,7 +8,7 @@ const userResolver = {
       return users;
     },
 
-    async user(parent, args, context ) {
+    async user(parent: any, args: any, context: any ) {
       const user = await User.find({ uid: args.uid }).exec();
 
       return user;

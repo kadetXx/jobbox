@@ -40,7 +40,7 @@ const Dashboard = (props: any) => {
     >
       <Logo />
       <div>
-        <h2>Welcome to your Jobbox dashboard!</h2>
+        <h2 style={{color: "#ffffff", marginTop: "2rem"}}>Welcome to your Jobbox dashboard!</h2>
       </div>
       <div style={{ display: "flex", marginTop: "2rem" }}>
         <button className="btn btn__primary" onClick={() => logout()} >Logout</button>

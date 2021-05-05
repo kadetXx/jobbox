@@ -26,6 +26,7 @@ export const CREATE_ACCOUNT = /* GraphQL */ `
 
 export const UPDATE_USER = /* GraphQL */ `
   mutation updateUser(
+    $uid: String!
     $firstName: String
     $lastName: String
     $email: String
@@ -33,6 +34,7 @@ export const UPDATE_USER = /* GraphQL */ `
     $isEmailVerified: Boolean
   ) {
     updateUser(
+      uid: $uid
       firstName: $firstName
       lastName: $lastName
       email: $email

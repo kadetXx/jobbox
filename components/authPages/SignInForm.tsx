@@ -46,7 +46,8 @@ const SignIn = ({ onSubmit, withGoogle, user }) => {
             )}
           </button>
           
-          <button
+          {/* <button
+          type="button"
             className={`btn btn__white btn__100 ${styles.btn}`}
             onClick={() => withGoogle()}
           >
@@ -54,7 +55,7 @@ const SignIn = ({ onSubmit, withGoogle, user }) => {
               <Image src="/img/google_logo.webp" width="18" height="18" />
             </i>
             Sign In WIth Google
-          </button>
+          </button> */}
         </div>
       </form>
     </div>

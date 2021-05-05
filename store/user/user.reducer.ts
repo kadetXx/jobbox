@@ -1,4 +1,5 @@
 import { SET_LOADING, SET_USER } from "./user.types";
+
 const initialState = {
   uid: null,
   loading: false,
