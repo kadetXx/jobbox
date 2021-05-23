@@ -1,0 +1,27 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+#form {
+  @include flex(space-between, stretch);
+  height: 4.5rem;
+  overflow: hidden;
+
+  .form_input {
+    flex-grow: 1;
+    margin-right: 2%;
+  }
+  
+  .form_inputField {
+    margin: 0;
+  }
+  
+  .form_btn {
+    width: 28%;
+    font-size: 1rem;
+    font-weight: 600;
+    height: unset;
+  }
+}
+
+
+

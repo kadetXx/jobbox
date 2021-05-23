@@ -1,11 +1,11 @@
-body {
-  background-color: $col-primary;
-}
+// body {
+//   background-color: $col-primary;
+// }
 
 .btn {
   width: 8rem;
+  height: 4rem;
   padding: 1rem 0;
-  border: 1px solid transparent;
   @include flex(center, center, row nowrap);
 
   &__primary {

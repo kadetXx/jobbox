@@ -1,0 +1,32 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+#hero {
+  background-color: $col-primary;
+  padding: 4rem 7% 0;
+  position: relative;
+}
+
+.textbox {
+  padding: 7rem 0 2.5rem;
+  color: $col-white;
+
+  @include flex(center, center, column nowrap);
+
+  &_heading {
+    font-size: 6rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  &_subheading {
+    font-size: 1.3rem;
+    text-align: center;
+    line-height: 1.5;
+    opacity: 0.8;
+  }
+}
+
+.hero_formContainer {
+  padding: 0 20%;
+}

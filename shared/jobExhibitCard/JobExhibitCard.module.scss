@@ -1,0 +1,49 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.card {
+  width: 100%;
+  padding: 1.5rem;
+
+  background: #ffffff;
+  border-radius: 65px;
+  filter: drop-shadow(0px 5px 30px rgba(0, 26, 10, 0.16));
+
+  @include flex(flex-start,center, row nowrap);
+}
+
+.card_image {
+  margin-right: 1.5rem;
+  position: relative;
+  bottom: -2px
+}
+
+.card_details {
+  @include flex(flex-start, center, row wrap);
+}
+
+.card_title {
+  width: 100%;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.card_info {
+  
+  margin-top: 0.3rem;
+  margin-right: 1rem;
+  font-weight: 400;
+  opacity: 0.8;
+
+  @include flex(space-between, center);
+
+  .card_infoText {
+    margin: 0;
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    
+    &:nth-child(1) {
+      margin-left: 0
+    }
+  }
+}

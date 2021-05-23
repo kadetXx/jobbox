@@ -1,0 +1,43 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+#mainSection {
+  padding: 20rem 7% 8rem;
+
+  @include flex(space-between, stretch);
+}
+
+.imageContainer {
+  padding: 4rem;
+  width: 48%;
+  @include flex(center, center);
+}
+
+.textContainer {
+  padding: 4rem 2rem;
+  width: 48%;
+
+  @include flex(center, flex-start, column nowrap);
+
+  .badge {
+    width: 100%;
+    @include flex(flex-start, center);
+  }
+
+  .mainText {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .subText {
+    padding-right: 10%;
+    opacity: 0.6;
+    color: $col-black;
+  }
+}
+
+.formContainer {
+  margin-bottom: 1rem;
+  width: 100%;
+}

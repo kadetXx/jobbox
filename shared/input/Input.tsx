@@ -1,20 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "./Input.module.scss";
+
+import { cfp } from '@/helpers'
+interface InputProps {
+  type: string;
+  placeholder: string;
+  errors: any
+  classNames?: string[];
+  customClasses?: string;
+  register: any
+}
 
 const Input = ({
   type,
   placeholder,
   errors,
-  className = "input",
+  classNames,
+  customClasses,
   register,
-}: any) => {
+}: InputProps) => {
   const [pass, showPass] = useState<boolean>(false);
 
   const error = errors[register.name];
 
   return (
-    <div className={`${styles[className]}`}>
+    <div className={`${styles.input} ${cfp(styles, classNames)} ${customClasses}`}>
       <input
         type={type !== "password" ? type : pass ? "text" : "password" }
         placeholder={placeholder}

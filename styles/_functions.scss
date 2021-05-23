@@ -1,7 +1,7 @@
 // padding and margin generator loop
 
-$spaceamounts: (1, 2, 3, 4, 5, 6, 10, 15, 20);
-$sides: (top, bottom, left, right, all);
+$spaceamounts: (0, 1, 2, 3, 4, 5, 6, 10, 15, 20);
+$sides: (top, bottom, left, right);
 
 @each $space in $spaceamounts {
   @each $side in $sides {
@@ -9,16 +9,21 @@ $sides: (top, bottom, left, right, all);
       margin-#{$side}: #{$space}rem;
     }
 
-    .ma-#{space} {
-      margin: #{space}rem
-    }
-  
     .p#{str-slice($side, 0, 1)}-#{$space} {
       padding-#{$side}: #{$space}rem;
     }
 
-    .pa-#{space} {
-      margin: #{space}rem
-    }
+  }
+
+  .ma-#{$space} {
+    margin: #{$space}rem
+  }
+
+  .pa-#{$space} {
+    padding: #{$space}rem
+  }
+
+  .br-#{$space} {
+    border-radius: #{$space}px;
   }
 }

@@ -1,0 +1,29 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+#stack {
+  position: relative;
+  width: 100%;
+  min-height: 534px;
+
+  @include flex(center, center);
+}
+
+.stack_item {
+  position: absolute;
+
+  @include flex(center, center);
+}
+
+.stack_image {
+  width: 425.87px; 
+  height: 534px;
+  max-width: 100%;
+}
+
+.stack_clip {
+  position: absolute;
+  top: -32px;
+  margin-left: 1.5rem;
+  z-index: 10;
+}

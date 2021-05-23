@@ -69,14 +69,14 @@ const SignUpForm = ({ onSubmit, setUser, user }: any) => {
         <Input
           type="text"
           placeholder="First Name"
-          className="input__50"
+          classNames={["input__50"]}
           errors={errors}
           register={register("firstName", { required: true })}
         />
         <Input
           type="text"
           placeholder="Last Name"
-          className="input__50"
+          classNames={["input__50"]}
           errors={errors}
           register={register("lastName", { required: true })}
         />
