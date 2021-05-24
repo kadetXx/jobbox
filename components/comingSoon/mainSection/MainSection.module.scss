@@ -2,7 +2,7 @@
 @import '@/styles/mixins';
 
 #mainSection {
-  padding: 20rem 7% 8rem;
+  padding: 18rem 7% 8rem;
 
   @include flex(space-between, stretch);
 }
@@ -28,16 +28,19 @@
     font-size: 3rem;
     line-height: 1.2;
     margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
   }
 
   .subText {
     padding-right: 10%;
     opacity: 0.6;
     color: $col-black;
+    line-height: 1.5;
   }
 }
 
 .formContainer {
   margin-bottom: 1rem;
+  margin-top: 1rem;
   width: 100%;
 }

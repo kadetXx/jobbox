@@ -21,7 +21,7 @@ const JobExhibitCard = ({
   return (
     <div className={styles.card}>
       <div className={styles.card_image}>
-        <Image src={image} width="109.2" height="109.2" />
+        <Image src={image} width="74" height="74" />
       </div>
       <div className={styles.card_details}>
         <h3 className={styles.card_title}>{title}</h3>

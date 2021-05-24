@@ -56,6 +56,7 @@
   .input_field {
     background: rgba(34, 34, 34, 0.05);
     border: 1px solid rgba(34, 34, 34, 0.315);
+    color: $col-primary;
 
     &::placeholder {
       opacity: 0.4;
