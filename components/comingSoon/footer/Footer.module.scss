@@ -1,0 +1,14 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+#footer {
+  padding: 2rem;
+  background-color: $col-black;
+
+  @include flex(center, center);
+}
+
+.footer_text {
+  margin: 0;
+  color: $col-white;
+}

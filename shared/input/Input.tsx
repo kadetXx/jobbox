@@ -5,6 +5,7 @@ import styles from "./Input.module.scss";
 import { cfp } from '@/helpers'
 interface InputProps {
   type: string;
+  height?: string | number;
   placeholder: string;
   errors: any
   classNames?: string[];
@@ -14,6 +15,7 @@ interface InputProps {
 
 const Input = ({
   type,
+  height = "4.5",
   placeholder,
   errors,
   classNames,
@@ -30,6 +32,7 @@ const Input = ({
         type={type !== "password" ? type : pass ? "text" : "password" }
         placeholder={placeholder}
         className={styles.input_field}
+        style={{height: `${height}`}}
         {...register}
       />
       {type === "password" && (

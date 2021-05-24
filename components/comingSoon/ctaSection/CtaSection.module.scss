@@ -1,0 +1,29 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+#cta {
+  margin: 4rem 5% 8rem;
+  background-color: $col-primary;
+  background-image: url("/img/k-pattern.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 4rem;
+  box-shadow: 0px 4px 40px rgba(138, 149, 147, 0.25);
+  border-radius: 10px;
+  text-align: center;
+  color: $col-white;
+}
+
+.cta_title {
+  font-size: 3rem;
+  margin-top: 5.5rem;
+  margin-bottom: 0;
+}
+
+.cta_subtitle {
+  font-size: 1.1rem;
+}
+
+.cta_form {
+  padding: 2rem 17% 1rem;
+}

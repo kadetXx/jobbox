@@ -17,7 +17,7 @@ const Hero = () => {
         </p>
       </section>
       <div className={styles.hero_formContainer}>
-        <Form btnType="secondary" btnText="Stay in the loop!" />
+        <Form btnType="secondary" btnText="Stay in the loop!" inputClass="input__light" />
       </div>
       <ScrollScreen />
     </div>

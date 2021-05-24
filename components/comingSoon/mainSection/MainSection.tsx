@@ -25,7 +25,7 @@ const MainSection = () => {
           Check individual’s profile, contact, interview and hire.
         </p>
         <div className={styles.formContainer} >
-          <Form btnType="primary" btnWidth="40%" btnText="Stay updated" inputClass="input_dark" />
+          <Form btnType="primary" btnWidth="40%" btnText="Stay updated" />
         </div>
       </div>
     </div>

@@ -11,22 +11,21 @@
   .input_field {
     width: 100%;
     padding: 1rem 2rem;
-    height: 4.5rem;
     font-size: 1.1rem;
-    color: $col-white;
-
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid #ffffff7a;
     box-sizing: border-box;
     border-radius: 5px;
 
-    @include respondMax("mobile") {
-      font-size: 16px;
-    }
+    background: rgba(34, 34, 34, 0.05);
+    border: 1px solid rgba(34, 34, 34, 0.315);
+    color: $col-primary;
 
     &::placeholder {
-      color: #ffffff;
       opacity: 0.4;
+      color: #222222;
+    }
+
+    @include respondMax("mobile") {
+      font-size: 16px;
     }
   }
 
@@ -52,15 +51,28 @@
   }
 }
 
-.input_dark {
+.input__light {
   .input_field {
-    background: rgba(34, 34, 34, 0.05);
-    border: 1px solid rgba(34, 34, 34, 0.315);
-    color: $col-primary;
+    color: $col-white;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ffffff7a;
 
     &::placeholder {
+      color: #ffffff;
       opacity: 0.4;
+    }
+  }
+}
+
+.input__white {
+  .input_field {
+    color: $col-primary;
+    background: #ffffff;
+    border: 1px solid rgba(34, 34, 34, 0.5);
+
+    &::placeholder {
       color: #222222;
+      opacity: 0.4;
     }
   }
 }

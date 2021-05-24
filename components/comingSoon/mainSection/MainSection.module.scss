@@ -2,7 +2,7 @@
 @import '@/styles/mixins';
 
 #mainSection {
-  padding: 18rem 7% 8rem;
+  padding: 18rem 7% 4rem;
 
   @include flex(space-between, stretch);
 }
