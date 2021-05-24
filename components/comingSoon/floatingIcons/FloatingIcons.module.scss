@@ -1,0 +1,13 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+#icons {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: -2rem;
+  height: 4rem;
+  padding: 0 10%;
+
+  @include flex(space-around, center, row nowrap)
+}

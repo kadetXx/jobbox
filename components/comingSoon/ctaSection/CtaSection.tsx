@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./CtaSection.module.scss";
 
-import { Form } from "../index";
+import { Form, FloatingIcons } from "../index";
 
 const CtaSection = () => {
   return (
     <div id={styles.cta}>
+      <FloatingIcons />
       <h3 className={styles.cta_title}>Companies are hiring!</h3>
       <p className={styles.cta_subtitle} >Be the first to know when we launch!</p>
 

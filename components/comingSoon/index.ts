@@ -5,6 +5,7 @@ import ScrollScreen from './scrollScreen/ScrollScreen'
 import MainSection from './mainSection/MainSection'
 import PictureStack from './pictureStack/PictureStack'
 import CtaSection from './ctaSection/CtaSection'
+import FloatingIcons from './floatingIcons/FloatingIcons'
 import Footer from './footer/Footer'
 
 
@@ -16,5 +17,6 @@ export {
   MainSection,
   PictureStack,
   CtaSection,
+  FloatingIcons,
   Footer
 }

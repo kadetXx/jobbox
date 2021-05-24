@@ -2,7 +2,7 @@
 @import "@/styles/mixins";
 
 #cta {
-  margin: 4rem 5% 8rem;
+  margin: 12rem 5% 8rem;
   background-color: $col-primary;
   background-image: url("/img/k-pattern.png");
   background-size: cover;
@@ -12,6 +12,7 @@
   border-radius: 10px;
   text-align: center;
   color: $col-white;
+  position: relative;
 }
 
 .cta_title {
