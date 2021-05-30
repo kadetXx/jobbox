@@ -13,8 +13,8 @@
 .scroller {
   width: 75%;
   margin: auto;
-  padding: 1rem 17%;
-  height: 120%;
+  // padding: 1rem 17%;
+  height: 20rem;
   position: absolute;
   bottom: -8.25rem;
   background: url("/svg/contour-bg.svg");
@@ -25,4 +25,9 @@
   box-shadow: inset 0 0 1000px 1000px rgba(255, 255, 255, 0.363);
 
   @include flex(center, center, column nowrap);
+}
+
+.marquee {
+  transform: rotate(-90deg);
+  overflow-x: visible !important;
 }
