@@ -11,6 +11,7 @@
     "firebase": "^8.4.3",
     "graphql": "14.6.0",
     "graphql-request": "^3.4.0",
+    "gsap": "^3.6.1",
     "mongoose": "^5.12.7",
     "next": "latest",
     "next-redux-wrapper": "^6.0.2",
