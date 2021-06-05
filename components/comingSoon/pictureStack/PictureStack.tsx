@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import { useIntersecting } from "@/hooks";
 
 import { TimelineLite, TweenLite, Power3 } from "gsap";
+import gsap from "gsap";
 
 import Image from "next/image";
 
@@ -32,43 +33,41 @@ const PictureStack = () => {
   const onScreen = useIntersecting(imageContainer, 0.5);
 
   useEffect(() => {
-    // TweenLite.from(imageContainer.current, 1, {
-    //   opacity: 0,
-    //   ease: Power3.easeIn,
-    // });
-
     const allItems = images.map((item, i) => {
-      return imageContainer.current.children[i + 1];
+      return imageContainer.current.children[i ];
     });
 
     const allImageBoxes = images.map((item, i) => {
-      return imageContainer.current.children[i].lastElementChild.children[0]
+      return imageContainer.current.children[i].lastElementChild.children[0];
     });
 
     if (onScreen) {
-      TweenLite.to([...allItems], 0.1, {
+      gsap.to([...allItems], {
         opacity: 1,
-        ease: Power3.easeIn,
+        ease: "power3",
         stagger: 0.5,
+        duration: 0.1,
       });
-
-      TweenLite.from([...allItems], 1, {
+      
+      gsap.from([...allItems], {
         x: "-220%",
         scale: 1.2,
-        ease: Power3.easeIn,
-        stagger: 0.4,
+        ease: "power3",
+        stagger: 0.5,
+        duration: 1,
       });
 
-      TweenLite.from([...allImageBoxes], 2, {
-        scale: 1.3,
-        ease: Power3.easeOut,
+      gsap.from([...allImageBoxes], {
+        scale: 1.2,
+        ease: "power3",
         stagger: 0.4,
+        duration: 2,
       });
-
     } else {
-      TweenLite.to([...allItems], 0.1, {
+      gsap.to([...allItems], {
         opacity: 0,
-        ease: Power3.easeIn,
+        ease: "power3",
+        duration: 0.1,
       });
     }
   }, [onScreen]);
