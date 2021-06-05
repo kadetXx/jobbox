@@ -11,16 +11,12 @@ import ScrollToPlugin from "gsap/ScrollToPlugin";
 
 const ScrollScreen = () => {
   const [itemHeight, setItemHeight] = useState<number>(0);
-  const [itemPadding, setItemPadding] = useState(48);
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [itemPadding, setItemPadding] = useState(24);
+  const [activeSlide, setActiveSlide] = useState(1);
 
   const scrollerRef = useRef(null);
 
   const scroll = (index: number) => {
-    // console.table({
-    //   to: index,
-    //   direction: direction,
-    // });
 
     let scrollerContainer: HTMLDivElement = scrollerRef.current;
 
@@ -34,10 +30,11 @@ const ScrollScreen = () => {
     let scrollBy = slideOffset - (containerHeight - slideHeight) / 2;
 
     gsap.to(scrollerContainer, {
-      duration: 0.5,
+      duration: 0.2,
       scrollTo: { y: scrollBy },
       ease: "power2",
-    });
+    }).then(() => setActiveSlide(index));
+
   };
 
   useEffect(() => {
@@ -50,14 +47,13 @@ const ScrollScreen = () => {
   }, []);
 
   useEffect(() => {
-    activeSlide === jobs.length - 1 && setActiveSlide(0)
-
     setTimeout(() => {
-      if (activeSlide !== jobs.length - 1) {
+      if (activeSlide !== jobs.length - 2) {
         scroll(activeSlide + 1);
-        setActiveSlide(activeSlide + 1);
+      } else if (activeSlide === jobs.length - 2) {
+        scroll(1);
       }
-    }, 1000);
+    }, 700);
   }, [activeSlide]);
 
   const getScrollerHeight = (
@@ -85,7 +81,12 @@ const ScrollScreen = () => {
           }}
         >
           {jobs.map((item, index) => (
-            <div className="slide" key={item.company + index}>
+            <div
+              className={`${
+                activeSlide === index ? styles.scroller_item__active : styles.scroller_item
+              }`}
+              key={item.company + index}
+            >
               <JobExhibitCard
                 title={item.title}
                 company={item.company}

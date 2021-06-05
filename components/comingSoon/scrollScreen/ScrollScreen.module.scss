@@ -1,8 +1,7 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@import "@/styles/variables";
+@import "@/styles/mixins";
 
 #scrollScreen {
-  
   height: 16.5rem;
   width: 100%;
   position: relative;
@@ -27,5 +26,16 @@
 }
 
 .scroller_inner {
-  padding: 5rem 15% 2rem;
+  padding: 8rem 0 8rem;
+}
+
+.scroller_item {
+  margin: 0 25%;
+  transition: all 0.2s linear;
+  filter: blur(3px);
+}
+
+.scroller_item__active {
+  margin: 0 20%;
+  transform: scale(1.1);
 }
