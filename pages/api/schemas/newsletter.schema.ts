@@ -14,6 +14,7 @@ const newsletterDefs = gql`
   type NewSubscriber {
     email: String!
     message: String
+    status: Boolean!
   }
 
   type Subscriber {

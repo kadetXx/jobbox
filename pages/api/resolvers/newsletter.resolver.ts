@@ -16,12 +16,16 @@ const newsletterResolver = {
       const alreadyExist = Newsletter.find({ email: args.email }).exec();
       if (!alreadyExist) {
         const response = await subscriber.save();
-        return response;
+        return {
+          ...response,
+          status: true,
+        };
       } else {
         return {
           email: args.email,
-          message: 'You are already subscribed'
-        }
+          message: "Already subscribed",
+          status: false,
+        };
       }
     },
   },
