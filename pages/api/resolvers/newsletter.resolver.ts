@@ -10,12 +10,12 @@ const newsletterResolver = {
   },
 
   Mutation: {
-    async subsribe(parent: any, args: any, context: any, info: any) {
+    async subscribe(parent: any, args: any, context: any, info: any) {
       const subscriber = new Newsletter({ ...args });
 
       const response = await subscriber.save();
 
-      return response;
+      return response.email;
     }
   }
 };

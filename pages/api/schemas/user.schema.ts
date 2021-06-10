@@ -1,12 +1,12 @@
 import { gql } from "apollo-server-micro";
 
 const userDefs = gql`
-  type Query {
+  extend type Query {
     users: [User!]!
     user(uid: String!): User!
   }
 
-  type Mutation {
+  extend type Mutation {
     createUser(
       uid: String!
       firstName: String!
@@ -14,7 +14,7 @@ const userDefs = gql`
       email: String!
       accountType: String!
       isEmailVerified: Boolean!
-    ): User!
+    ): User
 
     updateUser(
       uid: String!

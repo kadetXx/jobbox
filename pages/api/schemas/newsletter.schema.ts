@@ -1,18 +1,19 @@
 import { gql } from "apollo-server-micro";
 
 const newsletterDefs = gql`
-  type Query {
-    subscribers: [Email!]
+  extend type Query {
+    subscribers: [Subscriber!]
   }
 
-  type Mutation {
+  extend type Mutation {
     subscribe(
       email: String!
-    ): Email!
+    ): String
   }
 
-  type Email {
+  type Subscriber {
     email: String!
+    message: String
   }
 `;
 

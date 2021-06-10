@@ -10,7 +10,6 @@ const userResolver = {
 
     async user(parent: any, args: any, context: any ) {
       const user = await User.find({ uid: args.uid }).exec();
-
       return user;
     },
   },
@@ -21,6 +20,8 @@ const userResolver = {
 
       const response = await user.save();
 
+      console.log(response);
+      
       return response;
     },
 
