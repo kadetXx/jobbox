@@ -8,12 +8,16 @@ const newsletterDefs = gql`
   extend type Mutation {
     subscribe(
       email: String!
-    ): String
+    ): NewSubscriber
+  }
+
+  type NewSubscriber {
+    email: String!
+    message: String
   }
 
   type Subscriber {
     email: String!
-    message: String
   }
 `;
 

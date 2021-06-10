@@ -4,7 +4,6 @@ const newsletterResolver = {
   Query: {
     subscribers(/* parent, args, context */) {
       const subscribers = Newsletter.find();
-
       return subscribers;
     }
   },
@@ -15,7 +14,7 @@ const newsletterResolver = {
 
       const response = await subscriber.save();
 
-      return response.email;
+      return response;
     }
   }
 };
