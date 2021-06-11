@@ -20,6 +20,8 @@
   height: 534px;
   max-width: 100%;
   overflow: hidden;
+
+  @include flex(center, center);
 }
 
 .stack_clip {

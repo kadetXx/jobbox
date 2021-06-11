@@ -34,7 +34,7 @@ const PictureStack = () => {
 
   useEffect(() => {
     const allItems = images.map((item, i) => {
-      return imageContainer.current.children[i ];
+      return imageContainer.current.children[i];
     });
 
     const allImageBoxes = images.map((item, i) => {
@@ -48,7 +48,7 @@ const PictureStack = () => {
         stagger: 0.5,
         duration: 0.1,
       });
-      
+
       gsap.from([...allItems], {
         x: "-220%",
         scale: 1.2,
@@ -63,6 +63,14 @@ const PictureStack = () => {
         stagger: 0.4,
         duration: 2,
       });
+
+      gsap.from(paperclip.current, {
+        y: "-300%",
+        ease: "power3",
+        duration: 0.5,
+        delay: 2.5
+      });
+
     } else {
       gsap.to([...allItems], {
         opacity: 0,
@@ -84,12 +92,12 @@ const PictureStack = () => {
           key={index}
           style={{ transform: `rotate(${item.tilt}deg)`, zIndex: index + 1 }}
         >
-          {index === images.length - 1 && (
-            <div className={styles.stack_clip} ref={paperclip}>
-              <Image src="/svg/paperclip.svg" width="64" height="64" />
-            </div>
-          )}
           <div className={styles.stack_image}>
+            {index === images.length - 1 && (
+              <div className={styles.stack_clip} ref={paperclip}>
+                <Image src="/svg/paperclip.svg" width="64" height="64" />
+              </div>
+            )}
             <Image src={item.src} width="425.87" height="534" />
           </div>
         </div>

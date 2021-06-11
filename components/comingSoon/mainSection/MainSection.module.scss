@@ -10,6 +10,9 @@
 .imageContainer {
   padding: 4rem;
   width: 48%;
+  position: relative;
+  overflow: hidden;
+
   @include flex(center, center);
 }
 
