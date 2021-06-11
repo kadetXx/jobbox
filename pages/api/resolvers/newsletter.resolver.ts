@@ -13,17 +13,21 @@ const newsletterResolver = {
     async subscribe(parent: any, args: any, context: any, info: any) {
       const subscriber = new Newsletter({ ...args });
 
-      const alreadyExist = Newsletter.find({ email: args.email }).exec();
-      if (!alreadyExist) {
+      const alreadyExist = await Newsletter.find({ email: args.email }).exec();
+
+      if (alreadyExist.length === 0) {
         const response = await subscriber.save();
+        console.log(response);
+
         return {
-          ...response,
+          email: response.email,
+          message: "success",
           status: true,
         };
       } else {
         return {
           email: args.email,
-          message: "Already subscribed",
+          message: "You've already subscribed with this email",
           status: false,
         };
       }

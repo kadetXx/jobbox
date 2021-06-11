@@ -27,6 +27,12 @@
     @include respondMax("mobile") {
       font-size: 16px;
     }
+
+    &__hasError {
+      background: rgba(#e04646, 0.1);
+      border: 1px solid #e04646;
+      color: #363636;
+    }
   }
 
   .input_toggleIcon {
@@ -39,9 +45,12 @@
   }
 
   .input_error {
-    font-size: 0.7rem;
-    color: red;
+    font-size: 1rem;
+    color: #e04646;
     margin-top: 0.3rem;
+    position: absolute;
+    left: 0;
+    bottom: -1.7rem;
   }
 }
 
@@ -61,6 +70,12 @@
       color: #ffffff;
       opacity: 0.4;
     }
+
+    &__hasError {
+      background: rgba(#e04646, 0.1);
+      border: 1px solid #e04646;
+      color: #d8d8d8;
+    }
   }
 }
 
@@ -73,6 +88,12 @@
     &::placeholder {
       color: #222222;
       opacity: 0.4;
+    }
+
+    &__hasError {
+      background: rgba(#e04646, 0.1);
+      border: 1px solid #e04646;
+      color: #202020;
     }
   }
 }

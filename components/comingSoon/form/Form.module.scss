@@ -4,7 +4,6 @@
 #form {
   @include flex(space-between, stretch);
   height: 4.5rem;
-  overflow: hidden;
 
   .form_input {
     flex-grow: 1;
