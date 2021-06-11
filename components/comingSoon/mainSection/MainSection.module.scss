@@ -14,13 +14,20 @@
   overflow: hidden;
 
   @include flex(center, center);
+
+  @include respondMax("sm-desktop") {
+    padding: 4rem 2rem;
+  }
 }
 
 .textContainer {
   padding: 4rem 2rem;
   width: 48%;
-
   @include flex(center, flex-start, column nowrap);
+
+  @include respondMax("sm-desktop") {
+    padding: 4rem 1rem;
+  }
 
   .badge {
     width: 100%;
