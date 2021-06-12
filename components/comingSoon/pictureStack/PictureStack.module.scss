@@ -30,6 +30,10 @@
   @include respondMax("lg-tablet") {
     width: 425.87px; 
   }
+
+  @include respondMax("tablet") {
+    width: 325px;
+  }
 }
 
 .stack_clip {
@@ -37,4 +41,8 @@
   top: -32px;
   margin-left: 1.5rem;
   z-index: 10;
+
+  @include respondMax("tablet") {
+    top: 32px;
+  }
 }

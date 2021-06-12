@@ -10,4 +10,8 @@
 .header_btn {
   width: 10rem;
   height: 4rem;
+
+  @include respondMax("tablet") {
+    height: 3rem;
+  }
 }

@@ -7,6 +7,10 @@
   position: relative;
 
   @include flex(center, center);
+
+  @include respondMax("tablet") {
+    height: 10.5rem;
+  }
 }
 
 .scroller {
@@ -27,7 +31,11 @@
   };
 
   @include respondMax("lg-tablet") {
-    width: 100%;
+    width: 90%;
+  }
+  
+  @include respondMax("tablet") {
+    height: 14rem;
   }
 }
 
@@ -43,6 +51,10 @@
   @include respondMax("sm-desktop") {
     margin: 0 20%;
   }
+
+  @include respondMax("tablet") {
+    margin: 0 15%;
+  }
 }
 
 .scroller_item__active {
@@ -50,6 +62,10 @@
   transform: scale(1.1);
 
   @include respondMax("sm-desktop") {
-    margin: 0 15%;
+    margin: 0 17%;
+  }
+
+  @include respondMax("tablet") {
+    margin: 0 13%;
   }
 }

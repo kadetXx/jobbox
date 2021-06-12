@@ -5,6 +5,10 @@
   padding: 18rem 7% 4rem;
 
   @include flex(space-between, stretch);
+
+  @include respondMax("tablet")  {
+    padding: 8rem 4% 0rem;
+  }
 }
 
 .imageContainer {
@@ -29,6 +33,7 @@
   padding: 4rem 2rem;
   width: 48%;
   @include flex(center, flex-start, column nowrap);
+  
 
   @include respondMax("sm-desktop") {
     padding: 4rem 1rem;
@@ -36,6 +41,10 @@
 
   @include respondMax("lg-tablet") {
     width: 100%;
+  }
+
+  @include respondMax("tablet") {
+    padding: 2rem 0;
   }
 
   .badge {

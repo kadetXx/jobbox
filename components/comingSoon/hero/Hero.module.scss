@@ -5,6 +5,10 @@
   background-color: $col-primary;
   padding: 4rem 7% 0;
   position: relative;
+
+  @include respondMax("tablet") {
+    padding: 2rem 4%;
+  }
 }
 
 .textbox {

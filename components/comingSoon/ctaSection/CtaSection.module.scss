@@ -13,12 +13,22 @@
   text-align: center;
   color: $col-white;
   position: relative;
+
+  @include respondMax("tablet") {
+    padding: 4rem 2rem;
+    margin: 4rem 4%;
+  }
 }
 
 .cta_title {
   font-size: 3rem;
   margin-top: 5.5rem;
   margin-bottom: 0;
+
+  @include respondMax("tablet") {
+    font-size: 2rem;
+    margin-top: 0;
+  }
 }
 
 .cta_subtitle {
@@ -30,5 +40,9 @@
 
   @include respondMax("lg-tablet") {
     padding: 2rem 7% 1rem;
+  }
+
+  @include respondMax("tablet") {
+    padding: 2rem 3% 1rem;
   }
 }
