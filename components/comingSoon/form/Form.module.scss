@@ -5,10 +5,16 @@
   @include flex(space-between, stretch);
   height: 4.5rem;
 
+  @include respondMax("tablet") {
+    height: 3.5rem;
+  }
+
   .form_input {
     flex-grow: 1;
     margin-right: 2%;
     height: unset;
+
+    display: flex;
   }
   
   .form_inputField {

@@ -15,7 +15,6 @@ interface InputProps {
 
 const Input = ({
   type,
-  height = "4.5",
   placeholder,
   errors,
   classNames,
@@ -38,7 +37,6 @@ const Input = ({
         className={`${styles.input_field}  ${
           error ? styles.input_field__hasError : ""
         }`}
-        style={{ height: `${height}` }}
         {...register}
         onInput={() => console.log(error)}
       />

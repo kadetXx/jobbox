@@ -7,11 +7,22 @@
   @include flex(space-between, center);
 }
 
+.logo_container {
+  
+}
+
 .header_btn {
   width: 10rem;
   height: 4rem;
 
   @include respondMax("tablet") {
     height: 3rem;
+    width: 8rem;
+  }
+
+  @include respondMax("mobile") {
+    height: 2.5rem;
+    width: 8rem;
+    font-size: 0.8rem;
   }
 }

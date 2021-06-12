@@ -17,6 +17,10 @@
 
   @include flex(center, center, column nowrap);
 
+  @include respondMax("lg-tablet") {
+    padding: 3.5rem 0 2.5rem; 
+  }
+
   &_heading {
     font-size: 5.5rem;
     text-align: center;
@@ -24,6 +28,13 @@
 
     @include respondMax("sm-desktop") {
       font-size: 4rem;
+    }
+
+    @include respondMax("tablet") {
+      font-size: 3rem;
+      br {
+        display: none;
+      }
     }
   }
 
