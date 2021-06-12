@@ -17,6 +17,10 @@
     font-size: 5.5rem;
     text-align: center;
     margin: 0;
+
+    @include respondMax("sm-desktop") {
+      font-size: 4rem;
+    }
   }
 
   &_subheading {
@@ -24,6 +28,10 @@
     text-align: center;
     line-height: 1.5;
     opacity: 0.8;
+
+    @include respondMax("sm-desktop") {
+      font-size: 1rem;
+    }
   }
 }
 

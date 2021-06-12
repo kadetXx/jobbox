@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./MainSection.module.scss";
 
 import { PictureStack } from "../index";
-
+import { cfp } from "helpers";
 import { Badge } from "@/shared";
 import { Form } from '@/components/comingSoon'
 
@@ -25,7 +25,7 @@ const MainSection = () => {
           Check individual’s profile, contact, interview and hire.
         </p>
         <div className={styles.formContainer} >
-          <Form btnType="primary" btnWidth="40%" btnText="Stay updated" />
+          <Form btnType="primary"  btnText="Stay updated" customClass={cfp(styles, ["form"])}  />
         </div>
       </div>
     </div>

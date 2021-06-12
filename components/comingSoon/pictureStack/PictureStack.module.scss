@@ -22,6 +22,10 @@
   overflow: hidden;
 
   @include flex(center, center);
+
+  @include respondMax("sm-desktop") {
+    width: 325px;
+  }
 }
 
 .stack_clip {

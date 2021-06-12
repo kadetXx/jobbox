@@ -13,16 +13,16 @@ interface FormProps {
   height?: string;
   btnType: string;
   btnText: string;
-  btnWidth?: string;
   inputClass?: string;
+  customClass?: string;
 }
 
 const Form = ({
   height = "4.5",
   btnType,
   btnText,
-  btnWidth,
   inputClass,
+  customClass
 }: FormProps) => {
   const [loading, setLoading] = useState(false);
   const [customErrors, setCustomErrors] = useState({});
@@ -58,7 +58,7 @@ const Form = ({
   };
 
   return (
-    <form id={styles.form} onSubmit={handleSubmit(submitForm)}>
+    <form id={styles.form} onSubmit={handleSubmit(submitForm)} className={`${customClass}`}>
       <div className={styles.form_input}>
         <Input
           type="email"
@@ -73,7 +73,7 @@ const Form = ({
       <button
         type="submit"
         className={`btn white bg-${btnType} bd-${btnType} br-5 ${styles.form_btn}`}
-        style={{ width: `${btnWidth}`, height: `${height}rem` }}
+        style={{ height: `${height}rem` }}
       >
         {loading ? (
           <Image src="/svg/loading-white.svg" height="25" width="25" />

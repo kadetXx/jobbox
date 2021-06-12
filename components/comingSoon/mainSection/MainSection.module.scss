@@ -39,6 +39,10 @@
     line-height: 1.2;
     margin-bottom: 0.5rem;
     margin-top: 1.5rem;
+
+    @include respondMax("sm-desktop") {
+      font-size: 2rem;
+    }
   }
 
   .subText {
@@ -53,4 +57,11 @@
   margin-bottom: 1rem;
   margin-top: 1rem;
   width: 100%;
+
+  .form button {
+    @include respondMax("sm-desktop") {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
 }

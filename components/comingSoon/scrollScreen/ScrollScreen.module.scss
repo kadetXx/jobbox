@@ -22,7 +22,9 @@
   overflow: hidden;
   box-shadow: inset 0 0 1000px 1000px rgba(255, 255, 255, 0.363);
 
-  // @include flex(center, center, column nowrap);
+  @include respondMax("sm-desktop") {
+    width: 85%;
+  };
 }
 
 .scroller_inner {
@@ -33,9 +35,17 @@
   margin: 0 25%;
   transition: all 0.2s linear;
   filter: blur(3px);
+
+  @include respondMax("sm-desktop") {
+    margin: 0 20%;
+  }
 }
 
 .scroller_item__active {
   margin: 0 20%;
   transform: scale(1.1);
+
+  @include respondMax("sm-desktop") {
+    margin: 0 15%;
+  }
 }
