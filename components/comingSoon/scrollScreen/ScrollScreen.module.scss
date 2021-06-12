@@ -25,6 +25,10 @@
   @include respondMax("sm-desktop") {
     width: 85%;
   };
+
+  @include respondMax("lg-tablet") {
+    width: 100%;
+  }
 }
 
 .scroller_inner {

@@ -12,12 +12,22 @@
   filter: drop-shadow(0px 5px 30px rgba(0, 26, 10, 0.16));
 
   @include flex(flex-start,center, row nowrap);
+
+  @include respondMax("lg-tablet") {
+    padding: 1rem;
+  }
 }
 
 .card_image {
   margin-right: 1.5rem;
   position: relative;
-  bottom: -2px
+  bottom: -2px;
+
+  @include respondMax("lg-tablet") {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+  }
 }
 
 .card_details {
@@ -28,6 +38,10 @@
   width: 100%;
   font-size: 1.5rem;
   margin: 0;
+
+  @include respondMax("lg-tablet") {
+    font-size: 1rem;
+  }
 }
 
 .card_info {
@@ -38,6 +52,10 @@
   opacity: 0.8;
 
   @include flex(space-between, center);
+
+  @include respondMax("lg-tablet") {
+    margin-top: 0;
+  }
 
   .card_infoText {
     margin: 0;

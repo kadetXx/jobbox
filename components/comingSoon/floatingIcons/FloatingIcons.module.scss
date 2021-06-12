@@ -9,5 +9,12 @@
   height: 4rem;
   padding: 0 10%;
 
-  @include flex(space-around, center, row nowrap)
+  @include flex(space-around, center, row nowrap);
+
+}
+
+.icon_container img {
+  @include respondMax("lg-tablet") {
+    transform: scale(0.7);
+  } 
 }

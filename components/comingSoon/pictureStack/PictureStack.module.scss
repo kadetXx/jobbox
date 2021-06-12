@@ -26,6 +26,10 @@
   @include respondMax("sm-desktop") {
     width: 325px;
   }
+
+  @include respondMax("lg-tablet") {
+    width: 425.87px; 
+  }
 }
 
 .stack_clip {

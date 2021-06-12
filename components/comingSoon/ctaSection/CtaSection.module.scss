@@ -27,4 +27,8 @@
 
 .cta_form {
   padding: 2rem 17% 1rem;
+
+  @include respondMax("lg-tablet") {
+    padding: 2rem 7% 1rem;
+  }
 }

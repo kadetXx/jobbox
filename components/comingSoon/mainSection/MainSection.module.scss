@@ -18,6 +18,11 @@
   @include respondMax("sm-desktop") {
     padding: 4rem 2rem;
   }
+
+  @include respondMax("lg-tablet") {
+    width: 100%;
+  }
+
 }
 
 .textContainer {
@@ -27,6 +32,10 @@
 
   @include respondMax("sm-desktop") {
     padding: 4rem 1rem;
+  }
+
+  @include respondMax("lg-tablet") {
+    width: 100%;
   }
 
   .badge {
@@ -62,6 +71,10 @@
     @include respondMax("sm-desktop") {
       width: 100%;
       margin-top: 1rem;
+    }
+
+    @include respondMax("lg-tablet") {
+      margin-top: 0;
     }
   }
 }

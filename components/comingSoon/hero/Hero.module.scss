@@ -37,4 +37,8 @@
 
 .hero_formContainer {
   padding: 0 20%;
+
+  @include respondMax("lg-tablet") {
+    padding: 0 5%; 
+  }
 }
