@@ -44,7 +44,7 @@ const signIn = ({ user, setUser }) => {
             ...updateUser
           })
 
-          Router.push("/dashboard")
+          Router.push("/")
         } else {
           Router.push("/verify-email");
         }
