@@ -12,7 +12,7 @@ interface InputProps {
   classNames?: string[];
   customClasses?: string;
   register: any;
-  onInput: () => void;
+  onInput?: () => void;
 }
 
 const Input = ({
