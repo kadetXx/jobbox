@@ -29,6 +29,12 @@
     padding-top: 1.3rem;
     padding-bottom: 1.3rem;
   }
+
+  .form_btnSpinner {
+    display: grid;
+    place-items: center;
+    transform: scale(1.5);
+  }
 }
 
 

@@ -8,22 +8,26 @@ interface InputProps {
   height?: string | number;
   placeholder: string;
   errors: any;
+  showErrorMessage: boolean;
   classNames?: string[];
   customClasses?: string;
   register: any;
+  onInput: () => void;
 }
 
 const Input = ({
   type,
   placeholder,
   errors,
+  showErrorMessage,
   classNames,
   customClasses,
   register,
+  onInput,
 }: InputProps) => {
   const [pass, showPass] = useState<boolean>(false);
 
-  const error = errors[register.name]
+  const error = errors[register.name];
 
   return (
     <div
@@ -37,6 +41,7 @@ const Input = ({
         className={`${styles.input_field}  ${
           error ? styles.input_field__hasError : ""
         }`}
+        onInput={onInput}
         {...register}
       />
       {type === "password" && (
@@ -47,10 +52,8 @@ const Input = ({
           {pass ? "visibility" : "visibility_off"}{" "}
         </span>
       )}
-      {error && (
-        <small className={styles.input_error}>
-          {error.message}
-        </small>
+      {showErrorMessage && error && (
+        <small className={styles.input_error}>{error.message}</small>
       )}
     </div>
   );

@@ -66,6 +66,7 @@ const Form = ({
           classNames={[inputClass]}
           customClasses={cfp(styles, ["form_inputField"])}
           register={register("email", { required: true })}
+          onInput={() => setCustomErrors({})}
         />
       </div>
       <button
@@ -73,7 +74,7 @@ const Form = ({
         className={`btn white bg-${btnType} bd-${btnType} br-5 ${styles.form_btn}`}
       >
         {loading ? (
-          <Image src="/svg/loading-white.svg" height="25" width="25" />
+          <span className={styles.form_btnSpinner} ><Image src="/svg/loading-white.svg" height="21" width="21" /></span>
         ) : (
           <>{btnText}</>
         )}
