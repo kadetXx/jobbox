@@ -38,7 +38,6 @@ const Input = ({
           error ? styles.input_field__hasError : ""
         }`}
         {...register}
-        onInput={() => console.log(error)}
       />
       {type === "password" && (
         <span

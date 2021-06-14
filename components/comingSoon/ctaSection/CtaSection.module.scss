@@ -59,7 +59,7 @@
   }
 
   @include respondMax("mobile") {
-    padding: 1rem 3% 3rem;
+    padding: 1rem 3% 0rem;
   }
 
   .form button {

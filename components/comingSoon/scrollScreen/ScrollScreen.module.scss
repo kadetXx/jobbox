@@ -12,6 +12,9 @@
     height: 10.5rem;
   }
 
+  @include respondMax("mobile") {
+    height: 5.5rem;
+  }
 }
 
 .scroller {

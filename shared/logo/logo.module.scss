@@ -10,4 +10,8 @@
   @include respondMax("tablet") {
     max-width: 30%;
   }
+
+  @include respondMax("mobile") {
+    max-width: 40%;
+  }
 }

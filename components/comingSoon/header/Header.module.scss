@@ -7,10 +7,6 @@
   @include flex(space-between, center);
 }
 
-.logo_container {
-  
-}
-
 .header_btn {
   width: 10rem;
   height: 4rem;
@@ -29,5 +25,6 @@
   @include respondMax("mobile") {
     font-size: 0.7rem;
     width: 6.5rem;
+    height: 2rem;
   }
 }

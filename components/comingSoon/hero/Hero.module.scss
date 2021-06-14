@@ -68,8 +68,10 @@
     padding: 0 5%; 
   }
 
-  .form button {
-    margin-top: 0.5rem;
-    width: 100% !important;
+  @include respondMax("mobile") {
+    .form button {
+      margin-top: 0.5rem;
+      width: 100% !important;
+    }
   }
 }
