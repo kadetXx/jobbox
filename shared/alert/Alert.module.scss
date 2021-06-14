@@ -9,8 +9,7 @@
   right: 0;
   z-index: 100;
   background: rgba($col-primary, 0.95);
-  display: grid;
-  place-items: center;
+  @include flex(center, center);
 }
 
 .alert_box {
@@ -36,10 +35,14 @@
   background: transparent;
   outline: none;
   color: rgb(151, 151, 151);
-
+  margin-top: 0 !important;
   display: flex;
   justify-content: flex-end;
   padding-right: 1rem;
+
+  span {
+    margin-right: 1rem;
+  }
 }
 
 .alert_icon {
