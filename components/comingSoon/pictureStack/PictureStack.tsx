@@ -65,7 +65,7 @@ const PictureStack = () => {
       });
 
       gsap.from(paperclip.current, {
-        y: "-300%",
+        y: "-400%",
         ease: "power3",
         duration: 0.5,
         delay: 2.5
