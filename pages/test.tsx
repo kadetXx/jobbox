@@ -8,17 +8,17 @@ import Link from "next/link";
 import { GET_USERS } from '@/store/user/user.queries'
 
 const Index = (props: any) => {
-  const { data, error } = useSWR(GET_USERS, fetcher, { initialData: props.users });
+  // const { data, error } = useSWR(GET_USERS, fetcher, { initialData: props.users });
 
 
-  if (error) return <div>Failed to load</div>;
-  if (!data) return <Preloader />;
+  // if (error) return <div>Failed to load</div>;
+  // if (!data) return <Preloader />;
 
-  const { users } = props;
+  // const { users } = props;
 
   return (
     <div
-      onClick={() => console.log(users)}
+      // onClick={() => console.log(users)}
       style={{
         margin: "auto",
         height: "100%",
@@ -47,14 +47,14 @@ const Index = (props: any) => {
   );
 };
 
-export async function getStaticProps() {
-  const data = await fetcher(GET_USERS, {});
+// export async function getStaticProps() {
+//   const data = await fetcher(GET_USERS, {});
   
-  return {
-    props: {
-      users: data.users
-    }
-  }
-}
+//   return {
+//     props: {
+//       users: data.users
+//     }
+//   }
+// }
 
 export default Index;

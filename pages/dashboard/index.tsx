@@ -3,19 +3,19 @@ import { fetcher } from "@/helpers";
 
 import { Logo, Preloader } from "@/shared";
 
-import { GET_USERS } from "@/store/user/user.queries";
+// import { GET_USERS } from "@/store/user/user.queries";
 
 import { auth } from '@/firebase'
 
 import Router from 'next/router'
 
 const Dashboard = (props: any) => {
-  const { data, error } = useSWR(GET_USERS, fetcher, {
-    initialData: props.users,
-  });
+  // const { data, error } = useSWR(GET_USERS, fetcher, {
+  //   initialData: props.users,
+  // });
 
-  if (error) return <div>Failed to load</div>;
-  if (!data) return <Preloader />;
+  // if (error) return <div>Failed to load</div>;
+  // if (!data) return <Preloader />;
 
   const { users } = props;
 
@@ -49,14 +49,14 @@ const Dashboard = (props: any) => {
   );
 };
 
-export async function getStaticProps() {
-  const data = await fetcher(GET_USERS, fetcher);
+// export async function getStaticProps() {
+//   const data = await fetcher(GET_USERS, fetcher);
 
-  return {
-    props: {
-      users: data.users,
-    },
-  };
-}
+//   return {
+//     props: {
+//       users: data.users,
+//     },
+//   };
+// }
 
 export default Dashboard;
