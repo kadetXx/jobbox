@@ -1,0 +1,61 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.alert {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba($col-primary, 0.95);
+  display: grid;
+  place-items: center;
+}
+
+.alert_box {
+  padding: 4rem 2rem 3rem;
+  background: $col-white;
+  width: 360px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.alert_close {
+  all: unset;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: transparent;
+  outline: none;
+  color: rgb(151, 151, 151);
+}
+
+.alert_icon {
+  display: grid;
+  place-items: center;
+
+  span {
+    font-size: 5rem;
+  }
+
+  .success {
+    color: $col-secondary;
+  }
+
+  .error {
+    color: #cf3333;
+  }
+}
+
+.alert_title {
+  margin: 1rem 0 0;
+  color: $col-primary;
+}
+
+.alert_message {
+  text-align: center;
+  color: rgb(65, 65, 65);
+}

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styles from "./Form.module.scss";
 import Image from "next/image";
-import { Input } from "@/shared";
+import { Input, Alert } from "@/shared";
 import { useForm } from "react-hook-form";
-
 import { cfp } from "helpers";
 
 import { fetcher } from "@/helpers";
@@ -17,14 +16,11 @@ interface FormProps {
   customClass?: string;
 }
 
-const Form = ({
-  btnType,
-  btnText,
-  inputClass,
-  customClass
-}: FormProps) => {
+const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
   const [loading, setLoading] = useState(false);
   const [customErrors, setCustomErrors] = useState({});
+  const [alertSuccess, setAlertSuccess] = useState(null);
+  const [alertError, setAlertError] = useState(false);
 
   const {
     register,
@@ -49,6 +45,10 @@ const Form = ({
             message: subscribe.message,
           },
         });
+
+        setAlertError(true);
+      } else {
+        setAlertSuccess(true);
       }
     } catch (error) {
       console.log(error);
@@ -57,7 +57,11 @@ const Form = ({
   };
 
   return (
-    <form id={styles.form} onSubmit={handleSubmit(submitForm)} className={`${customClass}`}>
+    <form
+      id={styles.form}
+      onSubmit={handleSubmit(submitForm)}
+      className={`${customClass}`}
+    >
       <div className={styles.form_input}>
         <Input
           type="email"
@@ -74,11 +78,33 @@ const Form = ({
         className={`btn white bg-${btnType} bd-${btnType} br-5 ${styles.form_btn}`}
       >
         {loading ? (
-          <span className={styles.form_btnSpinner} ><Image src="/svg/loading-white.svg" height="21" width="21" /></span>
+          <span className={styles.form_btnSpinner}>
+            <Image src="/svg/loading-white.svg" height="21" width="21" />
+          </span>
         ) : (
           <>{btnText}</>
         )}
       </button>
+
+      {alertError && (
+        <Alert
+          icon="error_outline"
+          type="error"
+          title="Sorry!"
+          message="You've already subscribed to our newsletter with this email address."
+          close={() => setAlertError(false)}
+        />
+      )}
+
+      {alertSuccess && (
+        <Alert
+          icon="done"
+          type="success"
+          title="Thanks!"
+          message="You've successfully subscribed to our newsletter, we'll send news, updates and events to to your email address."
+          close={() => setAlertSuccess(false)}
+        />
+      )}
     </form>
   );
 };

@@ -8,7 +8,7 @@ interface InputProps {
   height?: string | number;
   placeholder: string;
   errors: any;
-  showErrorMessage: boolean;
+  showErrorMessage?: boolean;
   classNames?: string[];
   customClasses?: string;
   register: any;
