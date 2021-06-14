@@ -25,4 +25,9 @@
     width: 8rem;
     font-size: 0.8rem;
   }
+
+  @include respondMax("mobile") {
+    font-size: 0.7rem;
+    width: 6.5rem;
+  }
 }

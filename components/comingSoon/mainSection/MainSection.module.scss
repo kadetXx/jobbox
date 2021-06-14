@@ -27,6 +27,10 @@
     width: 100%;
   }
 
+  @include respondMax("mobile") {
+    padding: 4rem 4% 1rem;
+  }
+
 }
 
 .textContainer {
@@ -61,6 +65,12 @@
     @include respondMax("sm-desktop") {
       font-size: 2rem;
     }
+
+    @include respondMax("mobile") {
+      br {
+        display: none;
+      }
+    }
   }
 
   .subText {
@@ -68,6 +78,10 @@
     opacity: 0.6;
     color: $col-black;
     line-height: 1.5;
+
+    @include respondMax("mobile") {
+      padding-right: 0;
+    } 
   }
 }
 
@@ -85,5 +99,11 @@
     @include respondMax("lg-tablet") {
       margin-top: 0;
     }
+
+    @include respondMax("mobile") {
+      width: 100% !important;
+      margin-top: 0.5rem;
+    }
+    
   }
 }

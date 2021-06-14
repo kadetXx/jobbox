@@ -30,12 +30,16 @@ const JobExhibitCard = ({
         </div>
 
         <div className={styles.card_info}>
-          <Image src="/svg/location.svg" width="16.56" height="24.96" />
+          <span className={styles.card_infoIcon}>
+            <Image src="/svg/location.svg" width="16.56" height="24.96" />
+          </span>
           <p className={styles.card_infoText}>{location}</p>
         </div>
 
         <div className={styles.card_info}>
-          <Image src="/svg/calendar.svg" width="16.56" height="24.96" />
+          <span className={styles.card_infoIcon}>
+            <Image src="/svg/calendar.svg" width="16.56" height="24.96" />
+          </span>
           <p className={styles.card_infoText}>{jobType}</p>
         </div>
       </div>

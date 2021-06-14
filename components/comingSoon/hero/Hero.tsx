@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Hero.module.scss";
-
+import { cfp } from '@/helpers'
 import { Header, Form, ScrollScreen } from "../index";
 
 const Hero = () => {
@@ -17,7 +17,7 @@ const Hero = () => {
         </p>
       </section>
       <div className={styles.hero_formContainer}>
-        <Form btnType="secondary" btnText="Stay in the loop!" inputClass="input__light" />
+        <Form btnType="secondary" btnText="Stay in the loop!" inputClass="input__light" customClass={cfp(styles, ["form"])} />
       </div>
       <ScrollScreen />
     </div>

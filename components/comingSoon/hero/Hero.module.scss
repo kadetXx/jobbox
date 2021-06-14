@@ -36,6 +36,11 @@
         display: none;
       }
     }
+
+    @include respondMax("mobile") {
+      font-size: 2.5rem;
+      padding: 0 2rem;
+    }
   }
 
   &_subheading {
@@ -47,6 +52,12 @@
     @include respondMax("sm-desktop") {
       font-size: 1rem;
     }
+
+    @include respondMax("tablet") {
+      br {
+        display: none;
+      }
+    }
   }
 }
 
@@ -55,5 +66,10 @@
 
   @include respondMax("lg-tablet") {
     padding: 0 5%; 
+  }
+
+  .form button {
+    margin-top: 0.5rem;
+    width: 100% !important;
   }
 }

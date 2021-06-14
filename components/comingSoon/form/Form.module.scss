@@ -15,6 +15,10 @@
     height: unset;
 
     display: flex;
+
+    @include respondMax("mobile") {
+      margin-right: 0;
+    }
   }
   
   .form_inputField {
