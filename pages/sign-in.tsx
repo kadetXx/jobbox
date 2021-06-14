@@ -98,7 +98,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  setUser: (user: boolean) => dispatch(setUser(user)),
+  setUser: (user: boolean) => dispatch(setUser(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(signIn);
