@@ -9,7 +9,6 @@ import { fetcher } from "@/helpers";
 import { SUBSCRIBE } from "@/store/newsletter/newsletter.queries";
 
 import axios from "axios";
-import { spawn } from "node:child_process";
 
 interface FormProps {
   height?: string;
@@ -25,9 +24,10 @@ const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
   const [alertSuccess, setAlertSuccess] = useState(null);
   const [alertError, setAlertError] = useState(null);
   const [actionText, setActionText] = useState("Copy Referral Link");
-  const [formResponse, setFormResponse] = useState({
+  const [formResponse, setFormResponse] = useState<any>({
     email: "",
-    priority_number: "",
+
+    current_priority: "",
     total_users: "",
     referral_link: "",
   });
@@ -35,8 +35,13 @@ const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
+
+  const hideScroll = (hide: boolean) => {
+    hide ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
+  }
 
   const submitForm = async ({ email }) => {
     setLoading(true);
@@ -50,10 +55,11 @@ const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
     axios
       .post("https://www.getwaitlist.com/waitlist", body)
       .then((res) => {
-        console.log(res.data);
         const data = res.data;
 
         setFormResponse(data);
+        reset();
+        hideScroll(true)
       })
       .then(() => {
         setAlertSuccess(true);
@@ -120,14 +126,17 @@ const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
           type="success"
           title="Thanks!"
           message={
-            <span>
+            <span className={styles.form_alertText} >
               You've successfully subscribed to our waitlist, we'll send news,
-              updates and events to to your email address. You're number{" "}
-              {formResponse.priority_number} on the list. Referring your friends
-              to sign up gives you the upper hand{" "}
+              updates and events to to your email address. Kindly refer friends to join jobbox. <br /> <br />
+              <code>{ formResponse.referral_link }</code>
             </span>
           }
-          close={() => setAlertSuccess(false)}
+          close={() => [
+            setAlertSuccess(false),
+            setActionText("Copy Referral Link"),
+            hideScroll(false)
+          ]}
           action={{
             text: actionText,
             func: () => copyLink(),

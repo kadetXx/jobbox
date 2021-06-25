@@ -35,6 +35,18 @@
     place-items: center;
     transform: scale(1.5);
   }
+
+  .form_alertText {
+    font-size: 0.9rem;
+    
+
+    code {
+      background: #efefef;
+      font-size: 0.8rem;
+      padding: 0.2rem 1rem;
+      font-family: monospace;
+    }
+  }
 }
 
 
