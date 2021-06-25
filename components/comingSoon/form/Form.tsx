@@ -8,6 +8,9 @@ import { cfp } from "helpers";
 import { fetcher } from "@/helpers";
 import { SUBSCRIBE } from "@/store/newsletter/newsletter.queries";
 
+import axios from "axios";
+import { spawn } from "node:child_process";
+
 interface FormProps {
   height?: string;
   btnType: string;
@@ -20,7 +23,14 @@ const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
   const [loading, setLoading] = useState(false);
   const [customErrors, setCustomErrors] = useState({});
   const [alertSuccess, setAlertSuccess] = useState(null);
-  const [alertError, setAlertError] = useState(false);
+  const [alertError, setAlertError] = useState(null);
+  const [actionText, setActionText] = useState("Copy Referral Link");
+  const [formResponse, setFormResponse] = useState({
+    email: "",
+    priority_number: "",
+    total_users: "",
+    referral_link: "",
+  });
 
   const {
     register,
@@ -31,29 +41,37 @@ const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
   const submitForm = async ({ email }) => {
     setLoading(true);
 
-    try {
-      const { subscribe } = await fetcher(SUBSCRIBE, {
-        email: email,
-      });
+    const body = {
+      email: email,
+      api_key: "9DQLTX",
+      referral_link: window.location.href,
+    };
 
-      console.log(subscribe);
-      setLoading(false);
+    axios
+      .post("https://www.getwaitlist.com/waitlist", body)
+      .then((res) => {
+        console.log(res.data);
+        const data = res.data;
 
-      if (subscribe.status === false) {
-        setCustomErrors({
-          email: {
-            message: subscribe.message,
-          },
-        });
-
-        setAlertError(true);
-      } else {
+        setFormResponse(data);
+      })
+      .then(() => {
         setAlertSuccess(true);
-      }
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setAlertError(true);
+        setLoading(false);
+      });
+  };
+
+  const copyLink = () => {
+    console.log("jekdcnm");
+
+    navigator.clipboard.writeText(formResponse.referral_link).then(() => {
+      setActionText("Copied!");
+    });
   };
 
   return (
@@ -91,7 +109,7 @@ const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
           icon="error_outline"
           type="error"
           title="Sorry!"
-          message="You've already subscribed to our newsletter with this email address."
+          message="An error occured and we couldn't add this email to our newsletter."
           close={() => setAlertError(false)}
         />
       )}
@@ -101,8 +119,19 @@ const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
           icon="done"
           type="success"
           title="Thanks!"
-          message="You've successfully subscribed to our newsletter, we'll send news, updates and events to to your email address."
+          message={
+            <span>
+              You've successfully subscribed to our waitlist, we'll send news,
+              updates and events to to your email address. You're number{" "}
+              {formResponse.priority_number} on the list. Referring your friends
+              to sign up gives you the upper hand{" "}
+            </span>
+          }
           close={() => setAlertSuccess(false)}
+          action={{
+            text: actionText,
+            func: () => copyLink(),
+          }}
         />
       )}
     </form>

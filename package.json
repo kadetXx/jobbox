@@ -2,12 +2,13 @@
   "name": "jobbox",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 3001",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "apollo-server-micro": "2.11.0",
+    "axios": "^0.21.1",
     "firebase": "^8.4.3",
     "graphql": "14.6.0",
     "graphql-request": "^3.4.0",
