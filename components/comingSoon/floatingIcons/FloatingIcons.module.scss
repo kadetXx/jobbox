@@ -11,9 +11,6 @@
 
   @include flex(space-around, center, row nowrap);
 
-  @include respondMax("tablet") {
-    display: none;
-  }
 }
 
 .icon_container img {
