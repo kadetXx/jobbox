@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./Form.module.scss";
 import Image from "next/image";
 import { Input, Alert } from "@/shared";
 import { useForm } from "react-hook-form";
 import { cfp } from "helpers";
-
-import { fetcher } from "@/helpers";
-import { SUBSCRIBE } from "@/store/newsletter/newsletter.queries";
 
 import axios from "axios";
 
@@ -16,9 +13,16 @@ interface FormProps {
   btnText: string;
   inputClass?: string;
   customClass?: string;
+  inputRef?: any;
 }
 
-const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
+const Form = ({
+  btnType,
+  btnText,
+  inputClass,
+  customClass,
+  inputRef,
+}: FormProps) => {
   const [loading, setLoading] = useState(false);
   const [customErrors, setCustomErrors] = useState({});
   const [alertSuccess, setAlertSuccess] = useState(null);
@@ -40,8 +44,10 @@ const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
   } = useForm();
 
   const hideScroll = (hide: boolean) => {
-    hide ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
-  }
+    hide
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto");
+  };
 
   const submitForm = async ({ email }) => {
     setLoading(true);
@@ -59,7 +65,7 @@ const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
 
         setFormResponse(data);
         reset();
-        hideScroll(true)
+        hideScroll(true);
       })
       .then(() => {
         setAlertSuccess(true);
@@ -86,7 +92,7 @@ const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
       onSubmit={handleSubmit(submitForm)}
       className={`${customClass}`}
     >
-      <div className={styles.form_input}>
+      <div className={styles.form_input} ref={inputRef}>
         <Input
           type="email"
           placeholder="Enter your email address"
@@ -126,16 +132,17 @@ const Form = ({ btnType, btnText, inputClass, customClass }: FormProps) => {
           type="success"
           title="Thanks!"
           message={
-            <span className={styles.form_alertText} >
+            <span className={styles.form_alertText}>
               You've successfully subscribed to our waitlist, we'll send news,
-              updates and events to to your email address. Kindly refer friends to join jobbox. <br /> <br />
-              <code>{ formResponse.referral_link }</code>
+              updates and events to to your email address. Kindly refer friends
+              to join jobbox. <br /> <br />
+              <code>{formResponse.referral_link}</code>
             </span>
           }
           close={() => [
             setAlertSuccess(false),
             setActionText("Copy Referral Link"),
-            hideScroll(false)
+            hideScroll(false),
           ]}
           action={{
             text: actionText,

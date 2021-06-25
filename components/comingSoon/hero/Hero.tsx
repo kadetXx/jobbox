@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./Hero.module.scss";
 import { cfp } from '@/helpers'
 import { Header, Form, ScrollScreen } from "../index";
 
 const Hero = () => {
+  const inputRef = useRef(null);
+
   return (
     <div id={styles.hero}>
-      <Header />
+      <Header inputRef={inputRef}  />
       <section className={styles.textbox}>
         <h1 className={styles.textbox_heading}>
           There’s a bun <br /> in the Oven!
@@ -17,7 +19,7 @@ const Hero = () => {
         </p>
       </section>
       <div className={styles.hero_formContainer}>
-        <Form btnType="secondary" btnText="Stay in the loop!" inputClass="input__light" customClass={cfp(styles, ["form"])} />
+        <Form inputRef={inputRef} btnType="secondary" btnText="Stay in the loop!" inputClass="input__light" customClass={cfp(styles, ["form"])} />
       </div>
       <ScrollScreen />
     </div>
