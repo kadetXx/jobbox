@@ -25,6 +25,7 @@ body {
 
 #__next {
   flex-grow: 1;
+  overflow-x: hidden;
 
   @include flex(stretch, stretch, column);
 }
