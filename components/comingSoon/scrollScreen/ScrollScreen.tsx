@@ -32,7 +32,7 @@ const ScrollScreen = () => {
     gsap.to(scrollerContainer, {
       duration: 0.2,
       scrollTo: { y: scrollBy },
-      ease: "power2",
+      ease: "power3",
     }).then(() => setActiveSlide(index));
 
   };

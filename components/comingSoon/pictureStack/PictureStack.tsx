@@ -55,6 +55,7 @@ const PictureStack = () => {
         ease: "power3",
         stagger: 0.5,
         duration: 1,
+        delay: 0.1
       });
 
       gsap.from([...allImageBoxes], {

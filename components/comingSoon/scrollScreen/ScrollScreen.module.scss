@@ -73,6 +73,7 @@
 .scroller_item__active {
   margin: 0 20%;
   transform: scale(1.1);
+  transition: all 0.2s linear;
 
   @include respondMax("sm-desktop") {
     margin: 0 17%;
