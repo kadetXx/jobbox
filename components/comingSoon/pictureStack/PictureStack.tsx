@@ -33,9 +33,7 @@ const PictureStack = () => {
   const onScreen = useIntersecting(imageContainer, 0.5);
 
   useEffect(() => {
-    const allItems = images.map((item, i) => {
-      return imageContainer.current.children[i];
-    });
+    const allItems = imageContainer.current.children
 
     const allImageBoxes = images.map((item, i) => {
       return imageContainer.current.children[i].lastElementChild.children[0];

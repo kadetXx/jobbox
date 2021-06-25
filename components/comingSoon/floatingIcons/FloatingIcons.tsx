@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./FloatingIcons.module.scss";
-
-import Image from "next/image";
+import { useIntersecting } from "@/hooks";
+import gsap from "gsap";
 
 const FloatingIcons = () => {
   const icons = [
@@ -47,8 +47,24 @@ const FloatingIcons = () => {
     },
   ];
 
+  const iconsRef = useRef(null);
+  const onScreen = useIntersecting(iconsRef);
+
+  useEffect(() => {
+    const icons = iconsRef.current.children;
+
+    if (onScreen) {
+      gsap.from([...icons], {
+        scale: 0,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: 'back.out(1.7)'
+      });
+    }
+  }, [onScreen]);
+
   return (
-    <div id={styles.icons}>
+    <div id={styles.icons} ref={iconsRef}>
       {icons.map((item, index) => (
         <div
           className={styles.icon_container}
