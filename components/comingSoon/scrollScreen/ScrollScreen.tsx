@@ -29,11 +29,12 @@ const ScrollScreen = () => {
 
     let scrollBy = slideOffset - (containerHeight - slideHeight) / 2;
 
+    setActiveSlide(index);
     gsap.to(scrollerContainer, {
       duration: duration || 0.4,
       scrollTo: { y: scrollBy },
       ease: "power3.out",
-    }).then(() => setActiveSlide(index));
+    });
 
   };
 
