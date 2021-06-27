@@ -54,6 +54,7 @@ const ScrollScreen = () => {
       }
 
       if (activeSlide === jobs.length - 2) {
+        setActiveSlide(1);
         scroll(1, 2);
       }
     }, 700);
