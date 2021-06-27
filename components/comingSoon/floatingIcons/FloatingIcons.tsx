@@ -54,12 +54,23 @@ const FloatingIcons = () => {
     const icons = iconsRef.current.children;
 
     if (onScreen) {
+      gsap.to([...icons], {
+        opacity: 1,
+        stagger: 0.1,
+        duration: 0.1,
+      })
+      
       gsap.from([...icons], {
         scale: 0,
         stagger: 0.1,
         duration: 0.5,
         ease: 'back.out(1.7)'
       });
+    } else {
+      gsap.to([...icons], {
+        opacity: 0,
+        duration: 0
+      })
     }
   }, [onScreen]);
 
