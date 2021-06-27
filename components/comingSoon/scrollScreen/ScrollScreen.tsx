@@ -16,7 +16,7 @@ const ScrollScreen = () => {
 
   const scrollerRef = useRef(null);
 
-  const scroll = (index: number) => {
+  const scroll = (index: number, duration?: number) => {
 
     let scrollerContainer: HTMLDivElement = scrollerRef.current;
 
@@ -30,7 +30,7 @@ const ScrollScreen = () => {
     let scrollBy = slideOffset - (containerHeight - slideHeight) / 2;
 
     gsap.to(scrollerContainer, {
-      duration: 0.2,
+      duration: duration || 0.4,
       scrollTo: { y: scrollBy },
       ease: "power3.out",
     }).then(() => setActiveSlide(index));
@@ -50,8 +50,10 @@ const ScrollScreen = () => {
     setTimeout(() => {
       if (activeSlide !== jobs.length - 2) {
         scroll(activeSlide + 1);
-      } else if (activeSlide === jobs.length - 2) {
-        scroll(1);
+      }
+
+      if (activeSlide === jobs.length - 2) {
+        scroll(1, 2);
       }
     }, 700);
   }, [activeSlide]);
