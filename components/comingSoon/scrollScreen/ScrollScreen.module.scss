@@ -71,19 +71,20 @@
 }
 
 .scroller_item__active {
-  margin: 0 20%;
-  transform: scale(1.1);
+  margin: 0 25%;
+  transform: scale(1.3);
   transition: all 0.2s linear;
 
   @include respondMax("sm-desktop") {
-    margin: 0 17%;
+    margin: 0 20%;
   }
 
   @include respondMax("tablet") {
-    margin: 0 13%;
+    margin: 0 15%;
   }
 
   @include respondMax("mobile") {
-    margin: 0 11%;
+    margin: 0 13%;
+    transform: scale(1.2);
   }
 }

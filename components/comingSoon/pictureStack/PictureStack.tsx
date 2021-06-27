@@ -3,7 +3,6 @@ import React, { useRef, useEffect } from "react";
 
 import { useIntersecting } from "@/hooks";
 
-import { TimelineLite, TweenLite, Power3 } from "gsap";
 import gsap from "gsap";
 
 import Image from "next/image";
@@ -36,7 +35,7 @@ const PictureStack = () => {
     const allItems = imageContainer.current.children
 
     const allImageBoxes = images.map((item, i) => {
-      return imageContainer.current.children[i].lastElementChild.children[0];
+      return imageContainer.current.children[i].querySelector('.stack_image');
     });
 
     if (onScreen) {
@@ -97,7 +96,7 @@ const PictureStack = () => {
                 <Image src="/svg/paperclip.svg" width="64" height="64" />
               </div>
             )}
-            <Image src={item.src} width="425.87" height="534" />
+            <Image src={item.src} width="425.87" height="534" className='stack_image' />
           </div>
         </div>
       ))}
