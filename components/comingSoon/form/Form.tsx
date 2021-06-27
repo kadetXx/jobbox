@@ -24,6 +24,7 @@ const Form = ({
   inputRef,
 }: FormProps) => {
   const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const [customErrors, setCustomErrors] = useState({});
   const [alertSuccess, setAlertSuccess] = useState(null);
   const [alertError, setAlertError] = useState(null);
@@ -51,6 +52,7 @@ const Form = ({
 
   const submitForm = async ({ email }) => {
     setLoading(true);
+    setDisabled(true);
 
     const body = {
       email: email,
@@ -95,6 +97,7 @@ const Form = ({
       <div className={styles.form_input} ref={inputRef}>
         <Input
           type="email"
+          disabled={disabled}
           placeholder="Enter your email address"
           errors={customErrors}
           classNames={[inputClass]}
@@ -122,7 +125,7 @@ const Form = ({
           type="error"
           title="Sorry!"
           message="An error occured and we couldn't add this email to our newsletter."
-          close={() => setAlertError(false)}
+          close={() => [setAlertError(false), setDisabled(false)]}
         />
       )}
 
@@ -143,6 +146,7 @@ const Form = ({
             setAlertSuccess(false),
             setActionText("Copy Referral Link"),
             hideScroll(false),
+            setDisabled(false)
           ]}
           action={{
             text: actionText,
