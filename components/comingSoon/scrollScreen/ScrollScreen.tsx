@@ -34,6 +34,7 @@ const ScrollScreen = () => {
       duration: duration || 0.4,
       scrollTo: { y: scrollBy },
       ease: "power3.out",
+      repeat: 1000
     });
 
   };
@@ -52,12 +53,11 @@ const ScrollScreen = () => {
       if (activeSlide !== jobs.length - 2) {
         scroll(activeSlide + 1);
       }
-    }, 700);
+    }, 1000);
 
     if (activeSlide === jobs.length - 2) {
-      clearTimeout(timer);;
-      setActiveSlide(1);
-      scroll(1, 2);
+      clearTimeout(timer);
+      scroll(1, 1);
     }
   }, [activeSlide]);
 
