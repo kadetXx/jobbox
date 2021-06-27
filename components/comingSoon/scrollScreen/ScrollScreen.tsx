@@ -46,15 +46,15 @@ const ScrollScreen = () => {
     setItemHeight(slideHeight);
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (activeSlide !== jobs.length - 2) {
-        scroll(activeSlide + 1);
-      } else if (activeSlide === jobs.length - 2) {
-        scroll(1);
-      }
-    }, 700);
-  }, [activeSlide]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     if (activeSlide !== jobs.length - 2) {
+  //       scroll(activeSlide + 1);
+  //     } else if (activeSlide === jobs.length - 2) {
+  //       scroll(1);
+  //     }
+  //   }, 700);
+  // }, [activeSlide]);
 
   const getScrollerHeight = (
     numberOfSlideItems: number,
