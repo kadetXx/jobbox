@@ -1,9 +1,9 @@
 import styles from "./PictureStack.module.scss";
 import React, { useRef, useEffect } from "react";
 
-import { useIntersecting } from "@/hooks";
+// import { useIntersecting } from "@/hooks";
 
-import gsap from "gsap";
+// import gsap from "gsap";
 
 import Image from "next/image";
 
@@ -29,60 +29,59 @@ const images = [
 const PictureStack = () => {
   const imageContainer = useRef(null);
   const paperclip = useRef(null);
-  const onScreen = useIntersecting(imageContainer, 0.5);
+  // const onScreen = useIntersecting(imageContainer, 0.5);
 
-  useEffect(() => {
-    const allItems = imageContainer.current.children
+  // useEffect(() => {
+  //   const allItems = imageContainer.current.children
 
-    const allImageBoxes = images.map((item, i) => {
-      return imageContainer.current.children[i].querySelector('.stack_image');
-    });
+  //   const allImageBoxes = images.map((item, i) => {
+  //     return imageContainer.current.children[i].querySelector('.stack_image');
+  //   });
 
-    if (onScreen) {
-      gsap.to([...allItems], {
-        opacity: 1,
-        ease: "power3",
-        stagger: 0.5,
-        duration: 0.1,
-      });
+  //   if (onScreen) {
+  //     gsap.to([...allItems], {
+  //       opacity: 1,
+  //       ease: "power3",
+  //       stagger: 0.5,
+  //       duration: 0.1,
+  //     });
 
-      gsap.from([...allItems], {
-        x: "-220%",
-        scale: 1.2,
-        ease: "power3",
-        stagger: 0.5,
-        duration: 1,
-        delay: 0.1
-      });
+  //     gsap.from([...allItems], {
+  //       x: "-220%",
+  //       scale: 1.2,
+  //       ease: "power3",
+  //       stagger: 0.5,
+  //       duration: 1,
+  //       delay: 0.1
+  //     });
 
-      gsap.from([...allImageBoxes], {
-        scale: 1.2,
-        ease: "power3",
-        stagger: 0.4,
-        duration: 2,
-      });
+  //     gsap.from([...allImageBoxes], {
+  //       scale: 1.2,
+  //       ease: "power3",
+  //       stagger: 0.4,
+  //       duration: 2,
+  //     });
 
-      gsap.from(paperclip.current, {
-        y: "-400%",
-        ease: "power3",
-        duration: 0.5,
-        delay: 2.5
-      });
+  //     gsap.from(paperclip.current, {
+  //       y: "-400%",
+  //       ease: "power3",
+  //       duration: 0.5,
+  //       delay: 2.5
+  //     });
 
-    } else {
-      gsap.to([...allItems], {
-        opacity: 0,
-        ease: "power3",
-        duration: 0.1,
-      });
-    }
-  }, [onScreen]);
+  //   } else {
+  //     gsap.to([...allItems], {
+  //       opacity: 0,
+  //       ease: "power3",
+  //       duration: 0.1,
+  //     });
+  //   }
+  // }, [onScreen]);
 
   return (
     <div
       id={styles.stack}
       ref={imageContainer}
-      onClick={() => console.log(onScreen)}
     >
       {images.map((item, index) => (
         <div
