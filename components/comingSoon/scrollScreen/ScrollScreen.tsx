@@ -48,16 +48,17 @@ const ScrollScreen = () => {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       if (activeSlide !== jobs.length - 2) {
         scroll(activeSlide + 1);
       }
-
-      if (activeSlide === jobs.length - 2) {
-        setActiveSlide(1);
-        scroll(1, 2);
-      }
     }, 700);
+
+    if (activeSlide === jobs.length - 2) {
+      clearTimeout(timer);;
+      setActiveSlide(1);
+      scroll(1, 2);
+    }
   }, [activeSlide]);
 
   const getScrollerHeight = (
