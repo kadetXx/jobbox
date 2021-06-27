@@ -5,7 +5,7 @@ import styles from "./Input.module.scss";
 import { cfp } from "@/helpers";
 interface InputProps {
   type: string;
-  disabled: boolean;
+  disabled?: boolean;
   height?: string | number;
   placeholder: string;
   errors: any;
