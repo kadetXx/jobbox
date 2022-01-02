@@ -6,14 +6,14 @@ import { Hero } from "@/components/landing";
 
 const Index = () => {
   return (
-    <>
+    <div data-page="home">
       <Hero />
-    </>
+    </div>
   );
 };
 
 export default Index;
 
 Index.getLayout = function getLayout(page: ReactElement) {
-  return <FrontLayout>{page}</FrontLayout>;
+  return <FrontLayout page="home">{page}</FrontLayout>;
 };

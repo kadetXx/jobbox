@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import styles from "./FrontLayout.module.scss";
 
 import Link from "next/link";
@@ -6,7 +6,18 @@ import { navLinks } from "@/mock";
 
 import { Logo, Button } from "@/shared";
 
-const Front = ({ children }) => {
+import { App } from "@/animations";
+
+interface Props {
+  children: React.ReactNode;
+  page: string;
+}
+
+const Front = ({ children, page }) => {
+  useLayoutEffect(() => {
+    new App({ page });
+  }, []);
+
   return (
     <div className={styles.layout}>
       <header className={styles.header}>
@@ -28,11 +39,19 @@ const Front = ({ children }) => {
           </ul>
         </nav>
         <div className={styles.header_buttons}>
-          <Button type="secondary-outline" onClick={null} className={styles.header_button}  >
+          <Button
+            type="secondary-outline"
+            onClick={null}
+            className={styles.header_button}
+          >
             Apply For Jobs
           </Button>
 
-          <Button type="secondary" onClick={null} className={styles.header_button}>
+          <Button
+            type="secondary"
+            onClick={null}
+            className={styles.header_button}
+          >
             Hire Talent
           </Button>
         </div>
