@@ -1,0 +1,19 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+@import "@/styles/utils";
+
+.button[data-type="primary"] {
+  @extend %btn_primary;
+}
+
+.button[data-type="primary-outline"] {
+  @extend %btn_primary_outline;
+}
+
+.button[data-type="secondary"] {
+  @extend %btn_secondary;
+}
+
+.button[data-type="secondary-outline"] {
+  @extend %btn_secondary_outline;
+}

@@ -1,0 +1,44 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+@import "@/styles/utils";
+
+.header {
+  width: 100%;
+  background-color: $col-white;
+  padding: 1rem 5%;
+
+  @include flex(space-between, center, nowrap);
+
+  .header_menuList {
+    list-style: none;
+    padding: 0;
+    margin-left: 6rem;
+
+    @include flex(space-between, center, nowrap);
+  }
+
+  .header_menuItem {
+    margin: 0 1.5rem;
+  }
+
+  .header_menuLink {
+    font-size: 0.9rem;
+    color: $col-primary;
+
+    &:hover {
+      color: $col-primary;
+      opacity: 0.7;
+    }
+  }
+
+  .header_buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: fit-content;
+    column-gap: 1rem;
+  }
+
+  .header_button {
+    padding: 0.75rem 1.2rem;
+  }
+}

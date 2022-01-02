@@ -1,16 +1,19 @@
-import React from 'react'
+import React from "react";
+import type { ReactElement } from "react";
 
-import { Hero, MainSection, CtaSection, Footer } from '@/components/comingSoon'
+import { FrontLayout } from "@/layouts";
+import { Hero } from "@/components/landing";
 
 const Index = () => {
   return (
-    <React.Fragment>
+    <>
       <Hero />
-      <MainSection />
-      <CtaSection />
-      <Footer />
-    </React.Fragment>
-  )
-}
+    </>
+  );
+};
 
-export default Index
+export default Index;
+
+Index.getLayout = function getLayout(page: ReactElement) {
+  return <FrontLayout>{page}</FrontLayout>;
+};

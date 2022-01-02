@@ -1,5 +1,8 @@
 import React from "react";
 import { AppProps } from "next/app";
+import type { ReactElement, ReactNode } from "react";
+import type { NextPage } from "next";
+
 import Head from "next/head";
 import "@/styles/index.scss";
 
@@ -7,8 +10,18 @@ import { Provider } from "react-redux";
 import { createWrapper } from "next-redux-wrapper";
 import store from "@/store";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
+  return getLayout(
     <React.Fragment>
       <Head>
         <link
@@ -16,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           rel="stylesheet"
         />
         <title>Jobbox</title>
-        <meta name="description" content="Project Yoda" />
+        <meta name="description" content="Find Jobs Easily" />
       </Head>
       <Provider store={store}>
         <Component {...pageProps} />
@@ -26,6 +39,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 const makeStore = () => store;
-const wrapper = createWrapper(makeStore)
+const wrapper = createWrapper(makeStore);
 
 export default wrapper.withRedux(MyApp);

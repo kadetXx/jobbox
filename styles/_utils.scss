@@ -1,0 +1,78 @@
+// layout
+%page-section {
+  padding: 2rem 3rem;
+}
+
+// buttons
+
+%btn {
+  min-width: 3rem;
+  min-height: 2.5rem;
+  padding: 0.8rem 1.5rem;
+  transition: all 0.3s ease-out;
+  border-radius: 5px;
+  font-size: 0.8rem;
+
+  @include flex(center, center, row nowrap);
+}
+
+%btn_primary {
+  @extend %btn;
+
+  color: $col-white;
+  background-color: $col-primary;
+  border: 1px solid $col-primary;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+%btn_primary_outline {
+  @extend %btn_primary;
+
+  color: $col-primary;
+  border-color: $col-primary;
+  background-color: transparent;
+
+  &:hover {
+    background-color: $col-primary;
+    color: $col-white;
+    opacity: 0.8;
+  }
+}
+
+%btn_secondary {
+  @extend %btn;
+
+  color: $col-white;
+  background-color: $col-secondary;
+  border: 1px solid $col-secondary;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+%btn_secondary_outline {
+  @extend %btn_secondary;
+
+  color: $col-secondary;
+  border-color: $col-secondary;
+  background-color: transparent;
+
+  &:hover {
+    background-color: $col-secondary;
+    color: $col-white;
+    opacity: 0.8;
+  }
+}
+
+%btn_icon {
+  @include flex(center, center);
+}
+
+%btn_icon_prefix {
+  @extend %btn_icon;
+  margin-right: 0.5rem;
+}

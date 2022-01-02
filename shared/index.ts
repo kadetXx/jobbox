@@ -5,6 +5,7 @@ import Select from './inputSelect/InputSelect'
 import JobExhibitCard from './jobExhibitCard/JobExhibitCard'
 import Badge from './badge/Badge'
 import Alert from './alert/Alert'
+import Button from './button/Button';
 
 export {
   Logo,
@@ -13,5 +14,6 @@ export {
   Select,
   JobExhibitCard,
   Badge,
-  Alert
+  Alert,
+  Button
 }

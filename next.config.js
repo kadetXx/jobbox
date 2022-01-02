@@ -1,3 +1,3 @@
-const withTM = require("next-transpile-modules")(["gsap/ScrollToPlugin"]);
+// const withTM = require("next-transpile-modules")(["gsap/ScrollToPlugin"]);
 
-module.exports = withTM();
+// module.exports = withTM();
