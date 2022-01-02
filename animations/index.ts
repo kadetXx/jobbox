@@ -1,5 +1,5 @@
 interface AppInterface {
-  currentpage: string;
+  currentpage: any;
   createPages(page: string): void;
   createPreloader(): void;
 }
@@ -19,9 +19,7 @@ export class App implements AppInterface {
     this.createPages(page);
   }
 
-  createPreloader() {
-      
-  }
+  createPreloader() {}
 
   createPages(page: string) {
     // save a list of all pages
@@ -30,7 +28,7 @@ export class App implements AppInterface {
     };
 
     // set current page to current page
-    this.currentpage = pages[page]
+    this.currentpage = pages[page];
     // initialize current page
     this.currentpage.create();
   }

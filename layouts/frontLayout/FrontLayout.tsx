@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import styles from "./FrontLayout.module.scss";
 
 import Link from "next/link";
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Front = ({ children, page }) => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     new App({ page });
   }, []);
 

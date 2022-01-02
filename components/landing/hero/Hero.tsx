@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <div className={styles.hero}>
       <div className={styles.hero_textsection}>
-        <h1 className={styles.hero_title}>
+        <h1 className={styles.hero_title} data-animation="heroTitle">
           Bridging the gap between{" "}
           <span className={styles.hero_titleAlt}>talent</span> &{" "}
           <span className={styles.hero_titleAlt}>opportunities</span>
@@ -51,13 +51,13 @@ const Hero = () => {
         <div className={styles.hero_imageContainer}>
           <Image src="/svg/hero-image.svg" layout="fill" />
 
-          <div className={styles.hero_imageFloat}>
+          <div className={styles.hero_imageFloat} data-animation="heroFloater">
             <Image src="/svg/hero-float-one.svg" layout="fill" />
           </div>
-          <div className={styles.hero_imageFloat}>
+          <div className={styles.hero_imageFloat} data-animation="heroFloater">
             <Image src="/svg/hero-float-two.svg" layout="fill" />
           </div>
-          <div className={styles.hero_imageFloat}>
+          <div className={styles.hero_imageFloat} data-animation="heroFloater">
             <Image src="/svg/hero-float-three.svg" layout="fill" />
           </div>
         </div>
