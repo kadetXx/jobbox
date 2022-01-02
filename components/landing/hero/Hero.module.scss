@@ -39,11 +39,35 @@
   
   .hero_imageContainer {
     position: relative;
-    height: fit-content;
+    height: 100%;
+    width: 100%;
+    margin-left: 10%;
   }
 
   .hero_imageFloat {
     position: absolute;
+    filter: drop-shadow(0px 10px 50px rgba(138, 149, 158, 0.15));
+  }
+
+  .hero_imageFloat:nth-of-type(1) {
+    top: 2rem;
+    left: -35%;
+    width: 22.688rem;
+    height: 13rem;
+  }
+
+  .hero_imageFloat:nth-of-type(2) {
+    top: 1rem;
+    right: 2rem;
+    width: 9.188rem;
+    height: 2.938rem;
+  }
+
+  .hero_imageFloat:nth-of-type(3) {
+    bottom: 3rem;
+    right: -12%;
+    width: 12.063rem;
+    height: 10.75rem;
   }
 }
 
@@ -82,7 +106,7 @@
   grid-column-start: 1;
   grid-column-end: 3;
   padding: 0 1rem;
-  margin-top: 4rem;
+  margin-top: 5rem;
 
   @include flex(space-between, center, nowrap);
 }

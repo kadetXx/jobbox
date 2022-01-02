@@ -49,22 +49,29 @@ const Hero = () => {
 
       <div className={styles.hero_imagesection}>
         <div className={styles.hero_imageContainer}>
-          <Image src="/svg/hero-image.svg" width="323.12" height="435.76" />
+          <Image src="/svg/hero-image.svg" layout="fill" />
+
           <div className={styles.hero_imageFloat}>
-            <Image src="/svg/hero-float-one.svg" width="363" height="208" />
+            <Image src="/svg/hero-float-one.svg" layout="fill" />
           </div>
           <div className={styles.hero_imageFloat}>
-            <Image src="/svg/hero-float-two.svg" width="147" height="47" />
+            <Image src="/svg/hero-float-two.svg" layout="fill" />
           </div>
           <div className={styles.hero_imageFloat}>
-            <Image src="/svg/hero-float-three.svg" width="193" height="172" />
+            <Image src="/svg/hero-float-three.svg" layout="fill" />
           </div>
         </div>
       </div>
 
       <div className={styles.hero_brands}>
         {brands.map((item, index) => (
-          <Image key={index} src={item.image} title={item.name} width={item.width} height={item.height} />
+          <Image
+            key={index}
+            src={item.image}
+            title={item.name}
+            width={item.width}
+            height={item.height}
+          />
         ))}
       </div>
     </div>
