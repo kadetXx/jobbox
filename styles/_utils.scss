@@ -1,6 +1,6 @@
 // layout
 %page-section {
-  padding: 2rem 3rem;
+  padding: 2rem 5%;
 }
 
 // buttons
@@ -9,11 +9,16 @@
   min-width: 3rem;
   min-height: 2.5rem;
   padding: 0.8rem 1.5rem;
-  transition: all 0.3s ease-out;
+  transition: all 0.2s ease-out;
   border-radius: 5px;
   font-size: 0.8rem;
+  font-weight: 500;
 
   @include flex(center, center, row nowrap);
+
+  &:hover {
+    transform: scale(0.95);
+  }
 }
 
 %btn_primary {
@@ -36,9 +41,7 @@
   background-color: transparent;
 
   &:hover {
-    background-color: $col-primary;
-    color: $col-white;
-    opacity: 0.8;
+    transform: scale(0.95);
   }
 }
 
@@ -60,16 +63,11 @@
   color: $col-secondary;
   border-color: $col-secondary;
   background-color: transparent;
-
-  &:hover {
-    background-color: $col-secondary;
-    color: $col-white;
-    opacity: 0.8;
-  }
 }
 
 %btn_icon {
   @include flex(center, center);
+  column-gap: 0.6rem;
 }
 
 %btn_icon_prefix {
