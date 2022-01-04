@@ -17,11 +17,9 @@ export class Component extends EventEmitter implements CompInterface {
   }
 
   create(element: string, elements: any) {
-    const preloader = document.querySelector(element);
-    this.element = preloader;
+    this.element = document.querySelector(element);
 
     this.elements = {};
-
     each(elements, (item: any, key: any) => {
       this.elements[key] = document.querySelectorAll(item);
     });

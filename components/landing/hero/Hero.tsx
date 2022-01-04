@@ -49,7 +49,7 @@ const Hero = () => {
 
       <div className={styles.hero_imagesection}>
         <div className={styles.hero_imageContainer}>
-          <Image src="/svg/hero-image.svg" layout="fill" />
+          <Image data-animation="heroImage" className={styles.hero_image} src="/svg/hero-image.svg" layout="fill" />
 
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
             <Image src="/svg/hero-float-one.svg" layout="fill" />
