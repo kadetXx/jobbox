@@ -16,11 +16,11 @@ const Hero = () => {
           <span className={styles.hero_titleAlt}>talent</span> &{" "}
           <span className={styles.hero_titleAlt}>opportunities</span>
         </h1>
-        <p className={styles.hero_desc}>
+        <p className={styles.hero_desc} data-animation="heroDesc">
           The online platform that allows job seekers and recruiters to meet on
           a level playing field.
         </p>
-        <div className={styles.hero_buttons}>
+        <div className={styles.hero_buttons} data-animation="heroButtons">
           <Button onClick={null} type="primary" className={styles.hero_button}>
             Get Started for Free
           </Button>
@@ -31,7 +31,7 @@ const Hero = () => {
             </a>
           </Link>
         </div>
-        <div className={styles.hero_checks}>
+        <div className={styles.hero_checks} data-animation="heroChecks">
           <div className={styles.hero_checker}>
             <Image src="/svg/checkmark.svg" width="16" height="16" />
             <span>Works Anywhere</span>
@@ -63,7 +63,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className={styles.hero_brands}>
+      <div className={styles.hero_brands} data-animation="heroBrands">
         {brands.map((item, index) => (
           <Image
             key={index}

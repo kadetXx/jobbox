@@ -24,10 +24,11 @@
   .header_menuLink {
     font-size: 0.9rem;
     color: $col-primary;
+    transition: all 0.1s ease-out;
 
     &:hover {
-      color: $col-primary;
-      opacity: 0.7;
+      color: $col-secondary;
+      filter: grayscale(100%);
     }
   }
 

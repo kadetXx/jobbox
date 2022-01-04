@@ -1,14 +1,17 @@
 import { Page } from "../classes/page";
 import gsap from "gsap";
-import CustomEase from "gsap/dist/CustomEase";
 import { each } from "lodash";
 
 export class Home extends Page {
   constructor() {
     super({
       heroTitle: '[data-animation="heroTitle"]',
+      heroDesc: '[data-animation="heroDesc"]',
       heroFloater: '[data-animation="heroFloater"]',
       heroImage: '[data-animation="heroImage"]',
+      heroButtons: '[data-animation="heroButtons"]',
+      heroChecks: '[data-animation="heroChecks"]',
+      heroBrands: '[data-animation="heroBrands"]',
     });
   }
 
@@ -24,9 +27,19 @@ export class Home extends Page {
     // set transform origin to center
     heroImage.style.transformOrigin = "center";
 
-    each(this.components.heroFloater, (item, index) => {
-      item.style.visibility = "hidden";
-    });
+    each(
+      [
+        ...this.components.heroFloater,
+        ...this.components.heroTitle,
+        ...this.components.heroDesc,
+        ...this.components.heroButtons,
+        ...this.components.heroChecks,
+        ...this.components.heroBrands,
+      ],
+      (item, index) => {
+        item.style.visibility = "hidden";
+      }
+    );
   }
 
   createPseudo(after: any, width: number, height: number) {
@@ -105,8 +118,7 @@ export class Home extends Page {
     });
 
     tl.to(heroImage, {
-      zIndex: "initial",
-      x: "0",
+      x: 0,
       y: 0,
       scale: 1,
       duration: 1,
@@ -114,7 +126,13 @@ export class Home extends Page {
     });
 
     tl.call(() => {
+      this.animateText();
       this.animateFloaters();
+    });
+
+    tl.to(heroImage, {
+      zIndex: "initial",
+      duration: 0,
     });
   }
 
@@ -153,5 +171,29 @@ export class Home extends Page {
       ease: "sine.inOut",
       duration: 2.5,
     });
+  }
+
+  animateText() {
+    const title = this.components.heroTitle;
+    const desc = this.components.heroDesc;
+    const buttons = this.components.heroButtons;
+    const checks = this.components.heroChecks;
+    const brands = this.components.heroBrands;
+
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      [title, desc, buttons, checks, brands],
+      {
+        y: 40,
+      },
+      {
+        autoAlpha: 1,
+        y: 0,
+        stagger: 0.2,
+        ease: "expo.out",
+        duration: 2.5,
+      }
+    );
   }
 }
