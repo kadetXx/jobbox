@@ -1,5 +1,6 @@
 interface AppInterface {
   currentpage: any;
+  preloader: any;
   createPages(page: string): void;
   createPreloader(): void;
 }
@@ -9,9 +10,11 @@ type Props = {
 };
 
 import { Home } from "./pages/home";
+import { Preloader } from "./components/preloader";
 
 export class App implements AppInterface {
   currentpage: any;
+  preloader: any;
 
   // constructor receiving props from react
   constructor({ page }: Props) {
@@ -19,7 +22,9 @@ export class App implements AppInterface {
     this.createPages(page);
   }
 
-  createPreloader() {}
+  createPreloader() {
+    this.preloader = new Preloader();
+  }
 
   createPages(page: string) {
     // save a list of all pages

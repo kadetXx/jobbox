@@ -1,9 +1,12 @@
-export class Component {
-  constructor({ elements }) {
-    this.create(elements);
+import { EventEmitter } from "events";
+
+export class Component extends EventEmitter {
+  constructor({ element, elements }) {
+    super();
+    this.create(element, elements);
   }
 
-  create(elements) {
+  create(element, elements) {
     // get all the clasnames passed in
     // for each of the data type passed in, select all and then save it as an item in this.elements
   }
