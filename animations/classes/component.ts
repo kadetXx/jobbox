@@ -1,14 +1,30 @@
-import { EventEmitter } from "events";
+interface CompInterface {
+  element: any;
+  elements: any;
+  create(element: string, elements: string): void;
+}
 
-export class Component extends EventEmitter {
+import { EventEmitter } from "events";
+import { each } from "lodash";
+
+export class Component extends EventEmitter implements CompInterface {
+  element: any;
+  elements: any;
+
   constructor({ element, elements }) {
     super();
     this.create(element, elements);
   }
 
-  create(element, elements) {
-    // get all the clasnames passed in
-    // for each of the data type passed in, select all and then save it as an item in this.elements
+  create(element: string, elements: any) {
+    const preloader = document.querySelector(element);
+    this.element = preloader;
+
+    this.elements = {};
+
+    each(elements, (item: any, key: any) => {
+      this.elements[key] = document.querySelectorAll(item);
+    });
   }
 
   // add general component methods here like destroy, etc

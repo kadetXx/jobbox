@@ -16,7 +16,6 @@ export class Page implements PageInterface {
     // for each of the data type passed in, select all and then save it as an item in this.elements
     each(components, (component: any, key: any) => {
       this.components[key] = document.querySelectorAll(component);
-      console.log(this.components);
     });    
   }
 

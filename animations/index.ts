@@ -18,6 +18,8 @@ export class App implements AppInterface {
 
   // constructor receiving props from react
   constructor({ page }: Props) {
+    // call create preloader method
+    this.createPreloader();
     // call createPages method
     this.createPages(page);
   }

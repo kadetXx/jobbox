@@ -11,6 +11,7 @@ html {
   margin: 0;
   height: 100%;
   font-size: calc(100vw / 1440 * 16);
+  background-color: #101010;
 
   @include flex(stretch, stretch, column);
 }
@@ -20,6 +21,7 @@ body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
+  background-color: #fff;
 
   @include flex(stretch, stretch, column);
 }
