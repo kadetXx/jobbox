@@ -3,7 +3,7 @@ import Router from "next/router";
 
 import { AuthLayout as Layout } from "@/layouts";
 
-import { SignInForm } from "@/components/authPages";
+// import { SignInForm } from "@/components/authPages";
 
 import { signInWithGoogle, signInWithEmailAndPassword } from "@/firebase";
 
@@ -88,7 +88,7 @@ const signIn = ({ user, setUser }) => {
 
   return (
     <Layout>
-      <SignInForm onSubmit={withEmail} withGoogle={withGoogle} />
+      {/* <SignInForm onSubmit={withEmail} withGoogle={withGoogle} /> */}
     </Layout>
   );
 };
