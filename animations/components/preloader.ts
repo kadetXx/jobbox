@@ -48,8 +48,10 @@ export class Preloader extends Component implements PreloaderType {
   onLoadingComplete() {
     const tl = gsap.timeline();
 
-    tl.set(this.elements.percentage, {
+    tl.to(this.elements.percentage, {
       autoAlpha: 0,
+      scale: 2,
+      duration: 0.5,
     });
 
     tl.call(() => {
