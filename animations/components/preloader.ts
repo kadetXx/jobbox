@@ -28,11 +28,11 @@ export class Preloader extends Component implements PreloaderType {
       const image = new Image();
       image.src = item.src;
 
-      image.onload = () => this.onAssetLoaded(image);
+      image.onload = () => this.onAssetLoaded();
     });
   }
 
-  onAssetLoaded(image: any) {
+  onAssetLoaded() {
     this.progress++;
     this.percentage = Math.round(
       (this.progress / this.elements.images.length) * 100
