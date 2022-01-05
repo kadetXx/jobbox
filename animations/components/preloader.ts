@@ -28,7 +28,10 @@ export class Preloader extends Component implements PreloaderType {
       const image = new Image();
       image.src = item.src;
 
-      image.onload = () => this.onAssetLoaded();
+      image.onload = () => {
+        item.src = image.src;
+        this.onAssetLoaded();
+      };
     });
   }
 
@@ -43,7 +46,7 @@ export class Preloader extends Component implements PreloaderType {
   }
 
   onLoadingComplete() {
-    const tl = gsap.timeline({ delay: 1 });
+    const tl = gsap.timeline();
 
     tl.set(this.elements.percentage, {
       autoAlpha: 0,
@@ -61,8 +64,6 @@ export class Preloader extends Component implements PreloaderType {
   }
 
   kill() {
-    console.log(this.element);
-
     gsap.to(this.element, {
       autoAlpha: 0,
       duration: 1,
