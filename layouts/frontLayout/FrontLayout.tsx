@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useRef } from "react";
 import styles from "./FrontLayout.module.scss";
 
 import Link from "next/link";
@@ -14,12 +14,15 @@ interface Props {
 }
 
 const Front = ({ children, page }) => {
+  const hasInit = useRef(false);
+  
   useEffect(() => {
-    init();
+    !hasInit.current && init();
   }, []);
 
   const init = useCallback(() => {
     new App({ page });
+    hasInit.current = true;
   }, []);
 
   return (
