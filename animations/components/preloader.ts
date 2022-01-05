@@ -51,7 +51,7 @@ export class Preloader extends Component implements PreloaderType {
     tl.to(this.elements.percentage, {
       autoAlpha: 0,
       scale: 2,
-      duration: 0.5,
+      duration: 0.2,
     });
 
     tl.call(() => {

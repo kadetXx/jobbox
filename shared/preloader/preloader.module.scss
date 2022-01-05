@@ -30,6 +30,7 @@
   right: 0;
   margin: auto;
   max-width: 40%;
+  visibility: hidden;
 
   @include flex(center, center, column nowrap);
 }
