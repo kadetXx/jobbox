@@ -50,17 +50,11 @@ export class Preloader extends Component implements PreloaderType {
 
     tl.set(this.elements.percentage, {
       autoAlpha: 0,
-      duration: 1,
     });
 
-    tl.call(
-      () => {
-        this.emit("start-pre-anim");
-      },
-      [],
-      0.7
-    );
-    this.emit("start-pre-anim");
+    tl.call(() => {
+      this.emit("start-pre-anim");
+    });
   }
 
   kill() {
