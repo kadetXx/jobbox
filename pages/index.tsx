@@ -2,7 +2,7 @@ import React from "react";
 import type { ReactElement } from "react";
 
 import { FrontLayout } from "@/layouts";
-import { Hero, Belief, Features } from "@/components/landing";
+import { Hero, Belief, Features, Cta } from "@/components/landing";
 
 const Index = () => {
   return (
@@ -10,6 +10,7 @@ const Index = () => {
       <Hero />
       <Belief />
       <Features />
+      <Cta />
     </div>
   );
 };

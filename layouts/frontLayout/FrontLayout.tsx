@@ -2,6 +2,7 @@ import React, { useEffect, useCallback, useRef } from "react";
 import styles from "./FrontLayout.module.scss";
 
 import Link from "next/link";
+import Image from "next/image";
 import { navLinks } from "@/mock";
 
 import { Logo, Button, Preloader } from "@/shared";
@@ -15,7 +16,7 @@ interface Props {
 
 const Front = ({ children, page }) => {
   const hasInit = useRef(false);
-  
+
   useEffect(() => {
     !hasInit.current && init();
   }, []);
@@ -66,7 +67,20 @@ const Front = ({ children, page }) => {
           </div>
         </header>
         <main>{children}</main>
-        <footer></footer>
+
+        <footer className={styles.footer}>
+          <div className={styles.footer_logo}>
+            <Logo type="default" width="109" height="27" />
+          </div>
+          <p className={styles.footer_copyright}>
+            Copyright &copy; 2021 Jobbox Limited. All rights reserved.
+          </p>
+          <div className={styles.footer_socials}>
+            <Image src="/svg/facebook.svg" width="20" height="20" />
+            <Image src="/svg/twitter.svg" width="20" height="20" />
+            <Image src="/svg/instagram.svg" width="20" height="20" />
+          </div>
+        </footer>
       </div>
     </>
   );
