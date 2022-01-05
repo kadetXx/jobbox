@@ -39,6 +39,18 @@ const Features = () => {
                 src={item.images.main}
                 layout="fill"
               />
+              <div className={styles.feature_floaters}>
+                {item.images.floaters.map((item, index) => (
+                  <div
+                    className={`${styles.feature_floater} ${
+                      styles[`feature_floater_${index + 1}`]
+                    }`}
+                    key={index}
+                  >
+                    <Image src={item} layout="fill" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
