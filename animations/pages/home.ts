@@ -188,6 +188,8 @@ export class Home extends Page {
 
     const tl = gsap.timeline();
 
+    tl.call(this.initSmoothScroll.bind(this));
+
     tl.fromTo(
       [title, desc, buttons, checks, brands],
       {
@@ -201,7 +203,5 @@ export class Home extends Page {
         duration: 2.5,
       }
     );
-
-    tl.call(this.initSmoothScroll.bind(this));
   }
 }
