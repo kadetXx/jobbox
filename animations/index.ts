@@ -29,8 +29,6 @@ export class App implements AppInterface {
     this.createPreloader();
     // call createPages method
     this.createPages(page);
-
-    this.update();
   }
 
   createPreloader() {
@@ -59,11 +57,5 @@ export class App implements AppInterface {
     this.preloader.kill();
     this.currentpage.onResize();
     this.currentpage.addEventListeners();
-  }
-
-  update() {
-    this.currentpage.updateScroll && this.currentpage.updateScroll();
-
-    this.frame = window.requestAnimationFrame(this.update.bind(this));
   }
 }

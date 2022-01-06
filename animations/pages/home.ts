@@ -15,11 +15,13 @@ export class Home extends Page {
       scrollContainer: '[data-animation="scroll-container"]',
       smoothScroll: '[data-animation="smooth-scroll"]',
     });
-
-    this.addEventListeners();
   }
 
   resetElements() {
+    // set body :overflow to hidden
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+
     const heroImage = this.components.heroImage[0];
     const parent = heroImage.parentElement;
 
@@ -199,17 +201,7 @@ export class Home extends Page {
         duration: 2.5,
       }
     );
-  }
 
-  addEventListeners() {
-    // set body :overflow to hidden
-    document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-
-    document.addEventListener("mousewheel", this.onMouseWheel.bind(this));
-    document.addEventListener("resize", this.onResize.bind(this));
-
-    // this.components.scrollContainer[0].style.position = "abosolute";
-    this.frame = window.requestAnimationFrame(this.updateScroll.bind(this));
+    tl.call(this.update.bind(this));
   }
 }

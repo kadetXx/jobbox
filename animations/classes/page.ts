@@ -16,14 +16,6 @@ export class Page extends EventEmitter implements PageInterface {
   constructor({ ...elements }: any) {
     super();
     this.elements = elements;
-  }
-
-  create() {
-    this.components = {};
-    // for each of the data type passed in, select all and then save it as an item in this.elements
-    each(this.elements, (component: any, key: any) => {
-      this.components[key] = document.querySelectorAll(component);
-    });
 
     this.scroll = {
       target: 0,
@@ -32,10 +24,23 @@ export class Page extends EventEmitter implements PageInterface {
     };
   }
 
+  create() {
+    this.components = {};
+    // for each of the data type passed in, select all and then save it as an item in this.elements
+    each(this.elements, (component: any, key: any) => {
+      this.components[key] = document.querySelectorAll(component);
+    });
+  }
+
   // add general page methods here like event listeners, show and hide
   onMouseWheel(e: WheelEvent) {
     const { pixelY } = NormalizeWheel(e);
     this.scroll.target += pixelY;
+  }
+
+  onResize() {
+    this.scroll.limit =
+      this.components.scrollContainer[0].clientHeight - window.innerHeight;
   }
 
   updateScroll() {
@@ -52,11 +57,15 @@ export class Page extends EventEmitter implements PageInterface {
     );
 
     this.components.smoothScroll[0].style.transform = `translateY(-${this.scroll.current}px)`;
-    // console.log("updating");
   }
 
-  onResize() {
-    this.scroll.limit =
-      this.components.scrollContainer[0].clientHeight - window.innerHeight;
+  update() {
+    this.updateScroll();
+    this.frame = window.requestAnimationFrame(this.update.bind(this));
+  }
+
+  addEventListeners() {
+    document.addEventListener("mousewheel", this.onMouseWheel.bind(this));
+    document.addEventListener("resize", this.onResize.bind(this));
   }
 }
