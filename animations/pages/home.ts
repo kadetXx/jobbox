@@ -202,6 +202,6 @@ export class Home extends Page {
       }
     );
 
-    tl.call(this.update.bind(this));
+    tl.call(this.initSmoothScroll.bind(this));
   }
 }

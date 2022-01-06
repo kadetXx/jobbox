@@ -59,9 +59,9 @@ export class Page extends EventEmitter implements PageInterface {
     this.components.smoothScroll[0].style.transform = `translateY(-${this.scroll.current}px)`;
   }
 
-  update() {
+  initSmoothScroll() {
     this.updateScroll();
-    this.frame = window.requestAnimationFrame(this.update.bind(this));
+    this.frame = window.requestAnimationFrame(this.initSmoothScroll.bind(this));
   }
 
   addEventListeners() {
