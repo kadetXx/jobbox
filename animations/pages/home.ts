@@ -2,6 +2,8 @@ import { Page } from "../classes/page";
 import gsap from "gsap";
 import { each } from "lodash";
 
+import { BeliefBtn } from "../elements/beliefBtn";
+
 export class Home extends Page {
   constructor() {
     super({
@@ -14,6 +16,8 @@ export class Home extends Page {
       heroBrands: '[data-animation="heroBrands"]',
       scrollContainer: '[data-animation="scroll-container"]',
       smoothScroll: '[data-animation="smooth-scroll"]',
+      beliefImg: "[data-animation='beliefImg']",
+      beliefBtn: "[data-animation='beliefBtn']",
     });
   }
 
@@ -188,6 +192,7 @@ export class Home extends Page {
 
     const tl = gsap.timeline();
 
+    tl.call(this.createComponentAnimations.bind(this));
     tl.call(this.initSmoothScroll.bind(this));
 
     tl.fromTo(
@@ -203,5 +208,12 @@ export class Home extends Page {
         duration: 2.5,
       }
     );
+  }
+
+  createComponentAnimations() {
+    new BeliefBtn({
+      element: this.elements.beliefImg,
+      elements: { floaters: this.elements.beliefBtn },
+    });
   }
 }

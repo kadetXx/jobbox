@@ -16,14 +16,14 @@ const Belief = () => {
         they want!
       </p>
 
-      <div className={styles.belief_images}>
+      <div className={styles.belief_images} data-animation="beliefImg">
         <Image src="/svg/home-job-card.svg" layout="fill" />
 
         <div className={styles.belief_floaters} >
-          <div className={styles.belief_imageFloat}>
+          <div className={styles.belief_imageFloat} data-animation="beliefBtn">
             <Image src="/svg/home-jc-reject.svg" layout="fill" />
           </div>
-          <div className={styles.belief_imageFloat}>
+          <div className={styles.belief_imageFloat} data-animation="beliefBtn">
             <Image src="/svg/home-jc-review.svg" layout="fill" />
           </div>
         </div>
