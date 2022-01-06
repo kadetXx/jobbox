@@ -9,7 +9,7 @@ export const features = [
       url: "/",
     },
     images: {
-      main: "/svg/feat-screen-one.svg",
+      main: "/img/feat-screen-one.png",
       floaters: ["/svg/feat-btn-one.svg", "/svg/feat-btn-two.svg"],
     },
   },
@@ -24,7 +24,7 @@ export const features = [
       url: "/",
     },
     images: {
-      main: "/svg/feat-screen-two.svg",
+      main: "/img/feat-screen-two.png",
       floaters: ["/svg/feat-btn-three.svg", "/svg/feat-btn-four.svg"],
     },
   },

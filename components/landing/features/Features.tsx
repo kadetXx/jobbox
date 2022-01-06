@@ -34,11 +34,14 @@ const Features = () => {
           <div className={styles.feature_imgContainer}>
             <div className={styles.feature_imgBgWrap}>
               <div className={styles.feature_imgBg}></div>
-              <Image
-                className={styles.feature_screen}
-                src={item.images.main}
-                layout="fill"
-              />
+              <div className={styles.feature_screen}>
+                <Image
+                  className={styles.feature_screen}
+                  src={item.images.main}
+                  layout="fill"
+                  unoptimized={true}
+                />
+              </div>
               <div className={styles.feature_floaters}>
                 {item.images.floaters.map((item, index) => (
                   <div
