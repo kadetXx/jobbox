@@ -29,7 +29,7 @@ const Front = ({ children, page }) => {
   return (
     <>
       <Preloader />
-      <div className={styles.layout}>
+      <div className={styles.layout} data-animation='scroll-container'>
         <div className={styles.layout_wrapper} data-animation="smooth-scroll">
           <header className={styles.header}>
             <Logo type="blue" width="109" height="27" />
