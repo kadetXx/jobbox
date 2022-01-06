@@ -19,6 +19,7 @@
     "next-redux-wrapper": "^6.0.2",
     "next-transpile-modules": "^7.2.0",
     "normalize-wheel": "^1.0.1",
+    "prefix": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "16.13.1",
     "react-fast-marquee": "^1.1.3",

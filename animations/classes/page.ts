@@ -7,15 +7,18 @@ import { EventEmitter } from "events";
 import { each } from "lodash";
 import NormalizeWheel from "normalize-wheel";
 import gsap from "gsap";
+import Prefix from "prefix";
 export class Page extends EventEmitter implements PageInterface {
   components: any;
   elements: any;
   scroll: any;
   frame: any;
+  transformPrefix: any;
 
   constructor({ ...elements }: any) {
     super();
     this.elements = elements;
+    this.transformPrefix = Prefix("transform");
 
     this.scroll = {
       target: 0,
@@ -53,10 +56,12 @@ export class Page extends EventEmitter implements PageInterface {
     this.scroll.current = gsap.utils.interpolate(
       this.scroll.current,
       this.scroll.target,
-      0.1
+      0.05
     );
 
-    this.components.smoothScroll[0].style.transform = `translateY(-${this.scroll.current}px)`;
+    this.components.smoothScroll[0].style[
+      this.transformPrefix
+    ] = `translateY(-${this.scroll.current}px)`;
   }
 
   initSmoothScroll() {

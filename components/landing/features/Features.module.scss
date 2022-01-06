@@ -58,6 +58,7 @@
   height: 32.75rem;
 
   @include flex(flex-end, center, column nowrap);
+  // display: none;
 }
 
 .feature_imgBg {
