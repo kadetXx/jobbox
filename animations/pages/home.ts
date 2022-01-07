@@ -220,9 +220,11 @@ export class Home extends Page {
 
     new FeatBtn({
       element: null,
-      elements: { btns: this.elements.featBtn },
-      scrollHeight: this.scroll.limit,
-      scrollPosition: this.scroll.current,
+      elements: {
+        btns: this.elements.featBtn,
+        scrollContainer: this.elements.scrollContainer,
+      },
+      // scrollHeight: this.scroll.limit,
     });
   }
 }

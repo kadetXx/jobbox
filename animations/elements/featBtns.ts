@@ -1,6 +1,5 @@
 import { Animation } from "../classes/animation";
 import gsap from "gsap";
-
 export class FeatBtn extends Animation {
   scrollPosition: number;
   scrollHeight: number;
@@ -8,19 +7,19 @@ export class FeatBtn extends Animation {
   mapped: number;
   scroll: any;
 
-  constructor({ element, elements, scrollHeight, scrollPosition }) {
+  constructor({ element, elements }) {
     super({ element, elements });
 
-    this.scrollHeight = scrollHeight / 2;
-    this.scrollPosition = scrollPosition;
-    this.mapScroll();    
+    // this.scrollHeight = scrollHeight / 2;
+    this.mapScroll();
   }
 
   mapScroll() {
     const [first, second] = this.elements.btns;
 
     const displacement = 500;
-    this.mapped = displacement / this.scrollHeight;
+    // this.mapped = displacement / this.scrollHeight;
+    this.mapped = displacement / (this.scroll.limit / 2);
 
     gsap.set(first, {
       x: -displacement,
@@ -32,9 +31,9 @@ export class FeatBtn extends Animation {
   animateButtons() {
     const [first, second] = this.elements.btns;
 
-    first.style.transform = `translateX(${
-      this.scrollPosition * this.mapped - 500
-    })`;
+    gsap.set(first, {
+      x: this.scroll.current * this.mapped - 500,
+    });
 
     this.frame = window.requestAnimationFrame(this.animateButtons.bind(this));
   }
