@@ -11,7 +11,7 @@ const Features = () => {
     <div className={styles.features}>
       {features.map((item, index) => (
         <div className={styles.feature} key={index}>
-          <div className={styles.feature_textContainer}>
+          <div data-animation="texts" className={styles.feature_textContainer}>
             <span className={styles.feature_tag}>
               <svg
                 width="15"
@@ -24,16 +24,10 @@ const Features = () => {
               </svg>
               {item.tag}
             </span>
-            <h2 data-animation="texts" className={styles.feature_title}>
-              {item.title}
-            </h2>
-            <p data-animation="texts" className={styles.feature_description}>
-              {item.description}
-            </p>
+            <h2 className={styles.feature_title}>{item.title}</h2>
+            <p className={styles.feature_description}>{item.description}</p>
             <Link href={item.link.url}>
-              <a data-animation="texts" className={styles.feature_cta}>
-                {item.link.text}
-              </a>
+              <a className={styles.feature_cta}>{item.link.text}</a>
             </Link>
           </div>
 

@@ -26,8 +26,6 @@ export class Component extends EventEmitter implements CompInterface {
     this.elements = {};
 
     each(elements, (item: any, key: any) => {
-      console.log(item);
-
       if (item instanceof window.HTMLElement) {
         this.elements[key] = item;
       } else {

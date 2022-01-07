@@ -4,7 +4,7 @@ import { each } from "lodash";
 
 import { BeliefBtn } from "../elements/beliefBtn";
 import { FeatBtn } from "../elements/featBtns";
-import { SlideInFromBottom } from "../elements/slideInFromBottom";
+import { FeatText } from "../elements/featText";
 
 export class Home extends Page {
   constructor() {
@@ -223,7 +223,7 @@ export class Home extends Page {
     });
 
     each(this.components.texts, (text) => {
-      new SlideInFromBottom({
+      new FeatText({
         element: text,
         elements: {
           texts: text,

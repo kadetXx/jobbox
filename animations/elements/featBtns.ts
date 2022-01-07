@@ -1,15 +1,13 @@
 import { Animation } from "../classes/animation";
 import gsap from "gsap";
 export class FeatBtn extends Animation {
-  scrollPosition: number;
-  scrollHeight: number;
   frame: any;
   mapped: number;
   scroll: any;
 
   constructor({ element, elements }) {
     super({ element, elements });
-    
+
     this.mapScroll();
   }
 
