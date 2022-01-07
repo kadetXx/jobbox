@@ -24,23 +24,14 @@ const Features = () => {
               </svg>
               {item.tag}
             </span>
-            <h2
-              data-animation={`texts${index + 1}`}
-              className={styles.feature_title}
-            >
+            <h2 data-animation="texts" className={styles.feature_title}>
               {item.title}
             </h2>
-            <p
-              data-animation={`texts${index + 1}`}
-              className={styles.feature_description}
-            >
+            <p data-animation="texts" className={styles.feature_description}>
               {item.description}
             </p>
             <Link href={item.link.url}>
-              <a
-                data-animation={`texts${index + 1}`}
-                className={styles.feature_cta}
-              >
+              <a data-animation="texts" className={styles.feature_cta}>
                 {item.link.text}
               </a>
             </Link>

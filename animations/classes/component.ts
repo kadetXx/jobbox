@@ -16,12 +16,23 @@ export class Component extends EventEmitter implements CompInterface {
     this.create(element, elements);
   }
 
-  create(element: string, elements: any) {
-    this.element = document.querySelector(element);
+  create(element: any, elements: any) {
+    if (element instanceof window.HTMLElement) {
+      this.element = element;
+    } else {
+      this.element = document.querySelector(element);
+    }
 
     this.elements = {};
+
     each(elements, (item: any, key: any) => {
-      this.elements[key] = document.querySelectorAll(item);
+      console.log(item);
+
+      if (item instanceof window.HTMLElement) {
+        this.elements[key] = item;
+      } else {
+        this.elements[key] = document.querySelectorAll(item);
+      }
     });
   }
 

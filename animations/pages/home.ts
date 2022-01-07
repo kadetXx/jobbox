@@ -22,8 +22,8 @@ export class Home extends Page {
       beliefBtn: "[data-animation='beliefBtn']",
       featBtnOne: "[data-animation='featBtn1']",
       featBtnTwo: "[data-animation='featBtn2']",
-      texts1: "[data-animation='texts1']",
-      texts2: "[data-animation='texts2']",
+      texts: "[data-animation='texts']",
+      // texts2: "[data-animation='texts2']",
     });
   }
 
@@ -222,13 +222,11 @@ export class Home extends Page {
       elements: { floaters: this.elements.beliefBtn },
     });
 
-    const texts = [this.elements.texts1, this.elements.texts2];
-
-    each(texts, (group) => {
+    each(this.components.texts, (text) => {
       new SlideInFromBottom({
-        element: group,
+        element: text,
         elements: {
-          texts: group,
+          texts: text,
           scrollContainer: this.elements.scrollContainer,
         },
       });
