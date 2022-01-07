@@ -3,32 +3,58 @@ import gsap from "gsap";
 import { each } from "lodash";
 
 export class BeliefBtn extends Animation {
+  shouldAnimate: boolean;
+  tl: any;
+
   constructor({ element, elements }) {
     super({ element, elements });
+    this.shouldAnimate = true;
+
+    // this.tl = gsap.timeline();
   }
 
   animateIn() {
     super.animateIn();
 
-    alert("observer start");
+    const tl = gsap.timeline();
 
-    gsap.to(this.elements.floaters, {
-      y: 0,
-      stagger: 0.3,
-      ease: "expo.out",
-      // delay: 0.5,
-      duration: 2,
-    });
+    tl.fromTo(
+      this.element,
+      {
+        y: "100%",
+      },
+      {
+        autoAlpha: 1,
+        y: 0,
+        ease: "expo.out",
+        duration: 1,
+      }
+    );
+
+    tl.to(
+      this.elements.floaters,
+      // { y: "-100%", autoAlpha: 0 },
+      {
+        y: 0,
+        stagger: 0.2,
+        ease: "sine.out",
+        autoAlpha: 1,
+        delay: 0.7,
+      },
+      0.5
+    );
   }
 
   animateOut() {
     super.animateOut();
 
-    alert("observer enddd");
+    gsap.set(this.element, {
+      autoAlpha: 0,
+    });
 
-    gsap.to(this.elements.floaters, {
-      y: "-200%",
-      ease: "elastic.out(1, 0.3)",
+    gsap.set(this.elements.floaters, {
+      autoAlpha: 0,
+      y: "-80%",
     });
   }
 }

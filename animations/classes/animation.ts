@@ -9,9 +9,10 @@ export class Animation extends Component {
     super({ element, elements });
 
     this.observerOptions = {
-      rootMargin: "0px 0px -30% 0px",
+      // rootMargin: "0px 0px -15% 0px",
       threshold: 1.0,
     };
+
     this.createObserver();
   }
 
