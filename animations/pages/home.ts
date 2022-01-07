@@ -4,6 +4,7 @@ import { each } from "lodash";
 
 import { BeliefBtn } from "../elements/beliefBtn";
 import { FeatBtn } from "../elements/featBtns";
+import { SlideInFromBottom } from "../elements/slideInFromBottom";
 
 export class Home extends Page {
   constructor() {
@@ -21,6 +22,8 @@ export class Home extends Page {
       beliefBtn: "[data-animation='beliefBtn']",
       featBtnOne: "[data-animation='featBtn1']",
       featBtnTwo: "[data-animation='featBtn2']",
+      texts1: "[data-animation='texts1']",
+      texts2: "[data-animation='texts2']",
     });
   }
 
@@ -219,15 +222,24 @@ export class Home extends Page {
       elements: { floaters: this.elements.beliefBtn },
     });
 
+    const texts = [this.elements.texts1, this.elements.texts2];
+
+    each(texts, (group) => {
+      new SlideInFromBottom({
+        element: group,
+        elements: {
+          texts: group,
+          scrollContainer: this.elements.scrollContainer,
+        },
+      });
+    });
+
     const featuresButtons = [
       this.elements.featBtnOne,
       this.elements.featBtnTwo,
     ];
 
-    console.log(featuresButtons);
-
     each(featuresButtons, (group) => {
-      
       new FeatBtn({
         element: group,
         elements: {

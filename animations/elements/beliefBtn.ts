@@ -18,6 +18,10 @@ export class BeliefBtn extends Animation {
 
     const tl = gsap.timeline();
 
+    tl.set(this.element, {
+      autoAlpha: 0,
+    });
+
     tl.fromTo(
       this.element,
       {
