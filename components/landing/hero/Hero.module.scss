@@ -114,3 +114,7 @@
 
   @include flex(space-between, center, nowrap);
 }
+
+.hero_brand {
+  position: relative;
+}

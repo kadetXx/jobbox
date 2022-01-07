@@ -49,7 +49,12 @@ const Hero = () => {
 
       <div className={styles.hero_imagesection}>
         <div className={styles.hero_imageContainer}>
-          <Image data-animation="heroImage" className={styles.hero_image} src="/svg/hero-image.svg" layout="fill" />
+          <Image
+            data-animation="heroImage"
+            className={styles.hero_image}
+            src="/svg/hero-image.svg"
+            layout="fill"
+          />
 
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
             <Image src="/svg/hero-float-one.svg" layout="fill" />
@@ -65,13 +70,20 @@ const Hero = () => {
 
       <div className={styles.hero_brands} data-animation="heroBrands">
         {brands.map((item, index) => (
-          <Image
-            key={index}
-            src={item.image}
-            title={item.name}
-            width={item.width}
-            height={item.height}
-          />
+          <div
+            className={styles.hero_brand}
+            style={{
+              width: `${item.width / 16}rem`,
+              height: `${item.height / 16}rem`,
+            }}
+          >
+            <Image
+              key={index}
+              src={item.image}
+              title={item.name}
+              layout="fill"
+            />
+          </div>
         ))}
       </div>
     </div>
