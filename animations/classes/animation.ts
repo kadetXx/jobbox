@@ -1,12 +1,14 @@
 import { Component } from "./component";
 import gsap from "gsap";
 import NormalizeWheel from "normalize-wheel";
+import { divide } from "lodash";
 export class Animation extends Component {
   observe: any;
   observer: any;
   observerOptions: any;
   scroll: any;
   frame: any;
+  finishPoint: number;
 
   constructor({ element, elements }) {
     // call methods here
@@ -22,6 +24,10 @@ export class Animation extends Component {
       current: 0,
       limit: 0,
     };
+
+    // calculate the distance between midoint of viewport and midpoint of element and then calculate the percentage it it from total scroll height
+
+    this.finishPoint = 1;
 
     this.addEventListeners();
     this.onResize();
@@ -41,8 +47,15 @@ export class Animation extends Component {
 
   onResize() {
     if (this.elements.scrollContainer) {
-      this.scroll.limit =
-        (this.elements.scrollContainer[0].clientHeight - window.innerHeight);
+      // calculate finish point of animation
+      this.calculateFinishPoint();
+
+      // get scrollable height
+      const scrollableHeight =
+        this.elements.scrollContainer[0].clientHeight - window.innerHeight;
+
+      // set limit to calculated finish point
+      this.scroll.limit = scrollableHeight * this.finishPoint;
     }
   }
 
@@ -77,6 +90,17 @@ export class Animation extends Component {
     }, this.observerOptions);
 
     this.element && this.observer.observe(this.element);
+  }
+
+  calculateFinishPoint() {
+    // get scrollable height
+    const scrollableHeight =
+      this.elements.scrollContainer[0].clientHeight - window.innerHeight;
+
+    const { y, height } = this.element?.getBoundingClientRect() || {};
+    const distanceBtw = y - window.innerHeight / 2 + height / 2;
+
+    this.finishPoint = distanceBtw / scrollableHeight;
   }
 
   animateIn() {}

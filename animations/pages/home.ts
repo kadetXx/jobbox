@@ -217,9 +217,9 @@ export class Home extends Page {
       element: this.elements.beliefImg,
       elements: { floaters: this.elements.beliefBtn },
     });
-   
+
     new FeatBtn({
-      element: null,
+      element: this.elements.featBtn,
       elements: {
         btns: this.elements.featBtn,
         scrollContainer: this.elements.scrollContainer,
