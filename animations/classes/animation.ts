@@ -25,8 +25,6 @@ export class Animation extends Component {
       limit: 0,
     };
 
-    // calculate the distance between midoint of viewport and midpoint of element and then calculate the percentage it it from total scroll height
-
     this.finishPoint = 1;
 
     this.addEventListeners();

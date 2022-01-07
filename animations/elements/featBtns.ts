@@ -18,7 +18,6 @@ export class FeatBtn extends Animation {
     const [first, second] = this.elements.btns;
 
     const displacement = 500;
-    // this.mapped = displacement / this.scrollHeight;
     this.mapped = displacement / this.scroll.limit;
 
     gsap.set(first, {
