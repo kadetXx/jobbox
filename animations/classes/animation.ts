@@ -14,10 +14,10 @@ export class Animation extends Component {
     // call methods here
     super({ element, elements });
 
-    // this.observerOptions = {
-    //   rootMargin: "0px 0px -20% 0px",
-    //   threshold: 1,
-    // };
+    this.observerOptions = {
+      // rootMargin: "0px 0px -20% 0px",
+      threshold: 1,
+    };
 
     this.scroll = {
       target: 0,
@@ -85,7 +85,7 @@ export class Animation extends Component {
           this.animateOut();
         }
       });
-    }/*, this.observerOptions*/);
+    }, this.observerOptions);
 
     this.element && this.observer.observe(this.element);
   }
