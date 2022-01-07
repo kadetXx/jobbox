@@ -10,7 +10,9 @@ export class BeliefBtn extends Animation {
     super({ element, elements });
     this.shouldAnimate = true;
 
-    // this.tl = gsap.timeline();
+    if ('IntersectionObserver' in window) {
+      this.animateOut()
+    }
   }
 
   animateIn() {

@@ -4,20 +4,20 @@ import gsap from "gsap";
 export class SlideInFromBottom extends Animation {
   constructor({ element, elements }) {
     super({ element, elements });
+
+    if ('IntersectionObserver' in window) {
+      this.animateOut()
+    }
   }
 
   animateIn(): void {
     super.animateIn();
 
-    gsap.set(this.elements.texts, {
-      autoAlpha: 0,
-    });
-
-    gsap.fromTo(
+    gsap.to(
       this.elements.texts,
-      {
-        y: 40,
-      },
+      // {
+      //   y: 40,
+      // },
       {
         autoAlpha: 1,
         y: 0,
@@ -31,8 +31,7 @@ export class SlideInFromBottom extends Animation {
     super.animateOut();
   
     gsap.set(this.elements.texts, {
-      autoAlpha: 0,
-      delay: 2
+      y: '50%'
     });
   }
 }

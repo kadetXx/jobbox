@@ -9,8 +9,7 @@ export class FeatBtn extends Animation {
 
   constructor({ element, elements }) {
     super({ element, elements });
-
-    // this.scrollHeight = scrollHeight / 2;
+    
     this.mapScroll();
   }
 
