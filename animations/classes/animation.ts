@@ -42,7 +42,7 @@ export class Animation extends Component {
   onResize() {
     if (this.elements.scrollContainer) {
       this.scroll.limit =
-        this.elements.scrollContainer[0].clientHeight - window.innerHeight;
+        (this.elements.scrollContainer[0].clientHeight - window.innerHeight);
     }
   }
 

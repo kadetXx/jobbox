@@ -217,14 +217,13 @@ export class Home extends Page {
       element: this.elements.beliefImg,
       elements: { floaters: this.elements.beliefBtn },
     });
-
+   
     new FeatBtn({
       element: null,
       elements: {
         btns: this.elements.featBtn,
         scrollContainer: this.elements.scrollContainer,
       },
-      // scrollHeight: this.scroll.limit,
     });
   }
 }
