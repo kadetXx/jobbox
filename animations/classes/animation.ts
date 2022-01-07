@@ -28,7 +28,7 @@ export class Animation extends Component {
       });
     }, this.observerOptions);
 
-    this.observer.observe(this.element);
+    this.element && this.observer.observe(this.element);
   }
 
   animateIn() {}

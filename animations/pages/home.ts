@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { each } from "lodash";
 
 import { BeliefBtn } from "../elements/beliefBtn";
+import { FeatBtn } from "../elements/featBtns";
 
 export class Home extends Page {
   constructor() {
@@ -18,6 +19,7 @@ export class Home extends Page {
       smoothScroll: '[data-animation="smooth-scroll"]',
       beliefImg: "[data-animation='beliefImg']",
       beliefBtn: "[data-animation='beliefBtn']",
+      featBtn: "[data-animation='featBtn']",
     });
   }
 
@@ -214,6 +216,13 @@ export class Home extends Page {
     new BeliefBtn({
       element: this.elements.beliefImg,
       elements: { floaters: this.elements.beliefBtn },
+    });
+
+    new FeatBtn({
+      element: null,
+      elements: { btns: this.elements.featBtn },
+      scrollHeight: this.scroll.limit,
+      scrollPosition: this.scroll.current,
     });
   }
 }
