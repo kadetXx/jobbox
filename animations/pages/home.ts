@@ -19,7 +19,8 @@ export class Home extends Page {
       smoothScroll: '[data-animation="smooth-scroll"]',
       beliefImg: "[data-animation='beliefImg']",
       beliefBtn: "[data-animation='beliefBtn']",
-      featBtn: "[data-animation='featBtn']",
+      featBtnOne: "[data-animation='featBtn1']",
+      featBtnTwo: "[data-animation='featBtn2']",
     });
   }
 
@@ -218,12 +219,22 @@ export class Home extends Page {
       elements: { floaters: this.elements.beliefBtn },
     });
 
-    new FeatBtn({
-      element: this.elements.featBtn,
-      elements: {
-        btns: this.elements.featBtn,
-        scrollContainer: this.elements.scrollContainer,
-      },
+    const featuresButtons = [
+      this.elements.featBtnOne,
+      this.elements.featBtnTwo,
+    ];
+
+    console.log(featuresButtons);
+
+    each(featuresButtons, (group) => {
+      
+      new FeatBtn({
+        element: group,
+        elements: {
+          btns: group,
+          scrollContainer: this.elements.scrollContainer,
+        },
+      });
     });
   }
 }

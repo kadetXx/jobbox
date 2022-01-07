@@ -45,7 +45,7 @@ const Features = () => {
               <div className={styles.feature_floaters}>
                 {item.images.floaters.map((item, index) => (
                   <div
-                    data-animation="featBtn"
+                    data-animation={`featBtn${index + 1}`}
                     className={`${styles.feature_floater} ${
                       styles[`feature_floater_${index + 1}`]
                     }`}

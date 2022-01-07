@@ -17,14 +17,10 @@ export class FeatBtn extends Animation {
   mapScroll() {
     const [first, second] = this.elements.btns;
 
-    const displacement = 500;
+    const displacement = 250;
     this.mapped = displacement / this.scroll.limit;
 
-    gsap.set(first, {
-      x: -displacement,
-    });
-
-    gsap.set(second, {
+    gsap.set([first, second], {
       y: displacement,
     });
 
@@ -34,12 +30,9 @@ export class FeatBtn extends Animation {
   animateButtons() {
     const [first, second] = this.elements.btns;
 
-    gsap.set(first, {
-      x: this.scroll.current * this.mapped - 500,
-    });
-
-    gsap.set(second, {
-      y: -this.scroll.current * this.mapped + 500,
+    gsap.set([first, second], {
+      y: -this.scroll.current * this.mapped + 250,
+      stagger: 0.2,
     });
 
     this.frame = window.requestAnimationFrame(this.animateButtons.bind(this));

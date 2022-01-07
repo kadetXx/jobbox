@@ -39,7 +39,6 @@ export class BeliefBtn extends Animation {
         stagger: 0.2,
         ease: "sine.out",
         autoAlpha: 1,
-        delay: 0.7,
       },
       0.5
     );

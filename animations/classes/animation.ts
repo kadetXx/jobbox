@@ -98,6 +98,8 @@ export class Animation extends Component {
     const { y, height } = this.element?.getBoundingClientRect() || {};
     const distanceBtw = y - window.innerHeight / 2 + height / 2;
 
+    console.log(this.element);
+
     this.finishPoint = distanceBtw / scrollableHeight;
   }
 
