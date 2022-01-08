@@ -35,12 +35,12 @@ const Features = () => {
             <div className={styles.feature_imgBgWrap}>
               <div className={styles.feature_imgBg}></div>
               <div className={styles.feature_screen}>
-                <Image
-                  className={styles.feature_screen}
-                  src={item.images.main}
-                  layout="fill"
-                  unoptimized={true}
-                />
+                <figure>
+                  <img
+                    className={styles.feature_screen}
+                    src={item.images.main}
+                  />
+                </figure>
               </div>
               <div className={styles.feature_floaters}>
                 {item.images.floaters.map((item, index) => (
@@ -51,7 +51,9 @@ const Features = () => {
                     }`}
                     key={index}
                   >
-                    <Image src={item} layout="fill" />
+                    <figure>
+                      <img src={item} />
+                    </figure>
                   </div>
                 ))}
               </div>

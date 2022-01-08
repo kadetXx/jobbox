@@ -49,21 +49,28 @@ const Hero = () => {
 
       <div className={styles.hero_imagesection}>
         <div className={styles.hero_imageContainer}>
-          <Image
-            data-animation="heroImage"
-            className={styles.hero_image}
-            src="/svg/hero-image.svg"
-            layout="fill"
-          />
+          <figure>
+            <img
+              data-animation="heroImage"
+              className={styles.hero_image}
+              src="/svg/hero-image.svg"
+            />
+          </figure>
 
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
-            <Image src="/svg/hero-float-one.svg" layout="fill" />
+            <figure>
+              <img src="/svg/hero-float-one.svg" />
+            </figure>
           </div>
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
-            <Image src="/svg/hero-float-two.svg" layout="fill" />
+            <figure>
+              <img src="/svg/hero-float-two.svg" />
+            </figure>
           </div>
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
-            <Image src="/svg/hero-float-three.svg" layout="fill" />
+            <figure>
+              <img src="/svg/hero-float-three.svg" />
+            </figure>
           </div>
         </div>
       </div>
@@ -78,12 +85,9 @@ const Hero = () => {
               height: `${item.height / 16}rem`,
             }}
           >
-            <Image
-              key={index}
-              src={item.image}
-              title={item.name}
-              layout="fill"
-            />
+            <figure>
+              <img key={index} src={item.image} title={item.name} />
+            </figure>
           </div>
         ))}
       </div>
