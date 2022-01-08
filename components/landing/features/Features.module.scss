@@ -42,7 +42,7 @@
 }
 
 // .feature_textContainer {
-  
+
 // }
 
 .feature_tag {
@@ -94,6 +94,12 @@
   }
 }
 
+.feature_imgContainer {
+  @include respondMax("tablet") {
+    transform: scale(0.85);
+  }
+}
+
 .feature_imgBgWrap {
   position: relative;
   width: 30.75rem;
@@ -120,7 +126,7 @@
 
   @include respondMax("tablet") {
     height: 55.565rem;
-    width:  55.565rem;
+    width: 55.565rem;
     position: relative;
     bottom: -1.9rem;
   }
@@ -136,9 +142,13 @@
   .feature_floater {
     position: relative;
     width: 10rem;
-    // height: 3.5rem;
     height: 2.764rem;
     z-index: 10;
+
+    @include respondMax("tablet") {
+      width: 20rem;
+      height: 5.528rem;
+    }
   }
 }
 
@@ -151,6 +161,18 @@
 .feature:nth-of-type(even) .feature_floaters {
   top: 11rem;
   right: -3rem;
+
+  @include respondMax("tablet") {
+    left: -1rem;
+    right: unset;
+  }
+
+  .feature_floater {
+    @include respondMax("tablet") {
+      width: 18rem;
+      height: 5.528rem;
+    }
+  }
 
   .feature_floater:nth-of-type(1) {
     background-color: $col-white;

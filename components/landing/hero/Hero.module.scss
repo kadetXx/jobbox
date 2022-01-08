@@ -51,7 +51,7 @@
     font-size: 1.1rem;
 
     @include respondMax("tablet") {
-      margin: 2.2rem 10%;
+      margin: 2.5rem 10%;
       font-size: 2rem;
     }
   }
@@ -64,7 +64,6 @@
   @include respondMax("tablet") {
     margin: 0;
     height: 45.4055rem;
-    // width: 26.2535rem;
     width: 100%;
     display: block;
   }
@@ -137,10 +136,10 @@
   column-gap: 1rem;
 
   @include respondMax("tablet") {
-    margin: 2rem auto;
+    margin: 2rem auto 2.2rem;
     width: 75%;
     grid: unset;
-    row-gap: 1rem;
+    row-gap: 1.2rem;
     column-gap: 1rem;
     @include flex(center, center, row wrap);
   }
