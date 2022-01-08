@@ -96,7 +96,8 @@
       font-size: 1.7rem;
       padding: 3rem 0;
       width: 122%;
-      margin: 1.4rem -6% 0 -6%;
+      margin: 1.4rem -6% -1px -6%;
+      border-bottom: 1px solid rgba($col-black, 0.3);
       opacity: 0.6;
       background-color: rgba($col-black, 0.3);
     }

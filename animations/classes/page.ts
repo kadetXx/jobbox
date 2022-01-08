@@ -94,6 +94,10 @@ export class Page extends EventEmitter implements PageInterface {
   }
 
   initSmoothScroll() {
+    // set body :overflow to hidden
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+
     this.updateScroll();
     this.frame = window.requestAnimationFrame(this.initSmoothScroll.bind(this));
   }

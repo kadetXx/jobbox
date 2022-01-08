@@ -28,10 +28,6 @@ export class Home extends Page {
   }
 
   resetElements() {
-    // set body :overflow to hidden
-    document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-
     const heroImage = this.components.heroImage[0];
     const parent = heroImage.parentElement;
 
@@ -199,7 +195,9 @@ export class Home extends Page {
     const tl = gsap.timeline();
 
     tl.call(this.createComponentAnimations.bind(this));
-    tl.call(this.initSmoothScroll.bind(this));
+
+    // initialize smooth scroll if device type isn't mobile
+    !globalThis.ismobile && tl.call(this.initSmoothScroll.bind(this));
 
     tl.fromTo(
       [title, desc, buttons, checks, brands],
