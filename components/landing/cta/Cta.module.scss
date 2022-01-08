@@ -20,6 +20,7 @@
   @include respondMax("tablet") {
     padding-top: 16rem;
     padding-bottom: 16rem;
+    border-bottom: 1px solid rgba($col-white, 0.1);
   }
 }
 
