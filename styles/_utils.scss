@@ -16,6 +16,10 @@
 
   @include flex(center, center, row nowrap);
 
+  @include respondMax("tablet") {
+    font-size: 1.6rem;
+  }
+
   &:hover {
     transform: scale(0.95);
   }

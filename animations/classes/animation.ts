@@ -95,9 +95,11 @@ export class Animation extends Component {
     const scrollableHeight =
       this.elements.scrollContainer[0].clientHeight - window.innerHeight;
 
+    // get distance of element's midpoint from top of viewport
     const { y, height } = this.element?.getBoundingClientRect() || {};
     const distanceBtw = y - window.innerHeight / 2 + height / 2;
 
+    // set finishpoint to when the elemnt gets to middle of viewport
     this.finishPoint = distanceBtw / scrollableHeight;
   }
 

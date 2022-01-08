@@ -3,7 +3,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -13,6 +13,10 @@ html {
   font-size: calc(100vw / 1440 * 16);
 
   @include flex(stretch, stretch, column);
+
+  @include respondMax("tablet") {
+    font-size: calc(100vw / 600 * 10);
+  }
 }
 
 body {
