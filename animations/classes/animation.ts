@@ -10,6 +10,12 @@ export class Animation extends Component {
   frame: any;
   finishPoint: number;
 
+  touch: {
+    isDown: boolean;
+    position?: number;
+    start?: number;
+  };
+
   constructor({ element, elements }) {
     // call methods here
     super({ element, elements });
@@ -25,6 +31,10 @@ export class Animation extends Component {
       limit: 0,
     };
 
+    this.touch = {
+      isDown: false,
+    };
+
     this.finishPoint = 1;
 
     this.addEventListeners();
@@ -33,14 +43,29 @@ export class Animation extends Component {
     this.updateScrollPosition();
   }
 
-  addEventListeners() {
-    document.addEventListener("mousewheel", this.onMouseWheel.bind(this));
-    document.addEventListener("resize", this.onResize.bind(this));
-  }
-
   onMouseWheel(e: WheelEvent) {
     const { pixelY } = NormalizeWheel(e);
     this.scroll.target += pixelY;
+  }
+
+  onTouchMove(event: any) {
+    if (!this.touch.isDown) return;
+
+    const y = event.touches ? event.touches[0].clientY : event.clientY;
+    const distance = (this.touch.start - y) * 2;
+
+    this.scroll.target = this.scroll.position + distance;
+  }
+
+  onTouchUp(event: any) {
+    this.touch.isDown = false;
+  }
+
+  onTouchDown(event: any) {
+    this.touch.isDown = true;
+
+    this.scroll.position = this.scroll.current;
+    this.touch.start = event.touches ? event.touches[0].clientY : event.clientY;
   }
 
   onResize() {
@@ -67,7 +92,7 @@ export class Animation extends Component {
     this.scroll.current = gsap.utils.interpolate(
       this.scroll.current,
       this.scroll.target,
-      0.05
+      window.innerWidth < 600 ? 1 : 0.05
     );
 
     this.frame = window.requestAnimationFrame(
@@ -101,6 +126,14 @@ export class Animation extends Component {
 
     // set finishpoint to when the elemnt gets to middle of viewport
     this.finishPoint = distanceBtw / scrollableHeight;
+  }
+
+  addEventListeners() {
+    document.addEventListener("mousewheel", this.onMouseWheel.bind(this));
+    document.addEventListener("resize", this.onResize.bind(this));
+    document.addEventListener("touchstart", this.onTouchDown.bind(this));
+    document.addEventListener("touchmove", this.onTouchMove.bind(this));
+    document.addEventListener("touchend", this.onTouchUp.bind(this));
   }
 
   animateIn() {}
