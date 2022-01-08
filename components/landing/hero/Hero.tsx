@@ -33,15 +33,21 @@ const Hero = () => {
         </div>
         <div className={styles.hero_checks} data-animation="heroChecks">
           <div className={styles.hero_checker}>
-            <Image src="/svg/checkmark.svg" width="16" height="16" />
+            <div className={styles.hero_check}>
+              <Image src="/svg/checkmark.svg" layout="fill" />
+            </div>
             <span>Works Anywhere</span>
           </div>
           <div className={styles.hero_checker}>
-            <Image src="/svg/checkmark.svg" width="16" height="16" />
+            <div className={styles.hero_check}>
+              <Image src="/svg/checkmark.svg" layout="fill" />
+            </div>
             <span>Completely Free</span>
           </div>
           <div className={styles.hero_checker}>
-            <Image src="/svg/checkmark.svg" width="16" height="16" />
+            <div className={styles.hero_check}>
+              <Image src="/svg/checkmark.svg" layout="fill" />
+            </div>
             <span>No Hidden fees</span>
           </div>
         </div>

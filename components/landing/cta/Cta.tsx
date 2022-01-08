@@ -30,15 +30,21 @@ const Cta = () => {
         </div>
         <div className={styles.cta_checks} data-animation="ctaChecks">
           <div className={styles.cta_checker}>
-            <Image src="/svg/checkmark.svg" width="16" height="16" />
+            <div className={styles.cta_check}>
+              <Image src="/svg/checkmark.svg" layout="fill" />
+            </div>
             <span>Works Anywhere</span>
           </div>
           <div className={styles.cta_checker}>
-            <Image src="/svg/checkmark.svg" width="16" height="16" />
+            <div className={styles.cta_check}>
+              <Image src="/svg/checkmark.svg" layout="fill" />
+            </div>
             <span>Completely Free</span>
           </div>
           <div className={styles.cta_checker}>
-            <Image src="/svg/checkmark.svg" width="16" height="16" />
+            <div className={styles.cta_check}>
+              <Image src="/svg/checkmark.svg" layout="fill" />
+            </div>
             <span>No Hidden fees</span>
           </div>
         </div>
