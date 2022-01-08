@@ -13,6 +13,10 @@
 
   @include flex(space-between, center, nowrap);
 
+  @include respondMax("tablet") {
+    padding: 2rem 5%;
+  }
+
   .header_menuList {
     list-style: none;
     padding: 0;
