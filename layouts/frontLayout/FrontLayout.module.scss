@@ -14,7 +14,7 @@
   @include flex(space-between, center, nowrap);
 
   @include respondMax("tablet") {
-    padding: 2rem 5%;
+    padding: 3rem 5%;
   }
 
   .header_menuList {
