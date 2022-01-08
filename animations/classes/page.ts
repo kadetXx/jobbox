@@ -16,8 +16,8 @@ export class Page extends EventEmitter implements PageInterface {
   transformPrefix: any;
   touch: {
     isDown: boolean;
-    position: number;
-    start: number;
+    position?: number;
+    start?: number;
   }
 
   constructor({ ...elements }: any) {
@@ -30,6 +30,10 @@ export class Page extends EventEmitter implements PageInterface {
       current: 0,
       limit: 0,
     };
+
+    this.touch = {
+      isDown: false,
+    }
   }
 
   create() {
