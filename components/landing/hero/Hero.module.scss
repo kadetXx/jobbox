@@ -14,8 +14,9 @@
 
   @include respondMax("tablet") {
     grid: unset;
-    row-gap: 8rem;
+    row-gap: 10rem;
     height: auto;
+    margin-top: 5rem;
 
     @include flex(flex-start, center, column nowrap);
   }
@@ -62,8 +63,9 @@
 
   @include respondMax("tablet") {
     margin: 0;
-    height: 27.235rem;
-    width: 20.195rem;
+    height: 45.4055rem;
+    // width: 26.2535rem;
+    width: 100%;
     display: block;
   }
 
@@ -92,6 +94,12 @@
     left: -35%;
     width: 22.688rem;
     height: 13rem;
+
+    @include respondMax("tablet") {
+      width: 34.032rem;
+      height: 19.5rem;
+      left: -14%;
+    }
   }
 
   .hero_imageFloat:nth-of-type(2) {
@@ -157,7 +165,7 @@
 
     @include respondMax("tablet") {
       column-gap: 0.6rem;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
   }
 }

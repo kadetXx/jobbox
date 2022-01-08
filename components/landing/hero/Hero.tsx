@@ -72,6 +72,7 @@ const Hero = () => {
         {brands.map((item, index) => (
           <div
             className={styles.hero_brand}
+            key={index}
             style={{
               width: `${item.width / 16}rem`,
               height: `${item.height / 16}rem`,

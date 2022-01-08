@@ -76,5 +76,8 @@
 
 %btn_icon_prefix {
   @extend %btn_icon;
-  margin-right: 0.5rem;
+
+  img {
+    max-height: 12px;
+  }
 }
