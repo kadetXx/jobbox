@@ -26,7 +26,7 @@ const Hero = () => {
           </Button>
           <Link href="/">
             <a className={styles.hero_button}>
-              <Image src="/svg/play-icon.svg" width="14.42" height="16" />{" "}
+              <img src="/svg/play-icon.svg" width="14.42" height="16" />{" "}
               <span>How It Works</span>
             </a>
           </Link>

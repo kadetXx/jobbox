@@ -8,7 +8,7 @@ import { navLinks } from "@/mock";
 import { Logo, Button, Preloader } from "@/shared";
 
 import { App } from "@/animations";
-import { deviceType } from '@/helpers'
+import { deviceType } from "@/helpers";
 
 interface Props {
   children: React.ReactNode;
@@ -23,7 +23,7 @@ const Front = ({ children, page }) => {
   }, []);
 
   const init = useCallback(() => {
-    const ismobile = deviceType() === 'mobile';
+    const ismobile = deviceType() === "mobile";
 
     new App({ page, ismobile });
     hasInit.current = true;
@@ -32,7 +32,7 @@ const Front = ({ children, page }) => {
   return (
     <>
       <Preloader />
-      <div className={styles.layout} data-animation='scroll-container'>
+      <div className={styles.layout} data-animation="scroll-container">
         <div className={styles.layout_wrapper} data-animation="smooth-scroll">
           <header className={styles.header}>
             <Logo type="blue" width="109" height="27" />
@@ -80,9 +80,9 @@ const Front = ({ children, page }) => {
               Copyright &copy; 2021 Jobbox Limited. All rights reserved.
             </p>
             <div className={styles.footer_socials}>
-              <Image src="/svg/facebook.svg" width="20" height="20" />
-              <Image src="/svg/twitter.svg" width="20" height="20" />
-              <Image src="/svg/instagram.svg" width="20" height="20" />
+              <img src="/svg/facebook.svg" width="20" height="20" />
+              <img src="/svg/twitter.svg" width="20" height="20" />
+              <img src="/svg/instagram.svg" width="20" height="20" />
             </div>
           </footer>
         </div>

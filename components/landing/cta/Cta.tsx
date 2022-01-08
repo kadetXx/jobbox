@@ -23,7 +23,7 @@ const Cta = () => {
           </Button>
           <Link href="/">
             <a className={styles.cta_button}>
-              <Image src="/svg/play-icon-green.svg" width="14.42" height="16" />{" "}
+              <img src="/svg/play-icon-green.svg" width="14.42" height="16" />{" "}
               <span>How It Works</span>
             </a>
           </Link>
