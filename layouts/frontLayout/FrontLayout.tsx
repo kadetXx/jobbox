@@ -8,6 +8,7 @@ import { navLinks } from "@/mock";
 import { Logo, Button, Preloader } from "@/shared";
 
 import { App } from "@/animations";
+import { deviceType } from '@/helpers'
 
 interface Props {
   children: React.ReactNode;
@@ -22,7 +23,9 @@ const Front = ({ children, page }) => {
   }, []);
 
   const init = useCallback(() => {
-    new App({ page });
+    const ismobile = deviceType() === 'mobile';
+
+    new App({ page, ismobile });
     hasInit.current = true;
   }, []);
 

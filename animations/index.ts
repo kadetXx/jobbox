@@ -9,6 +9,7 @@ interface AppInterface {
 
 type Props = {
   page: string;
+  ismobile: boolean;
 };
 
 import { Home } from "./pages/home";
@@ -22,7 +23,9 @@ export class App implements AppInterface {
   frame: any;
 
   // constructor receiving props from react
-  constructor({ page }: Props) {
+  constructor({ page, ismobile }: Props) {
+    globalThis.ismobile = ismobile;
+    
     // set current page name
     this.pagetitle = page;
     // call create preloader method

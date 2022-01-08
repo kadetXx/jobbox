@@ -1,7 +1,7 @@
 import fetcher from './fetcher'
-import cfp from './classNameFromParent'
+import deviceType from './deviceType'
 
 export {
   fetcher,
-  cfp
+  deviceType
 }
