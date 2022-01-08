@@ -33,9 +33,10 @@
   margin-bottom: 2.5rem;
 
   @include respondMax("tablet") {
-    font-size: 1.6rem;
-    width: 90%;
-    line-height: 2.5rem;
+    font-size: 2rem;
+    width: 100%;
+    line-height: 200%;
+    margin: 2rem 0;
   }
 }
 

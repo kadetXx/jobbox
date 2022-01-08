@@ -5,6 +5,7 @@ export class FeatText extends Animation {
   frame: any;
   mapped: number;
   scroll: any;
+  displacement: number;
 
   constructor({ element, elements }) {
     super({ element, elements });
@@ -13,11 +14,11 @@ export class FeatText extends Animation {
   }
 
   mapScroll() {
-    const displacement = 150;
-    this.mapped = displacement / this.scroll.limit;
+    this.displacement = window.innerWidth < 600 ? 70 : 150;
+    this.mapped = this.displacement / this.scroll.limit;
 
     gsap.set(this.elements.texts, {
-      y: -displacement,
+      y: -this.displacement,
     });
 
     this.animateText();
@@ -25,7 +26,7 @@ export class FeatText extends Animation {
 
   animateText() {
     gsap.set(this.elements.texts, {
-      y: this.scroll.current * this.mapped - 150,
+      y: this.scroll.current * this.mapped - this.displacement,
     });
 
     this.frame = window.requestAnimationFrame(this.animateText.bind(this));
