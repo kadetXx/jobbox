@@ -16,6 +16,11 @@
   font-size: 2.5rem;
   color: $col-primary-400;
   margin: 0;
+
+  @include respondMax("tablet") {
+    font-size: 3.5rem;
+    width: 80%;
+  }
 }
 
 .belief_description {
@@ -26,6 +31,12 @@
   opacity: 0.6;
   margin-top: 1rem;
   margin-bottom: 2.5rem;
+
+  @include respondMax("tablet") {
+    font-size: 1.6rem;
+    width: 90%;
+    line-height: 2.5rem;
+  }
 }
 
 .belief_images {
@@ -34,6 +45,10 @@
   height: 11.25rem;
   overflow: hidden;
   filter: drop-shadow(0px 0px 60px rgba(138, 149, 158, 0.15));
+
+  @include respondMax("tablet") {
+    width: 100%;
+  }
 }
 
 .belief_floaters {
@@ -57,11 +72,21 @@
     width: 8.563rem;
     height: 3.5rem;
     filter: blur(1px);
+
+    @include respondMax("tablet") {
+      width: 6.85rem;
+      height: 2.8rem;
+    }
   }
 
   &:nth-of-type(2) {
     width: 12.438rem;
     height: 3.5rem;
     filter: drop-shadow(0px 10px 20px rgba(138, 149, 158, 0.25));
+
+    @include respondMax("tablet") {
+      width: 9.9504rem;
+      height: 2.8rem;
+    }
   }
 }

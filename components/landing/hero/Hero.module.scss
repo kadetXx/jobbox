@@ -107,6 +107,11 @@
     right: 2rem;
     width: 9.188rem;
     height: 2.938rem;
+
+    @include respondMax("tablet") {
+      width: 13.782rem;
+      height: 4.407rem;
+    }
   }
 
   .hero_imageFloat:nth-of-type(3) {
@@ -114,6 +119,13 @@
     right: -12%;
     width: 12.063rem;
     height: 10.75rem;
+
+    @include respondMax("tablet") {
+      width: 18.0945rem;
+      height: 16.125rem;
+      right: -6%;
+      bottom: 6rem;
+    }
   }
 }
 
@@ -183,9 +195,14 @@
     grid-column-start: unset;
     grid-column-end: unset;
     width: 100%;
+    margin-top: 0;
   }
 }
 
 .hero_brand {
   position: relative;
+
+  @include respondMax("tablet") {
+    transform: scale(0.8);
+  }
 }
