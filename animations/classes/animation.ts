@@ -92,7 +92,7 @@ export class Animation extends Component {
     this.scroll.current = gsap.utils.interpolate(
       this.scroll.current,
       this.scroll.target,
-      window.innerWidth < 600 ? 1 : 0.05
+      window.innerWidth < 600 ? 0.1 : 0.05
     );
 
     this.frame = window.requestAnimationFrame(
