@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Features.module.scss";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import { features } from "@/mock";

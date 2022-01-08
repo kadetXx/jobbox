@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Hero.module.scss";
 
 import Link from "next/link";
-import Image from "next/image";
 
 import { Button } from "@/shared";
 import { brands } from "@/mock";
@@ -34,19 +33,25 @@ const Hero = () => {
         <div className={styles.hero_checks} data-animation="heroChecks">
           <div className={styles.hero_checker}>
             <div className={styles.hero_check}>
-              <Image src="/svg/checkmark.svg" layout="fill" />
+              <figure>
+                <img src="/svg/checkmark.svg" />
+              </figure>
             </div>
             <span>Works Anywhere</span>
           </div>
           <div className={styles.hero_checker}>
             <div className={styles.hero_check}>
-              <Image src="/svg/checkmark.svg" layout="fill" />
+              <figure>
+                <img src="/svg/checkmark.svg" />
+              </figure>
             </div>
             <span>Completely Free</span>
           </div>
           <div className={styles.hero_checker}>
             <div className={styles.hero_check}>
-              <Image src="/svg/checkmark.svg" layout="fill" />
+              <figure>
+                <img src="/svg/checkmark.svg" />
+              </figure>
             </div>
             <span>No Hidden fees</span>
           </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Cta.module.scss";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/shared";
@@ -31,19 +30,25 @@ const Cta = () => {
         <div className={styles.cta_checks} data-animation="ctaChecks">
           <div className={styles.cta_checker}>
             <div className={styles.cta_check}>
-              <Image src="/svg/checkmark.svg" layout="fill" />
+              <figure>
+                <img src="/svg/checkmark.svg" />
+              </figure>
             </div>
             <span>Works Anywhere</span>
           </div>
           <div className={styles.cta_checker}>
             <div className={styles.cta_check}>
-              <Image src="/svg/checkmark.svg" layout="fill" />
+              <figure>
+                <img src="/svg/checkmark.svg" />
+              </figure>
             </div>
             <span>Completely Free</span>
           </div>
           <div className={styles.cta_checker}>
             <div className={styles.cta_check}>
-              <Image src="/svg/checkmark.svg" layout="fill" />
+              <figure>
+                <img src="/svg/checkmark.svg" />
+              </figure>
             </div>
             <span>No Hidden fees</span>
           </div>

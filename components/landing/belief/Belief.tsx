@@ -1,8 +1,6 @@
 import React from "react";
 import styles from "./Belief.module.scss";
 
-import Image from "next/image";
-
 const Belief = () => {
   return (
     <div className={styles.belief}>
