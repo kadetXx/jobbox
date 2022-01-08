@@ -14,6 +14,11 @@ export class Page extends EventEmitter implements PageInterface {
   scroll: any;
   frame: any;
   transformPrefix: any;
+  touch: {
+    isDown: boolean;
+    position: number;
+    start: number;
+  }
 
   constructor({ ...elements }: any) {
     super();
@@ -33,6 +38,26 @@ export class Page extends EventEmitter implements PageInterface {
     each(this.elements, (component: any, key: any) => {
       this.components[key] = document.querySelectorAll(component);
     });
+  }
+
+  onTouchMove (event: any) {
+    if (!this.touch.isDown) return
+
+    const y = event.touches ? event.touches[0].clientY : event.clientY
+    const distance = (this.touch.start - y) * 2
+
+    this.scroll.target = this.scroll.position + distance
+  }
+
+  onTouchUp (event: any) {
+    this.touch.isDown = false
+  }
+
+  onTouchDown (event: any) {
+    this.touch.isDown = true
+
+    this.scroll.position = this.scroll.current
+    this.touch.start = event.touches ? event.touches[0].clientY : event.clientY
   }
 
   // add general page methods here like event listeners, show and hide
@@ -72,5 +97,9 @@ export class Page extends EventEmitter implements PageInterface {
   addEventListeners() {
     document.addEventListener("mousewheel", this.onMouseWheel.bind(this));
     document.addEventListener("resize", this.onResize.bind(this));
+
+    document.addEventListener('touchstart', this.onTouchDown.bind(this))
+    document.addEventListener('touchmove', this.onTouchMove.bind(this))
+    document.addEventListener('touchend', this.onTouchUp.bind(this))
   }
 }
