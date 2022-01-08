@@ -43,7 +43,7 @@ export class Page extends EventEmitter implements PageInterface {
 
   onResize() {
     this.scroll.limit =
-      this.components.scrollContainer[0].clientHeight - window.innerHeight;
+      this.components.scrollContainer[0].clientHeight - window.innerHeight - 1;
   }
 
   updateScroll() {

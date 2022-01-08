@@ -71,7 +71,7 @@ const Front = ({ children, page }) => {
 
           <footer className={styles.footer}>
             <div className={styles.footer_logo}>
-              <Logo type="default" width="109" height="27" />
+              <Logo type="default" width={null} />
             </div>
             <p className={styles.footer_copyright}>
               Copyright &copy; 2021 Jobbox Limited. All rights reserved.
