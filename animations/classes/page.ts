@@ -103,11 +103,10 @@ export class Page extends EventEmitter implements PageInterface {
   }
 
   addEventListeners() {
-    document.addEventListener("mousewheel", this.onMouseWheel.bind(this));
-    document.addEventListener("resize", this.onResize.bind(this));
-
-    document.addEventListener("touchstart", this.onTouchDown.bind(this));
-    document.addEventListener("touchmove", this.onTouchMove.bind(this));
-    document.addEventListener("touchend", this.onTouchUp.bind(this));
+    window.addEventListener("mousewheel", this.onMouseWheel.bind(this));
+    window.addEventListener("resize", this.onResize.bind(this));
+    window.addEventListener("touchstart", this.onTouchDown.bind(this));
+    window.addEventListener("touchmove", this.onTouchMove.bind(this));
+    window.addEventListener("touchend", this.onTouchUp.bind(this));
   }
 }
