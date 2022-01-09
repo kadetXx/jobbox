@@ -107,19 +107,19 @@ const Front = ({ children, page }: Props) => {
               </p>
               <div className={styles.footer_socials}>
                 <img
-                  data-src={socials.fb}
+                  src={socials.fb}
                   width="20"
                   height="20"
                   alt="facebook"
                 />
                 <img
-                  data-src={socials.tw}
+                  src={socials.tw}
                   width="20"
                   height="20"
                   alt="twitter"
                 />
                 <img
-                  data-src={socials.ig}
+                  src={socials.ig}
                   width="20"
                   height="20"
                   alt="instagram"

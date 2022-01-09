@@ -43,14 +43,14 @@ export class Preloader extends Component implements PreloaderType {
     });
   }
 
-  async onAssetLoaded() {
+  onAssetLoaded() {
     this.progress++;
 
     this.percentage = Math.round((this.progress / this.allMedia.length) * 100);
 
     this.elements.percentage[0].innerText = `${this.percentage}%`;
 
-    if (this.percentage > 50) {
+    if (this.percentage === 100) {
       // emit event to next js mount page
       nextEmitter.emit("preloader-finish");
 
