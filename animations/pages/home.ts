@@ -23,7 +23,6 @@ export class Home extends Page {
       featBtnOne: "[data-animation='featBtn1']",
       featBtnTwo: "[data-animation='featBtn2']",
       texts: "[data-animation='texts']",
-      // texts2: "[data-animation='texts2']",
     });
   }
 
@@ -65,7 +64,6 @@ export class Home extends Page {
       item.style.position = "fixed";
       item.style.inset = "0";
       item.style.margin = "auto";
-      item.style.border = "1px solid red"
 
       parent.appendChild(item);
     });
