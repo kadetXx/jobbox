@@ -54,9 +54,9 @@ const Front = ({ children, page }: Props) => {
     hasPreloaded && eventEmitter.emit("content-mounted");
   }, [hasPreloaded]);
 
-  if (!hasPreloaded) {
-    return <Preloader />;
-  }
+  // if (!hasPreloaded) {
+  //   return <Preloader />;
+  // }
 
   return (
     <>
