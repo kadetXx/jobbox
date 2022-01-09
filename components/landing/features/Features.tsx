@@ -38,6 +38,7 @@ const Features = () => {
                   <img
                     className={styles.feature_screen}
                     data-src={item.images.main}
+                    alt="feature screen"
                   />
                 </figure>
               </div>
@@ -51,7 +52,7 @@ const Features = () => {
                     key={index}
                   >
                     <figure>
-                      <img data-src={item} />
+                      <img data-src={item} alt="feature button" />
                     </figure>
                   </div>
                 ))}
