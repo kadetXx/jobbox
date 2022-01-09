@@ -31,7 +31,7 @@ export const features = [
     },
     images: {
       main: images.screenTwo,
-      floaters: [images.buttonOne, images.buttonTwo],
+      floaters: [images.buttonThree, images.buttonFour],
     },
   },
 ];
