@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./Hero.module.scss";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import { Button } from "@/shared";
 import { brands, media } from "@/mock";
+
+const [Button] = [dynamic(() => import("@/shared/button/Button"))];
 
 const Hero = () => {
   const {
@@ -30,7 +32,12 @@ const Hero = () => {
           </Button>
           <Link href="/">
             <a className={styles.hero_button}>
-              <img data-src={shared.playIconBlue} width="14.42" height="16" alt="button icon" />{" "}
+              <img
+                data-src={shared.playIconBlue}
+                width="14.42"
+                height="16"
+                alt="button icon"
+              />{" "}
               <span>How It Works</span>
             </a>
           </Link>
@@ -103,7 +110,12 @@ const Hero = () => {
             }}
           >
             <figure>
-              <img key={index} data-src={item.image} title={item.name} alt={item.name} />
+              <img
+                key={index}
+                data-src={item.image}
+                title={item.name}
+                alt={item.name}
+              />
             </figure>
           </div>
         ))}

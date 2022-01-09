@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./Cta.module.scss";
-
+import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import { Button } from "@/shared";
 import { media } from "@/mock";
+
+const [Button] = [dynamic(() => import("@/shared/button/Button"))];
 
 const Cta = () => {
   const { shared } = media;
@@ -25,7 +26,12 @@ const Cta = () => {
           </Button>
           <Link href="/">
             <a className={styles.cta_button}>
-              <img data-src={shared.playIconGreen} width="14.42" height="16" alt="button icon" />{" "}
+              <img
+                data-src={shared.playIconGreen}
+                width="14.42"
+                height="16"
+                alt="button icon"
+              />{" "}
               <span>How It Works</span>
             </a>
           </Link>
