@@ -23,11 +23,9 @@ const Front = ({ children, page }: Props) => {
   const hasInit = useRef(false);
   const [hasPreloaded, setHasPreloaded] = useState(false);
 
-  useEffect(() => {
-    !hasInit.current && init();
-
-    hasPreloaded && eventEmitter.emit("content-mounted");
-  }, [hasPreloaded]);
+  const {
+    shared: { socials },
+  } = media;
 
   const init = useCallback(async () => {
     // check if device is mobile
@@ -41,6 +39,10 @@ const Front = ({ children, page }: Props) => {
 
     // update ref
     hasInit.current = true;
+  }, []);
+
+  useEffect(() => {
+    !hasInit.current && init();
 
     // add event emmitter
     eventEmitter.once("preloader-finish", () => {
@@ -48,9 +50,9 @@ const Front = ({ children, page }: Props) => {
     });
   }, []);
 
-  const {
-    shared: { socials },
-  } = media;
+  useEffect(() => {
+    hasPreloaded && eventEmitter.emit("content-mounted");
+  }, [hasPreloaded]);
 
   if (!hasPreloaded) {
     return <Preloader />;
