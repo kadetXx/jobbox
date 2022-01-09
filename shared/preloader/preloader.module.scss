@@ -20,8 +20,9 @@
 
 .preloader_progress {
   position: fixed;
-  inset: 0;
-  margin: auto;
+  
+  bottom: 0;
+  margin: auto auto 2rem;
   max-width: 40%;
   z-index: 30;
 
@@ -29,7 +30,7 @@
 }
 
 .preloader_percent {
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   color: $col-primary;
   text-align: center;
   opacity: 0.85;
