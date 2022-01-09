@@ -6,7 +6,7 @@ import styles from "./FrontLayout.module.scss";
 import Link from "next/link";
 import { navLinks, media } from "@/mock";
 
-import { App } from "@/animations";
+// import { App } from "@/animations";
 
 import { deviceType } from "@/helpers";
 
@@ -28,10 +28,17 @@ const Front = ({ children, page }: Props) => {
     !hasInit.current && init();
   }, []);
 
-  const init = useCallback(() => {
+  const init = useCallback(async () => {
+    // check if device is mobile
     const ismobile = deviceType() === "mobile";
 
+    // import animations
+    const App = (await import("@/animations")).App;
+
+    // initialize new animation
     new App({ page, ismobile });
+
+    // update ref
     hasInit.current = true;
   }, []);
 
@@ -42,7 +49,7 @@ const Front = ({ children, page }: Props) => {
   return (
     <>
       <Preloader />
-      <div className={styles.layout} data-animation="scroll-container">
+      {/* <div className={styles.layout} data-animation="scroll-container">
         <div className={styles.layout_wrapper} data-animation="smooth-scroll">
           <header className={styles.header}>
             <Logo type="blue" width="109" height="27" />
@@ -106,7 +113,7 @@ const Front = ({ children, page }: Props) => {
             </div>
           </footer>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
