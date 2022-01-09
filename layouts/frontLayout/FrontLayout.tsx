@@ -26,7 +26,7 @@ const Front = ({ children, page }: Props) => {
   useEffect(() => {
     !hasInit.current && init();
 
-    hasPreloaded && eventEmitter.emit("content-mounted")
+    hasPreloaded && eventEmitter.emit("content-mounted");
   }, [hasPreloaded]);
 
   const init = useCallback(async () => {
@@ -46,89 +46,74 @@ const Front = ({ children, page }: Props) => {
     eventEmitter.once("preloader-finish", () => {
       setHasPreloaded(true);
     });
-
-
   }, []);
 
   const {
     shared: { socials },
   } = media;
 
+  if (!hasPreloaded) {
+    return <Preloader />;
+  }
+
   return (
     <>
       <Preloader />
-      {hasPreloaded && (
-        <div className={styles.layout} data-animation="scroll-container">
-          <div className={styles.layout_wrapper} data-animation="smooth-scroll">
-            <header className={styles.header}>
-              <Logo type="blue" width="109" height="27" />
-              <nav className={styles.header_menu}>
-                <ul className={styles.header_menuList}>
-                  {navLinks.frontLinks.map((item, index) => (
-                    <li className={styles.header_menuItem} key={index}>
-                      <Link href={item.url}>
-                        <a
-                          target={item.blank ? "_blank" : "_self"}
-                          className={styles.header_menuLink}
-                        >
-                          {item.title}
-                        </a>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-              <div className={styles.header_buttons}>
-                <Button
-                  type="secondary-outline"
-                  onClick={null}
-                  className={styles.header_button}
-                >
-                  Apply For Jobs
-                </Button>
+      <div className={styles.layout} data-animation="scroll-container">
+        <div className={styles.layout_wrapper} data-animation="smooth-scroll">
+          <header className={styles.header}>
+            <Logo type="blue" width="109" height="27" />
+            <nav className={styles.header_menu}>
+              <ul className={styles.header_menuList}>
+                {navLinks.frontLinks.map((item, index) => (
+                  <li className={styles.header_menuItem} key={index}>
+                    <Link href={item.url}>
+                      <a
+                        target={item.blank ? "_blank" : "_self"}
+                        className={styles.header_menuLink}
+                      >
+                        {item.title}
+                      </a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className={styles.header_buttons}>
+              <Button
+                type="secondary-outline"
+                onClick={null}
+                className={styles.header_button}
+              >
+                Apply For Jobs
+              </Button>
 
-                <Button
-                  type="secondary"
-                  onClick={null}
-                  className={styles.header_button}
-                >
-                  Hire Talent
-                </Button>
-              </div>
-            </header>
-            <main>{children}</main>
+              <Button
+                type="secondary"
+                onClick={null}
+                className={styles.header_button}
+              >
+                Hire Talent
+              </Button>
+            </div>
+          </header>
+          <main>{children}</main>
 
-            <footer className={styles.footer}>
-              <div className={styles.footer_logo}>
-                <Logo type="default" width={null} />
-              </div>
-              <p className={styles.footer_copyright}>
-                Copyright &copy; 2021 Jobbox Limited. All rights reserved.
-              </p>
-              <div className={styles.footer_socials}>
-                <img
-                  src={socials.fb}
-                  width="20"
-                  height="20"
-                  alt="facebook"
-                />
-                <img
-                  src={socials.tw}
-                  width="20"
-                  height="20"
-                  alt="twitter"
-                />
-                <img
-                  src={socials.ig}
-                  width="20"
-                  height="20"
-                  alt="instagram"
-                />
-              </div>
-            </footer>
-          </div>
+          <footer className={styles.footer}>
+            <div className={styles.footer_logo}>
+              <Logo type="default" width={null} />
+            </div>
+            <p className={styles.footer_copyright}>
+              Copyright &copy; 2021 Jobbox Limited. All rights reserved.
+            </p>
+            <div className={styles.footer_socials}>
+              <img src={socials.fb} width="20" height="20" alt="facebook" />
+              <img src={socials.tw} width="20" height="20" alt="twitter" />
+              <img src={socials.ig} width="20" height="20" alt="instagram" />
+            </div>
+          </footer>
         </div>
-      )}
+      </div>
     </>
   );
 };
