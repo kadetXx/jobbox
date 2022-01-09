@@ -45,6 +45,7 @@ export class Preloader extends Component implements PreloaderType {
 
   async onAssetLoaded() {
     this.progress++;
+    
 
     this.percentage = Math.round((this.progress / this.allMedia.length) * 100);
 

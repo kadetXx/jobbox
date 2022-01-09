@@ -22,8 +22,8 @@ const Logo: React.FC<LogoProps> = ({
     <div className={`${styles.logo} ${className}`}>
       <Image
         src={type === "blue" ? shared.logoBlue : shared.logo}
-        width={width}
-        height={height}
+        width={width && width}
+        height={height && height}
         layout={!width ? "fill" : "intrinsic"}
         alt="jobbox logo"
       />
