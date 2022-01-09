@@ -135,15 +135,6 @@
   width: fit-content;
   column-gap: 1rem;
 
-  // @include respondMax("tablet") {
-  //   margin: 2rem auto 2.2rem;
-  //   width: 75%;
-  //   grid: unset;
-  //   row-gap: 1.2rem;
-  //   column-gap: 1rem;
-  //   @include flex(center, center, row wrap);
-  // }
-
   @include respondMax("tablet") {
     width: 85%;
     margin: 1.5rem auto;
