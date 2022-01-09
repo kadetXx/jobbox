@@ -6,10 +6,17 @@ import Image from "next/image";
 const Preloader = () => {
   return (
     <div className={styles.preloader} data-animation="preloader">
-      <div className={styles.preloader_wrapper} data-animation="preloaderInner">
-        <div className={styles.preloader_progress}>
-          <p className={styles.preloader_percent} data-animation="preloader_percent">0%</p>
-        </div>
+      <div
+        className={styles.preloader_wrapper}
+        data-animation="preloaderInner"
+      ></div>
+      <div className={styles.preloader_progress}>
+        <p
+          className={styles.preloader_percent}
+          data-animation="preloader_percent"
+        >
+          0%
+        </p>
       </div>
     </div>
   );
