@@ -4,7 +4,7 @@ interface PreloaderType {
 }
 
 import { Component } from "../classes/component";
-import { each } from "lodash";
+import { each, throttle } from "lodash";
 import gsap from "gsap";
 
 import { flattenObj } from "@/helpers";
@@ -45,7 +45,6 @@ export class Preloader extends Component implements PreloaderType {
 
   async onAssetLoaded() {
     this.progress++;
-    
 
     this.percentage = Math.round((this.progress / this.allMedia.length) * 100);
 
@@ -61,18 +60,18 @@ export class Preloader extends Component implements PreloaderType {
   }
 
   onLoadingComplete() {
-    const tl = gsap.timeline({ delay: 1.4 });
+    const tl = gsap.timeline({ delay: 3.4 });
 
     gsap.to(this.elements.percentage, {
       autoAlpha: 0,
       duration: 0.5,
-      delay: 1,
+      delay: 3,
     });
 
     gsap.to(this.elements.percentage, {
       scale: 0,
       duration: 1,
-      delay: 1,
+      delay: 3,
       ease: "sine.out",
     });
 
