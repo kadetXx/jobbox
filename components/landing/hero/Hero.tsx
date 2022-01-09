@@ -34,10 +34,8 @@ const Hero = () => {
             <a className={styles.hero_button}>
               <img
                 src={shared.playIconBlue}
-                width="14.42"
-                height="16"
                 alt="button icon"
-              />{" "}
+              />
               <span>How It Works</span>
             </a>
           </Link>
