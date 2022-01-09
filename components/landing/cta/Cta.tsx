@@ -4,8 +4,11 @@ import styles from "./Cta.module.scss";
 import Link from "next/link";
 
 import { Button } from "@/shared";
+import { media } from "@/mock";
 
 const Cta = () => {
+  const { shared } = media;
+
   return (
     <div className={styles.cta}>
       <div className={styles.cta_wrapper}>
@@ -22,7 +25,7 @@ const Cta = () => {
           </Button>
           <Link href="/">
             <a className={styles.cta_button}>
-              <img src="/svg/play-icon-green.svg" width="14.42" height="16" />{" "}
+              <img src={shared.playIconGreen} width="14.42" height="16" />{" "}
               <span>How It Works</span>
             </a>
           </Link>
@@ -31,7 +34,7 @@ const Cta = () => {
           <div className={styles.cta_checker}>
             <div className={styles.cta_check}>
               <figure>
-                <img src="/svg/checkmark.svg" />
+                <img src={shared.checkmark} />
               </figure>
             </div>
             <span>Works Anywhere</span>
@@ -39,7 +42,7 @@ const Cta = () => {
           <div className={styles.cta_checker}>
             <div className={styles.cta_check}>
               <figure>
-                <img src="/svg/checkmark.svg" />
+                <img src={shared.checkmark} />
               </figure>
             </div>
             <span>Completely Free</span>
@@ -47,7 +50,7 @@ const Cta = () => {
           <div className={styles.cta_checker}>
             <div className={styles.cta_check}>
               <figure>
-                <img src="/svg/checkmark.svg" />
+                <img src={shared.checkmark} />
               </figure>
             </div>
             <span>No Hidden fees</span>

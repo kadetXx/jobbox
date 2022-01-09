@@ -4,9 +4,14 @@ import styles from "./Hero.module.scss";
 import Link from "next/link";
 
 import { Button } from "@/shared";
-import { brands } from "@/mock";
+import { brands, media } from "@/mock";
 
 const Hero = () => {
+  const {
+    landing: { hero },
+    shared,
+  } = media;
+
   return (
     <div className={styles.hero}>
       <div className={styles.hero_textsection}>
@@ -25,7 +30,7 @@ const Hero = () => {
           </Button>
           <Link href="/">
             <a className={styles.hero_button}>
-              <img src="/svg/play-icon.svg" width="14.42" height="16" />{" "}
+              <img src={shared.playIconBlue} width="14.42" height="16" />{" "}
               <span>How It Works</span>
             </a>
           </Link>
@@ -34,7 +39,7 @@ const Hero = () => {
           <div className={styles.hero_checker}>
             <div className={styles.hero_check}>
               <figure>
-                <img src="/svg/checkmark.svg" />
+                <img src={shared.checkmark} />
               </figure>
             </div>
             <span>Works Anywhere</span>
@@ -42,7 +47,7 @@ const Hero = () => {
           <div className={styles.hero_checker}>
             <div className={styles.hero_check}>
               <figure>
-                <img src="/svg/checkmark.svg" />
+                <img src={shared.checkmark} />
               </figure>
             </div>
             <span>Completely Free</span>
@@ -50,7 +55,7 @@ const Hero = () => {
           <div className={styles.hero_checker}>
             <div className={styles.hero_check}>
               <figure>
-                <img src="/svg/checkmark.svg" />
+                <img src={shared.checkmark} />
               </figure>
             </div>
             <span>No Hidden fees</span>
@@ -64,23 +69,23 @@ const Hero = () => {
             <img
               data-animation="heroImage"
               className={styles.hero_image}
-              src="/svg/hero-image.svg"
+              src={hero.main}
             />
           </figure>
 
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
             <figure>
-              <img src="/svg/hero-float-one.svg" />
+              <img src={hero.floaterOne} />
             </figure>
           </div>
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
             <figure>
-              <img src="/svg/hero-float-two.svg" />
+              <img src={hero.floaterTwo} />
             </figure>
           </div>
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
             <figure>
-              <img src="/svg/hero-float-three.svg" />
+              <img src={hero.floaterThree} />
             </figure>
           </div>
         </div>

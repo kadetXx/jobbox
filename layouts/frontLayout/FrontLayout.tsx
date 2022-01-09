@@ -3,7 +3,7 @@ import styles from "./FrontLayout.module.scss";
 
 import Link from "next/link";
 import Image from "next/image";
-import { navLinks } from "@/mock";
+import { navLinks, media } from "@/mock";
 
 import { Logo, Button, Preloader } from "@/shared";
 
@@ -28,6 +28,8 @@ const Front = ({ children, page }) => {
     new App({ page, ismobile });
     hasInit.current = true;
   }, []);
+
+  const { shared: { socials } } = media
 
   return (
     <>
@@ -80,9 +82,9 @@ const Front = ({ children, page }) => {
               Copyright &copy; 2021 Jobbox Limited. All rights reserved.
             </p>
             <div className={styles.footer_socials}>
-              <img src="/svg/facebook.svg" width="20" height="20" />
-              <img src="/svg/twitter.svg" width="20" height="20" />
-              <img src="/svg/instagram.svg" width="20" height="20" />
+              <img src={socials.fb} width="20" height="20" />
+              <img src={socials.tw} width="20" height="20" />
+              <img src={socials.ig} width="20" height="20" />
             </div>
           </footer>
         </div>

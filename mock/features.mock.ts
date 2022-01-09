@@ -1,3 +1,9 @@
+import { media } from "./media.mock";
+
+const {
+  landing: { features: images },
+} = media;
+
 export const features = [
   {
     tag: "RECRUITERS",
@@ -9,8 +15,8 @@ export const features = [
       url: "/",
     },
     images: {
-      main: "/img/feat-screen-one.png",
-      floaters: ["/svg/feat-btn-one.svg", "/svg/feat-btn-two.svg"],
+      main: images.screenOne,
+      floaters: [images.buttonOne, images.buttonTwo],
     },
   },
 
@@ -24,8 +30,8 @@ export const features = [
       url: "/",
     },
     images: {
-      main: "/img/feat-screen-two.png",
-      floaters: ["/svg/feat-btn-three.svg", "/svg/feat-btn-four.svg"],
+      main: images.screenTwo,
+      floaters: [images.buttonOne, images.buttonTwo],
     },
   },
 ];

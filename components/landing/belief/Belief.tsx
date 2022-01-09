@@ -1,7 +1,13 @@
 import React from "react";
 import styles from "./Belief.module.scss";
 
+import { media } from "@/mock";
+
 const Belief = () => {
+  const {
+    landing: { belief },
+  } = media;
+
   return (
     <div className={styles.belief}>
       <h2 className={styles.belief_title}>
@@ -16,18 +22,18 @@ const Belief = () => {
 
       <div className={styles.belief_images} data-animation="beliefImg">
         <figure>
-          <img src="/svg/home-job-card.svg" />
+          <img src={belief.jobCard} />
         </figure>
 
         <div className={styles.belief_floaters}>
           <div className={styles.belief_imageFloat} data-animation="beliefBtn">
             <figure>
-              <img src="/svg/home-jc-reject.svg" />
+              <img src={belief.buttonOne} />
             </figure>
           </div>
           <div className={styles.belief_imageFloat} data-animation="beliefBtn">
             <figure>
-              <img src="/svg/home-jc-review.svg" />
+              <img src={belief.buttonTwo} />
             </figure>
           </div>
         </div>
