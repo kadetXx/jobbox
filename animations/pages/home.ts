@@ -65,15 +65,22 @@ export class Home extends Page {
       item.style.position = "fixed";
       item.style.inset = "0";
       item.style.margin = "auto";
+      item.style.border = "1px solid red"
 
       parent.appendChild(item);
     });
   }
 
   startPreAnimation() {
-    //// move image to center of viewport //////
-    const heroImage = this.components.heroImage[0];
-    const { x, y, width, height } = heroImage.getBoundingClientRect();
+    // move image to center of viewport
+    const heroImage = this.components?.heroImage[0];
+    const { x, y, width, height } = heroImage?.getBoundingClientRect();
+
+    if (!heroImage) {
+      setTimeout(() => {
+        this.startPreAnimation();
+      }, 0.5);
+    }
 
     // reset elements
     this.resetElements();
@@ -94,6 +101,10 @@ export class Home extends Page {
 
     // start gsap
     const tl = gsap.timeline();
+
+    tl.call(() => {
+      this.emit("kill-preloader");
+    });
 
     tl.fromTo(
       heroImage,
@@ -123,10 +134,6 @@ export class Home extends Page {
     tl.to(after, {
       display: "none",
       duration: 0,
-    });
-
-    tl.call(() => {
-      this.emit("kill-preloader");
     });
 
     tl.to(heroImage, {
