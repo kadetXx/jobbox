@@ -25,7 +25,9 @@ const Front = ({ children, page }: Props) => {
 
   useEffect(() => {
     !hasInit.current && init();
-  }, []);
+
+    hasPreloaded && eventEmitter.emit("content-mounted")
+  }, [hasPreloaded]);
 
   const init = useCallback(async () => {
     // check if device is mobile
@@ -44,6 +46,8 @@ const Front = ({ children, page }: Props) => {
     eventEmitter.once("preloader-finish", () => {
       setHasPreloaded(true);
     });
+
+
   }, []);
 
   const {

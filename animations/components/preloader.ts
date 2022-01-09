@@ -6,10 +6,15 @@ interface PreloaderType {
 import { Component } from "../classes/component";
 import { each } from "lodash";
 import gsap from "gsap";
+
+import { flattenObj } from "@/helpers";
+import { media } from "@/mock";
+
 import { eventEmitter as nextEmitter } from "@/helpers";
 export class Preloader extends Component implements PreloaderType {
   progress: number;
   percentage: number;
+  allMedia: string[];
 
   constructor() {
     super({
@@ -25,22 +30,33 @@ export class Preloader extends Component implements PreloaderType {
   }
 
   startLoad() {
-    each(this.elements.images, (image: any) => {
-      image.src = image.getAttribute("data-src");
+    this.allMedia = flattenObj(media);
 
-      image.onload = () => this.onAssetLoaded();
+    each(this.allMedia, (url: any) => {
+      const fakeImage = new Image();
+
+      fakeImage.src = url;
+
+      fakeImage.onload = () => {
+        this.onAssetLoaded();
+      };
     });
   }
 
-  onAssetLoaded() {
+  async onAssetLoaded() {
     this.progress++;
-    this.percentage = Math.round(
-      (this.progress / this.elements.images.length) * 100
-    );
+
+    this.percentage = Math.round((this.progress / this.allMedia.length) * 100);
 
     this.elements.percentage[0].innerText = `${this.percentage}%`;
-    this.percentage > 70 && nextEmitter.emit("preloader-finish");
-    this.percentage === 100 && this.onLoadingComplete();
+
+    if (this.percentage > 50) {
+      // emit event to next js mount page
+      nextEmitter.emit("preloader-finish");
+
+      // set loading to completed so animations can start
+      this.onLoadingComplete();
+    }
   }
 
   onLoadingComplete() {

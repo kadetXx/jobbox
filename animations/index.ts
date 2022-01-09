@@ -30,8 +30,6 @@ export class App implements AppInterface {
     this.pagetitle = page;
     // call create preloader method
     this.createPreloader();
-    // call createPages method
-    this.createPages(page);
   }
 
   createPreloader() {
@@ -53,6 +51,10 @@ export class App implements AppInterface {
   }
 
   onPreloaded() {
+    // call createPages method
+    this.createPages(this.pagetitle);
+
+    // start animations on page
     this.currentpage.startPreAnimation && this.currentpage.startPreAnimation();
   }
 
