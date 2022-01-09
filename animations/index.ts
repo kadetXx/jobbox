@@ -25,7 +25,7 @@ export class App implements AppInterface {
   // constructor receiving props from react
   constructor({ page, ismobile }: Props) {
     globalThis.ismobile = ismobile;
-    
+
     // set current page name
     this.pagetitle = page;
     // call create preloader method
