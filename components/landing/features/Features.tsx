@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Features.module.scss";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import { features } from "@/mock";
@@ -35,12 +34,13 @@ const Features = () => {
             <div className={styles.feature_imgBgWrap}>
               <div className={styles.feature_imgBg}></div>
               <div className={styles.feature_screen}>
-                <Image
-                  className={styles.feature_screen}
-                  src={item.images.main}
-                  layout="fill"
-                  unoptimized={true}
-                />
+                <figure>
+                  <img
+                    className={styles.feature_screen}
+                    src={item.images.main}
+                    alt="feature screen"
+                  />
+                </figure>
               </div>
               <div className={styles.feature_floaters}>
                 {item.images.floaters.map((item, index) => (
@@ -51,7 +51,9 @@ const Features = () => {
                     }`}
                     key={index}
                   >
-                    <Image src={item} layout="fill" />
+                    <figure>
+                      <img src={item} alt="feature button" />
+                    </figure>
                   </div>
                 ))}
               </div>

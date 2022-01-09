@@ -3,7 +3,12 @@
 // module.exports = withTM();
 
 module.exports = {
-  images: {
-    domains: ['res.cloudinary.com'],
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
   },
-}
+  
+  images: {
+    domains: ["res.cloudinary.com"],
+  },
+};

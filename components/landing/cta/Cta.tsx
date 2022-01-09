@@ -1,12 +1,15 @@
 import React from "react";
 import styles from "./Cta.module.scss";
-
-import Image from "next/image";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 
-import { Button } from "@/shared";
+import { media } from "@/mock";
+
+const [Button] = [dynamic(() => import("@/shared/button/Button"))];
 
 const Cta = () => {
+  const { shared } = media;
+
   return (
     <div className={styles.cta}>
       <div className={styles.cta_wrapper}>
@@ -23,22 +26,39 @@ const Cta = () => {
           </Button>
           <Link href="/">
             <a className={styles.cta_button}>
-              <Image src="/svg/play-icon-green.svg" width="14.42" height="16" />{" "}
+              <img
+                src={shared.playIconGreen}
+                width="14.42"
+                height="16"
+                alt="button icon"
+              />{" "}
               <span>How It Works</span>
             </a>
           </Link>
         </div>
         <div className={styles.cta_checks} data-animation="ctaChecks">
           <div className={styles.cta_checker}>
-            <Image src="/svg/checkmark.svg" width="16" height="16" />
+            <div className={styles.cta_check}>
+              <figure>
+                <img src={shared.checkmark} alt="checkmark" />
+              </figure>
+            </div>
             <span>Works Anywhere</span>
           </div>
           <div className={styles.cta_checker}>
-            <Image src="/svg/checkmark.svg" width="16" height="16" />
+            <div className={styles.cta_check}>
+              <figure>
+                <img src={shared.checkmark} alt="checkmark" />
+              </figure>
+            </div>
             <span>Completely Free</span>
           </div>
           <div className={styles.cta_checker}>
-            <Image src="/svg/checkmark.svg" width="16" height="16" />
+            <div className={styles.cta_check}>
+              <figure>
+                <img src={shared.checkmark} alt="checkmark" />
+              </figure>
+            </div>
             <span>No Hidden fees</span>
           </div>
         </div>

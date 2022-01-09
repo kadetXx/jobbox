@@ -1,7 +1,6 @@
-import fetcher from './fetcher'
-import cfp from './classNameFromParent'
+import fetcher from "./fetcher";
+import deviceType from "./deviceType";
+import flattenObj from "./flattenObject";
+import eventEmitter from "./eventEmitter";
 
-export {
-  fetcher,
-  cfp
-}
+export { fetcher, deviceType, flattenObj, eventEmitter };

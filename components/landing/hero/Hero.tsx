@@ -1,13 +1,19 @@
 import React from "react";
 import styles from "./Hero.module.scss";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import Image from "next/image";
 
-import { Button } from "@/shared";
-import { brands } from "@/mock";
+import { brands, media } from "@/mock";
+
+const [Button] = [dynamic(() => import("@/shared/button/Button"))];
 
 const Hero = () => {
+  const {
+    landing: { hero },
+    shared,
+  } = media;
+
   return (
     <div className={styles.hero}>
       <div className={styles.hero_textsection}>
@@ -26,22 +32,37 @@ const Hero = () => {
           </Button>
           <Link href="/">
             <a className={styles.hero_button}>
-              <Image src="/svg/play-icon.svg" width="14.42" height="16" />{" "}
+              <img
+                src={shared.playIconBlue}
+                alt="button icon"
+              />
               <span>How It Works</span>
             </a>
           </Link>
         </div>
         <div className={styles.hero_checks} data-animation="heroChecks">
           <div className={styles.hero_checker}>
-            <Image src="/svg/checkmark.svg" width="16" height="16" />
+            <div className={styles.hero_check}>
+              <figure>
+                <img src={shared.checkmark} alt="checkmark" />
+              </figure>
+            </div>
             <span>Works Anywhere</span>
           </div>
           <div className={styles.hero_checker}>
-            <Image src="/svg/checkmark.svg" width="16" height="16" />
+            <div className={styles.hero_check}>
+              <figure>
+                <img src={shared.checkmark} alt="checkmark" />
+              </figure>
+            </div>
             <span>Completely Free</span>
           </div>
           <div className={styles.hero_checker}>
-            <Image src="/svg/checkmark.svg" width="16" height="16" />
+            <div className={styles.hero_check}>
+              <figure>
+                <img src={shared.checkmark} alt="checkmark" />
+              </figure>
+            </div>
             <span>No Hidden fees</span>
           </div>
         </div>
@@ -49,21 +70,29 @@ const Hero = () => {
 
       <div className={styles.hero_imagesection}>
         <div className={styles.hero_imageContainer}>
-          <Image
-            data-animation="heroImage"
-            className={styles.hero_image}
-            src="/svg/hero-image.svg"
-            layout="fill"
-          />
+          <figure>
+            <img
+              data-animation="heroImage"
+              className={styles.hero_image}
+              src={hero.main}
+              alt="job details"
+            />
+          </figure>
 
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
-            <Image src="/svg/hero-float-one.svg" layout="fill" />
+            <figure>
+              <img src={hero.floaterOne} alt="job opening" />
+            </figure>
           </div>
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
-            <Image src="/svg/hero-float-two.svg" layout="fill" />
+            <figure>
+              <img src={hero.floaterTwo} alt="job status" />
+            </figure>
           </div>
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
-            <Image src="/svg/hero-float-three.svg" layout="fill" />
+            <figure>
+              <img src={hero.floaterThree} alt="job application" />
+            </figure>
           </div>
         </div>
       </div>
@@ -78,12 +107,14 @@ const Hero = () => {
               height: `${item.height / 16}rem`,
             }}
           >
-            <Image
-              key={index}
-              src={item.image}
-              title={item.name}
-              layout="fill"
-            />
+            <figure>
+              <img
+                key={index}
+                src={item.image}
+                title={item.name}
+                alt={item.name}
+              />
+            </figure>
           </div>
         ))}
       </div>

@@ -5,45 +5,52 @@ interface Brand {
   height: number;
 }
 
+import { media } from "./media.mock";
+const {
+  landing: {
+    hero: { brands: images },
+  },
+} = media;
+
 export const brands: Brand[] = [
   {
     name: "cowrywise",
-    image: "/svg/cowrywise.svg",
+    image: images.cowrywise,
     width: 219,
     height: 41,
   },
 
   {
     name: "paystack",
-    image: "/svg/paystack.svg",
+    image: images.paystack,
     width: 42,
     height: 41,
   },
 
   {
     name: "paypal",
-    image: "/svg/paypal.svg",
+    image: images.paypal,
     width: 167,
     height: 94,
   },
 
   {
     name: "zenith",
-    image: "/svg/zenith.svg",
+    image: images.zenith,
     width: 28,
     height: 40,
   },
 
   {
     name: "kuda",
-    image: "/svg/kuda.svg",
+    image: images.kuda,
     width: 171,
     height: 40,
   },
 
   {
     name: "gtbank",
-    image: "/svg/gt.svg",
+    image: images.gt,
     width: 59,
     height: 40,
   },

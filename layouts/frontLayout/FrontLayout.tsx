@@ -1,35 +1,65 @@
-import React, { useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import dynamic from "next/dynamic";
+
 import styles from "./FrontLayout.module.scss";
 
 import Link from "next/link";
-import Image from "next/image";
-import { navLinks } from "@/mock";
+import { navLinks, media } from "@/mock";
 
-import { Logo, Button, Preloader } from "@/shared";
+import { deviceType, eventEmitter } from "@/helpers";
 
-import { App } from "@/animations";
+const [Logo, Button, Preloader] = [
+  dynamic(() => import("@/shared/logo/Logo")),
+  dynamic(() => import("@/shared/button/Button")),
+  dynamic(() => import("@/shared/preloader/Preloader")),
+];
 
 interface Props {
   children: React.ReactNode;
   page: string;
 }
 
-const Front = ({ children, page }) => {
+const Front = ({ children, page }: Props) => {
   const hasInit = useRef(false);
+  const [hasPreloaded, setHasPreloaded] = useState(false);
 
   useEffect(() => {
     !hasInit.current && init();
+
+    hasPreloaded && eventEmitter.emit("content-mounted");
+  }, [hasPreloaded]);
+
+  const init = useCallback(async () => {
+    // check if device is mobile
+    const ismobile = deviceType() === "mobile";
+
+    // import animations
+    const App = (await import("@/animations")).App;
+
+    // initialize new animation
+    new App({ page, ismobile });
+
+    // update ref
+    hasInit.current = true;
+
+    // add event emmitter
+    eventEmitter.once("preloader-finish", () => {
+      setHasPreloaded(true);
+    });
   }, []);
 
-  const init = useCallback(() => {
-    new App({ page });
-    hasInit.current = true;
-  }, []);
+  const {
+    shared: { socials },
+  } = media;
+
+  if (!hasPreloaded) {
+    return <Preloader />;
+  }
 
   return (
     <>
       <Preloader />
-      <div className={styles.layout} data-animation='scroll-container'>
+      <div className={styles.layout} data-animation="scroll-container">
         <div className={styles.layout_wrapper} data-animation="smooth-scroll">
           <header className={styles.header}>
             <Logo type="blue" width="109" height="27" />
@@ -77,9 +107,9 @@ const Front = ({ children, page }) => {
               Copyright &copy; 2021 Jobbox Limited. All rights reserved.
             </p>
             <div className={styles.footer_socials}>
-              <Image src="/svg/facebook.svg" width="20" height="20" />
-              <Image src="/svg/twitter.svg" width="20" height="20" />
-              <Image src="/svg/instagram.svg" width="20" height="20" />
+              <img src={socials.fb} width="20" height="20" alt="facebook" />
+              <img src={socials.tw} width="20" height="20" alt="twitter" />
+              <img src={socials.ig} width="20" height="20" alt="instagram" />
             </div>
           </footer>
         </div>
