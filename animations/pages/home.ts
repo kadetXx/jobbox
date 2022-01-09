@@ -100,10 +100,6 @@ export class Home extends Page {
     // start gsap
     const tl = gsap.timeline();
 
-    tl.call(() => {
-      this.emit("kill-preloader");
-    });
-
     tl.fromTo(
       heroImage,
       {
@@ -132,6 +128,10 @@ export class Home extends Page {
     tl.to(after, {
       display: "none",
       duration: 0,
+    });
+
+    tl.call(() => {
+      this.emit("kill-preloader");
     });
 
     tl.to(heroImage, {
