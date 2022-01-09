@@ -1,16 +1,29 @@
-import React from 'react'
+import React from "react";
+import type { ReactElement } from "react";
 
-import { Hero, MainSection, CtaSection, Footer } from '@/components/comingSoon'
+import dynamic from "next/dynamic";
+
+const [FrontLayout, Hero, Belief, Features, Cta] = [
+  dynamic(() => import("@/layouts/frontLayout/FrontLayout")),
+  dynamic(() => import("@/components/landing/hero/Hero")),
+  dynamic(() => import("@/components/landing/belief/Belief")),
+  dynamic(() => import("@/components/landing/features/Features")),
+  dynamic(() => import("@/components/landing/cta/Cta")),
+];
 
 const Index = () => {
   return (
-    <React.Fragment>
+    <div data-page="home">
       <Hero />
-      <MainSection />
-      <CtaSection />
-      <Footer />
-    </React.Fragment>
-  )
-}
+      <Belief />
+      <Features />
+      <Cta />
+    </div>
+  );
+};
 
-export default Index
+export default Index;
+
+Index.getLayout = function getLayout(page: ReactElement) {
+  return <FrontLayout page="home">{page}</FrontLayout>;
+};

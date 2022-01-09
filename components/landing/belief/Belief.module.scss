@@ -1,0 +1,93 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+@import "@/styles/utils";
+
+.belief {
+  @extend %page-section;
+  text-align: center;
+  margin-top: 4.125rem;
+  margin-bottom: 5.375rem;
+
+  @include flex(center, center, column nowrap);
+}
+
+.belief_title {
+  width: 31.875rem;
+  font-size: 2.5rem;
+  color: $col-primary-400;
+  margin: 0;
+
+  @include respondMax("tablet") {
+    font-size: 3.5rem;
+    width: 80%;
+  }
+}
+
+.belief_description {
+  width: 46.688rem;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  color: $col-black;
+  opacity: 0.6;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+
+  @include respondMax("tablet") {
+    font-size: 2rem;
+    width: 100%;
+    line-height: 200%;
+    margin: 2rem 0;
+  }
+}
+
+.belief_images {
+  position: relative;
+  width: 59.5rem;
+  height: 11.25rem;
+  overflow: hidden;
+  filter: drop-shadow(0px 0px 60px rgba(138, 149, 158, 0.15));
+
+  @include respondMax("tablet") {
+    width: 100%;
+  }
+}
+
+.belief_floaters {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  right: 2rem;
+  bottom: 2.5rem;
+  column-gap: 1rem;
+
+  @include flex(center, center, nowrap);
+}
+
+.belief_imageFloat {
+  position: relative;
+  z-index: 4;
+
+  // transform: translateY(-12.5rem);
+
+  &:first-of-type {
+    width: 8.563rem;
+    height: 3.5rem;
+    filter: blur(1px);
+
+    @include respondMax("tablet") {
+      width: 6.85rem;
+      height: 2.8rem;
+    }
+  }
+
+  &:nth-of-type(2) {
+    width: 12.438rem;
+    height: 3.5rem;
+    filter: drop-shadow(0px 10px 20px rgba(138, 149, 158, 0.25));
+
+    @include respondMax("tablet") {
+      width: 9.9504rem;
+      height: 2.8rem;
+    }
+  }
+}

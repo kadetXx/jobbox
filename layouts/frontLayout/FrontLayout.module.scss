@@ -1,0 +1,120 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+@import "@/styles/utils";
+
+.layout {
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  background-color: $col-white;
+  padding: 1rem 5%;
+
+  @include flex(space-between, center, nowrap);
+
+  @include respondMax("tablet") {
+    padding: 3rem 5%;
+  }
+
+  .header_menuList {
+    list-style: none;
+    padding: 0;
+    margin-left: 6rem;
+
+    @include flex(space-between, center, nowrap);
+
+    @include respondMax("tablet") {
+      display: none;
+    }
+  }
+
+  .header_menuItem {
+    margin: 0 1.5rem;
+  }
+
+  .header_menuLink {
+    font-size: 0.9rem;
+    color: $col-primary;
+    transition: all 0.1s ease-out;
+
+    &:hover {
+      color: $col-secondary;
+      filter: grayscale(100%);
+    }
+  }
+
+  .header_buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: fit-content;
+    column-gap: 1rem;
+
+    @include respondMax("tablet") {
+      display: none;
+    }
+  }
+
+  .header_button {
+    padding: 0.75rem 1.2rem;
+  }
+}
+
+.footer {
+  padding: 1.5rem 5%;
+  background-color: $col-primary-300;
+  color: $col-white;
+
+  @include flex(space-between, center, nowrap);
+
+  @include respondMax("tablet") {
+    flex-wrap: wrap;
+    padding-bottom: 0;
+  }
+
+  .footer_logo {
+    width: 109px;
+    height: 27px;
+    position: relative;
+
+    @include respondMax("tablet") {
+      order: 1;
+      width: 218px;
+      height: 54px;
+      max-width: 30%;
+    }
+  }
+
+  .footer_copyright {
+    color: $col-white;
+    font-size: inherit;
+
+    @include respondMax("tablet") {
+      order: 3;
+      width: 100%;
+      text-align: center;
+      font-size: 1.7rem;
+      padding: 3rem 0;
+      width: 122%;
+      margin: 1.4rem -6% -1px -6%;
+      border-bottom: 1px solid rgba($col-black, 0.3);
+      opacity: 0.6;
+      background-color: rgba($col-black, 0.3);
+    }
+  }
+
+  .footer_socials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1rem;
+    width: fit-content;
+
+    @include respondMax("tablet") {
+      column-gap: 1.5rem;
+    }
+
+    @include respondMax("tablet") {
+      order: 2;
+    }
+  }
+}

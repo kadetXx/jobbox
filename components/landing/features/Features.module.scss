@@ -1,0 +1,186 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+@import "@/styles/utils";
+
+.features {
+  @extend %page-section;
+
+  @include respondMax("tablet") {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 18rem;
+  }
+}
+
+.feature {
+  display: grid;
+  column-gap: 10.688rem;
+  padding: 3rem 0;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include respondMax("tablet") {
+    grid-template-columns: 1fr;
+    row-gap: 8rem;
+
+    &:nth-of-type(2) .feature_title {
+      width: 85%;
+    }
+  }
+}
+
+.feature:nth-of-type(even) {
+  direction: rtl;
+
+  & .feature_title,
+  .feature_description {
+    direction: ltr;
+    text-align: right;
+  }
+}
+
+// .feature_textContainer {
+
+// }
+
+.feature_tag {
+  column-gap: 0.65rem;
+  font-size: 1.2rem;
+  @include flex(flex-start, center, nowrap);
+
+  @include respondMax("tablet") {
+    font-size: 1.8rem;
+  }
+}
+
+.feature_title {
+  width: 30.375rem;
+  font-size: 3rem;
+  margin: 1.7rem 0 1.5rem;
+  line-height: 120%;
+  color: $col-primary-400;
+
+  @include respondMax("tablet") {
+    font-size: 4.2rem;
+    width: 70%;
+    line-height: 150%;
+  }
+}
+
+.feature_description {
+  font-size: 1.25rem;
+  line-height: 150%;
+  font-weight: 400;
+  color: $col-black;
+  opacity: 0.6;
+
+  @include respondMax("tablet") {
+    font-size: 2.1rem;
+    width: 90%;
+    line-height: 200%;
+    margin: 2.5rem 0;
+  }
+}
+
+.feature_cta {
+  @extend %btn_primary;
+  width: fit-content;
+  padding: 1.1rem 2.5rem;
+
+  @include respondMax("tablet") {
+    padding: 2.2rem 5rem;
+  }
+}
+
+.feature_imgContainer {
+  @include respondMax("tablet") {
+    transform: scale(0.85);
+  }
+}
+
+.feature_imgBgWrap {
+  position: relative;
+  width: 30.75rem;
+  height: 32.75rem;
+
+  @include flex(flex-end, center, column nowrap);
+
+  @include respondMax("tablet") {
+    width: 55.565rem;
+    height: 59.075rem;
+    justify-content: center;
+    margin: auto;
+  }
+}
+
+.feature_imgBg {
+  width: 30.75rem;
+  height: 30.75rem;
+  border-radius: 100%;
+
+  background-color: $col-secondary;
+  border-bottom: 1px solid $col-white;
+  filter: drop-shadow(0px 0px 40px rgba(138, 149, 147, 0.25));
+
+  @include respondMax("tablet") {
+    height: 55.565rem;
+    width: 55.565rem;
+    position: relative;
+    bottom: -1.9rem;
+  }
+}
+
+.feature_floaters {
+  position: absolute;
+  right: -2.5rem;
+  top: 8rem;
+  display: grid;
+  row-gap: 0.5rem;
+
+  .feature_floater {
+    position: relative;
+    width: 10rem;
+    height: 2.764rem;
+    z-index: 10;
+
+    @include respondMax("tablet") {
+      width: 20rem;
+      height: 5.528rem;
+    }
+  }
+}
+
+.feature:nth-of-type(odd) .feature_floaters {
+  .feature_floater:nth-of-type(1) {
+    filter: blur(1px);
+  }
+}
+
+.feature:nth-of-type(even) .feature_floaters {
+  top: 11rem;
+  right: -3rem;
+
+  @include respondMax("tablet") {
+    left: -1rem;
+    right: unset;
+  }
+
+  .feature_floater {
+    @include respondMax("tablet") {
+      width: 18rem;
+      height: 5.528rem;
+    }
+  }
+
+  .feature_floater:nth-of-type(1) {
+    background-color: $col-white;
+    border-radius: 5px;
+    filter: drop-shadow(0px 0px 40px rgba(138, 149, 148, 0.25));
+  }
+
+  .feature_floater:nth-of-type(2) {
+    filter: blur(1px);
+  }
+}

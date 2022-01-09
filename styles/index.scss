@@ -1,11 +1,9 @@
 // abstracts
 @import 'variables';
-@import 'functions';
 @import 'mixins';
 @import 'helpers';
 
 
 // base
-@import 'reset';
+@import 'base';
 @import 'typography';
-@import 'global';

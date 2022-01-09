@@ -1,12 +1,41 @@
 @import "@/styles/variables";
-@import '@/styles/mixins';
+@import "@/styles/mixins";
 
 .preloader {
+  background-color: $col-white;
+  @include flex(center, center);
+}
+
+.preloader_wrapper {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 5;
+  background-color: $col-white;
+
+  @include flex(flex-end, flex-start, column nowrap);
+}
+
+.preloader_progress {
+  position: fixed;
   
-  @include flex(center, center);
+  bottom: 0;
+  margin: auto auto 2rem;
+  max-width: 40%;
+  z-index: 30;
+
+  @include flex(center, center, column nowrap);
+}
+
+.preloader_percent {
+  font-size: 0.7rem;
+  color: $col-primary;
+  text-align: center;
+  opacity: 0.85;
+
+  @include respondMax("tablet") {
+    font-size: 1.5rem;
+  }
 }

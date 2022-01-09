@@ -1,0 +1,93 @@
+// layout
+%page-section {
+  padding: 2rem 5%;
+}
+
+// buttons
+
+%btn {
+  min-width: 3rem;
+  min-height: 2.5rem;
+  padding: 0.8rem 1.5rem;
+  transition: all 0.2s ease-in;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  @include flex(center, center, row nowrap);
+
+  @include respondMax("tablet") {
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+%btn_primary {
+  @extend %btn;
+
+  color: $col-white;
+  background-color: $col-primary;
+  border: 1px solid $col-primary;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+%btn_primary_outline {
+  @extend %btn_primary;
+
+  color: $col-primary;
+  border-color: $col-primary;
+  background-color: transparent;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+%btn_secondary {
+  @extend %btn;
+
+  color: $col-white;
+  background-color: $col-secondary;
+  border: 1px solid $col-secondary;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+%btn_secondary_outline {
+  @extend %btn_secondary;
+
+  color: $col-secondary;
+  border-color: $col-secondary;
+  background-color: transparent;
+}
+
+%btn_icon {
+  @include flex(center, center);
+  column-gap: 0.6rem;
+  
+  @include respondMax("tablet") {
+    column-gap: 1rem;
+  }
+}
+
+%btn_icon_prefix {
+  @extend %btn_icon;
+
+  img {
+    width: 0.8rem;
+    height: 0.8rem;
+
+    @include respondMax("tablet") {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+}
