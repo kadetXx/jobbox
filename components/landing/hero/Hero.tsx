@@ -30,7 +30,7 @@ const Hero = () => {
           </Button>
           <Link href="/">
             <a className={styles.hero_button}>
-              <img src={shared.playIconBlue} width="14.42" height="16" />{" "}
+              <img data-src={shared.playIconBlue} width="14.42" height="16" />{" "}
               <span>How It Works</span>
             </a>
           </Link>
@@ -39,7 +39,7 @@ const Hero = () => {
           <div className={styles.hero_checker}>
             <div className={styles.hero_check}>
               <figure>
-                <img src={shared.checkmark} />
+                <img data-src={shared.checkmark} />
               </figure>
             </div>
             <span>Works Anywhere</span>
@@ -47,7 +47,7 @@ const Hero = () => {
           <div className={styles.hero_checker}>
             <div className={styles.hero_check}>
               <figure>
-                <img src={shared.checkmark} />
+                <img data-src={shared.checkmark} />
               </figure>
             </div>
             <span>Completely Free</span>
@@ -55,7 +55,7 @@ const Hero = () => {
           <div className={styles.hero_checker}>
             <div className={styles.hero_check}>
               <figure>
-                <img src={shared.checkmark} />
+                <img data-src={shared.checkmark} />
               </figure>
             </div>
             <span>No Hidden fees</span>
@@ -69,23 +69,23 @@ const Hero = () => {
             <img
               data-animation="heroImage"
               className={styles.hero_image}
-              src={hero.main}
+              data-src={hero.main}
             />
           </figure>
 
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
             <figure>
-              <img src={hero.floaterOne} />
+              <img data-src={hero.floaterOne} />
             </figure>
           </div>
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
             <figure>
-              <img src={hero.floaterTwo} />
+              <img data-src={hero.floaterTwo} />
             </figure>
           </div>
           <div className={styles.hero_imageFloat} data-animation="heroFloater">
             <figure>
-              <img src={hero.floaterThree} />
+              <img data-src={hero.floaterThree} />
             </figure>
           </div>
         </div>
@@ -102,7 +102,7 @@ const Hero = () => {
             }}
           >
             <figure>
-              <img key={index} src={item.image} title={item.name} />
+              <img key={index} data-src={item.image} title={item.name} />
             </figure>
           </div>
         ))}

@@ -25,7 +25,7 @@ const Cta = () => {
           </Button>
           <Link href="/">
             <a className={styles.cta_button}>
-              <img src={shared.playIconGreen} width="14.42" height="16" />{" "}
+              <img data-src={shared.playIconGreen} width="14.42" height="16" />{" "}
               <span>How It Works</span>
             </a>
           </Link>
@@ -34,7 +34,7 @@ const Cta = () => {
           <div className={styles.cta_checker}>
             <div className={styles.cta_check}>
               <figure>
-                <img src={shared.checkmark} />
+                <img data-src={shared.checkmark} />
               </figure>
             </div>
             <span>Works Anywhere</span>
@@ -42,7 +42,7 @@ const Cta = () => {
           <div className={styles.cta_checker}>
             <div className={styles.cta_check}>
               <figure>
-                <img src={shared.checkmark} />
+                <img data-src={shared.checkmark} />
               </figure>
             </div>
             <span>Completely Free</span>
@@ -50,7 +50,7 @@ const Cta = () => {
           <div className={styles.cta_checker}>
             <div className={styles.cta_check}>
               <figure>
-                <img src={shared.checkmark} />
+                <img data-src={shared.checkmark} />
               </figure>
             </div>
             <span>No Hidden fees</span>

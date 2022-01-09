@@ -15,7 +15,7 @@ export class Preloader extends Component implements PreloaderType {
       element: '[data-animation="preloader"]',
       elements: {
         percentage: '[data-animation="preloader_percent"]',
-        images: "img",
+        images: "[data-src]",
       },
     });
 
@@ -24,14 +24,10 @@ export class Preloader extends Component implements PreloaderType {
   }
 
   startLoad() {
-    each(this.elements.images, (item: any) => {
-      const image = new Image();
-      image.src = item.src;
+    each(this.elements.images, (image: any) => {
+      image.src = image.getAttribute("data-src");
 
-      image.onload = () => {
-        item.src = image.src;
-        this.onAssetLoaded();
-      };
+      image.onload = () => this.onAssetLoaded();
     });
   }
 
@@ -46,12 +42,19 @@ export class Preloader extends Component implements PreloaderType {
   }
 
   onLoadingComplete() {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({ delay: 1.4 });
 
-    tl.to(this.elements.percentage, {
+    gsap.to(this.elements.percentage, {
       autoAlpha: 0,
-      scale: 2,
-      duration: 0.2,
+      duration: 0.5,
+      delay: 1,
+    });
+
+    gsap.to(this.elements.percentage, {
+      scale: 0,
+      duration: 1,
+      delay: 1,
+      ease: 'sine.out'
     });
 
     tl.call(() => {

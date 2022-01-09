@@ -82,9 +82,9 @@ const Front = ({ children, page }) => {
               Copyright &copy; 2021 Jobbox Limited. All rights reserved.
             </p>
             <div className={styles.footer_socials}>
-              <img src={socials.fb} width="20" height="20" />
-              <img src={socials.tw} width="20" height="20" />
-              <img src={socials.ig} width="20" height="20" />
+              <img data-src={socials.fb} width="20" height="20" />
+              <img data-src={socials.tw} width="20" height="20" />
+              <img data-src={socials.ig} width="20" height="20" />
             </div>
           </footer>
         </div>

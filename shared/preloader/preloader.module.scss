@@ -36,9 +36,13 @@
 }
 
 .preloader_percent {
-  font-size: 2rem;
-  margin-top: -2rem;
+  font-size: 0.5rem;
+  // margin-top: -2rem;
   color: $col-primary;
   text-align: center;
   opacity: 0.85;
+
+  @include respondMax("tablet") {
+    font-size: 1.5rem;
+  }
 }

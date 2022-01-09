@@ -22,18 +22,18 @@ const Belief = () => {
 
       <div className={styles.belief_images} data-animation="beliefImg">
         <figure>
-          <img src={belief.jobCard} />
+          <img data-src={belief.jobCard} />
         </figure>
 
         <div className={styles.belief_floaters}>
           <div className={styles.belief_imageFloat} data-animation="beliefBtn">
             <figure>
-              <img src={belief.buttonOne} />
+              <img data-src={belief.buttonOne} />
             </figure>
           </div>
           <div className={styles.belief_imageFloat} data-animation="beliefBtn">
             <figure>
-              <img src={belief.buttonTwo} />
+              <img data-src={belief.buttonTwo} />
             </figure>
           </div>
         </div>
