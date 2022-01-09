@@ -1,7 +1,6 @@
 import { Component } from "./component";
 import gsap from "gsap";
 import NormalizeWheel from "normalize-wheel";
-import { divide } from "lodash";
 export class Animation extends Component {
   observe: any;
   observer: any;
@@ -44,8 +43,17 @@ export class Animation extends Component {
   }
 
   onMouseWheel(e: WheelEvent) {
-    const { pixelY } = NormalizeWheel(e);
-    this.scroll.target += pixelY;
+    if (!globalThis.ismobile) {
+      const { pixelY } = NormalizeWheel(e);
+      this.scroll.target += pixelY;
+    }
+  }
+
+  onScroll() {
+    if (globalThis.ismobile) {
+      const top = document.documentElement.scrollTop;
+      this.scroll.target += top;
+    }
   }
 
   onTouchMove(event: any) {
@@ -134,6 +142,7 @@ export class Animation extends Component {
     window.addEventListener("touchstart", this.onTouchDown.bind(this));
     window.addEventListener("touchmove", this.onTouchMove.bind(this));
     window.addEventListener("touchend", this.onTouchUp.bind(this));
+    window.addEventListener("scroll", this.onScroll.bind(this));
   }
 
   animateIn() {}
