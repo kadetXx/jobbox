@@ -4,15 +4,11 @@ import dynamic from "next/dynamic";
 import styles from "./FrontLayout.module.scss";
 
 import Link from "next/link";
-import Image from "next/image";
 import { navLinks, media } from "@/mock";
-
-// import { Logo, Button, Preloader } from "@/shared";
 
 import { App } from "@/animations";
 import { deviceType } from "@/helpers";
 
-//
 const [Logo, Button, Preloader] = [
   dynamic(() => import("@/shared/logo/Logo")),
   dynamic(() => import("@/shared/button/Button")),
@@ -24,7 +20,7 @@ interface Props {
   page: string;
 }
 
-const Front = ({ children, page }) => {
+const Front = ({ children, page }: Props) => {
   const hasInit = useRef(false);
 
   useEffect(() => {
@@ -45,7 +41,7 @@ const Front = ({ children, page }) => {
   return (
     <>
       <Preloader />
-      {/* <div className={styles.layout} data-animation="scroll-container">
+      <div className={styles.layout} data-animation="scroll-container">
         <div className={styles.layout_wrapper} data-animation="smooth-scroll">
           <header className={styles.header}>
             <Logo type="blue" width="109" height="27" />
@@ -99,7 +95,7 @@ const Front = ({ children, page }) => {
             </div>
           </footer>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
