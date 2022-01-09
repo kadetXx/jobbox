@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./logo.module.scss";
 import Image from "next/image";
-import { media } from '@/mock'
+import { media } from "@/mock";
 
 interface LogoProps {
   width?: string;
@@ -16,7 +16,7 @@ const Logo: React.FC<LogoProps> = ({
   type = "default",
   className,
 }) => {
-  const { shared } = media
+  const { shared } = media;
 
   return (
     <div className={`${styles.logo} ${className}`}>
@@ -25,7 +25,6 @@ const Logo: React.FC<LogoProps> = ({
         width={width}
         height={height}
         layout={!width ? "fill" : "intrinsic"}
-        
       />
     </div>
   );
