@@ -3,9 +3,6 @@ import type { ReactElement } from "react";
 
 import dynamic from "next/dynamic";
 
-// import { FrontLayout } from "@/layouts";
-// import { Hero, Belief, Features, Cta } from "@/components/landing";
-
 const [FrontLayout, Hero, Belief, Features, Cta] = [
   dynamic(() => import("@/layouts/frontLayout/FrontLayout")),
   dynamic(() => import("@/components/landing/hero/Hero")),

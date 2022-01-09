@@ -6,6 +6,7 @@ interface PreloaderType {
 import { Component } from "../classes/component";
 import { each } from "lodash";
 import gsap from "gsap";
+import { eventEmitter as nextEmitter } from "@/helpers";
 export class Preloader extends Component implements PreloaderType {
   progress: number;
   percentage: number;
@@ -38,6 +39,7 @@ export class Preloader extends Component implements PreloaderType {
     );
 
     this.elements.percentage[0].innerText = `${this.percentage}%`;
+    this.percentage > 70 && nextEmitter.emit("preloader-finish");
     this.percentage === 100 && this.onLoadingComplete();
   }
 
@@ -54,7 +56,7 @@ export class Preloader extends Component implements PreloaderType {
       scale: 0,
       duration: 1,
       delay: 1,
-      ease: 'sine.out'
+      ease: "sine.out",
     });
 
     tl.call(() => {
