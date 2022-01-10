@@ -61,8 +61,9 @@ export class Preloader extends Component {
     });
 
     tl.to(this.elements.percentage, {
-      filter: "blur(2px) grayscale(100%)",
+      filter: "blur(1px) grayscale(100%)",
       autoAlpha: 0,
+      y: 100,
       ease: "expo.out",
       duration: 1.6,
     });
