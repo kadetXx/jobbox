@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styles from "./Cta.module.scss";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import { media } from "@/mock";
 
 const [Button] = [dynamic(() => import("@/shared/button/Button"))];
 
-const Cta = () => {
+const Cta = (): ReactElement => {
   const { shared } = media;
 
   return (

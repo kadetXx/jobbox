@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styles from "./preloader.module.scss";
 
 import Image from "next/image";
 
-const Preloader = () => {
+const Preloader = (): ReactElement => {
   return (
     <div className={styles.preloader} data-animation="preloader">
       <div

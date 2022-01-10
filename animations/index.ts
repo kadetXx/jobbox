@@ -1,12 +1,3 @@
-interface AppInterface {
-  currentpage: any;
-  preloader: any;
-  pages: any;
-  pagetitle: string;
-  createPages(page: string): void;
-  createPreloader(): void;
-}
-
 type Props = {
   page: string;
   ismobile: boolean;
@@ -15,7 +6,7 @@ type Props = {
 import { Home } from "./pages/home";
 import { Preloader } from "./components/preloader";
 
-export class App implements AppInterface {
+export class App {
   currentpage: any;
   preloader: any;
   pages: any;
@@ -64,3 +55,4 @@ export class App implements AppInterface {
     this.currentpage.addEventListeners();
   }
 }
+

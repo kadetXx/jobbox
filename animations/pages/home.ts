@@ -27,7 +27,7 @@ export class Home extends Page {
     });
   }
 
-  resetElements() {
+  resetElements(): void {
     const heroImage = this.components.heroImage[0];
     const parent = heroImage.parentElement;
 
@@ -54,7 +54,7 @@ export class Home extends Page {
     );
   }
 
-  createPseudo(after: any, width: number, height: number) {
+  createPseudo(after: any, width: number, height: number): void {
     const parent = this.components.heroImage[0].parentElement;
 
     [after].forEach((item) => {
@@ -71,10 +71,10 @@ export class Home extends Page {
     });
   }
 
-  startPreAnimation() {
+  startPreAnimation(): void {
     // move image to center of viewport
-    const heroImage = this.components?.heroImage[0];
-    const { x, y, width, height } = heroImage?.getBoundingClientRect();
+    const heroImage: HTMLElement = this.components?.heroImage[0];
+    const { x, y, width, height }: DOMRect = heroImage?.getBoundingClientRect();
 
     if (!heroImage) {
       setTimeout(() => {
@@ -155,7 +155,7 @@ export class Home extends Page {
     });
   }
 
-  animateFloaters() {
+  animateFloaters(): void {
     const floaters = this.components.heroFloater;
 
     gsap.to(floaters, {
@@ -192,14 +192,14 @@ export class Home extends Page {
     });
   }
 
-  animateText() {
+  animateText(): void {
     const title = this.components.heroTitle;
     const desc = this.components.heroDesc;
     const buttons = this.components.heroButtons;
     const checks = this.components.heroChecks;
     const brands = this.components.heroBrands;
 
-    const tl = gsap.timeline();
+    const tl: GSAPTimeline = gsap.timeline();
 
     tl.call(this.createComponentAnimations.bind(this));
 
@@ -242,7 +242,7 @@ export class Home extends Page {
       });
     });
 
-    const featuresButtons = [
+    const featuresButtons: string[] = [
       this.elements.featBtnOne,
       this.elements.featBtnTwo,
     ];

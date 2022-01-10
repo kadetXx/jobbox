@@ -1,17 +1,11 @@
-interface PreloaderType {
-  progress: number;
-  percentage: number;
-}
-
 import { Component } from "../classes/component";
-import { each, throttle } from "lodash";
+import { each } from "lodash";
 import gsap from "gsap";
 
-import { flattenObj } from "@/helpers";
+import { flattenObj, eventEmitter as nextEmitter } from "@/utils";
 import { media } from "@/mock";
 
-import { eventEmitter as nextEmitter } from "@/helpers";
-export class Preloader extends Component implements PreloaderType {
+export class Preloader extends Component {
   progress: number;
   percentage: number;
   allMedia: string[];
@@ -29,11 +23,11 @@ export class Preloader extends Component implements PreloaderType {
     this.progress = 0;
   }
 
-  startLoad() {
+  startLoad(): void {
     this.allMedia = flattenObj(media);
 
     each(this.allMedia, (url: any) => {
-      const fakeImage = new Image();
+      const fakeImage: HTMLImageElement = new Image();
 
       fakeImage.src = url;
 
@@ -43,7 +37,7 @@ export class Preloader extends Component implements PreloaderType {
     });
   }
 
-  async onAssetLoaded() {
+  onAssetLoaded(): void {
     this.progress++;
 
     this.percentage = Math.round((this.progress / this.allMedia.length) * 100);
@@ -59,8 +53,8 @@ export class Preloader extends Component implements PreloaderType {
     }
   }
 
-  onLoadingComplete() {
-    const tl = gsap.timeline({ delay: 1.4 });
+  onLoadingComplete(): void {
+    const tl: GSAPTimeline = gsap.timeline({ delay: 1.4 });
 
     tl.call(() => {
       this.emit("preloading-completed");
@@ -69,12 +63,12 @@ export class Preloader extends Component implements PreloaderType {
     tl.to(this.elements.percentage, {
       filter: "blur(2px) grayscale(100%)",
       autoAlpha: 0,
-      ease: 'expo.out',
-      duration: 1.6
+      ease: "expo.out",
+      duration: 1.6,
     });
   }
 
-  kill() {
+  kill(): void {
     gsap.to(this.element, {
       autoAlpha: 0,
       duration: 1,

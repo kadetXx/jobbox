@@ -11,7 +11,9 @@ export class FeatBtn extends Parallax {
     });
   }
 
-  init() {
+  init(): void {
+    super.init();
+    
     gsap.set(this.elements.btns, {
       y: this.displacement,
     });
@@ -19,8 +21,8 @@ export class FeatBtn extends Parallax {
     this.animateButtons();
   }
 
-  animateButtons() {
-    const mappedvalue = this.rect.currentDistanceY * this.mapped;
+  animateButtons(): void {
+    const mappedvalue: number = this.rect.currentDistanceY * this.mapped;
 
     gsap.set(this.elements.btns, {
       y: mappedvalue,
