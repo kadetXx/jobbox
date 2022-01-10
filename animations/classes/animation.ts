@@ -36,9 +36,12 @@ export class Animation extends Component {
   }
 
   updateTargetDistanceY() {
-    const halfVH = window.innerHeight / 2;
+    const endPoint = globalThis.ismobile
+      ? window.innerHeight / 3
+      : window.innerHeight / 2;
+      
     const { y, height } = this.element.getBoundingClientRect();
-    const newValue = y + height / 2 - halfVH;
+    const newValue = y + height / 2 - endPoint;
 
     const clamped = gsap.utils.clamp(0, this.rect.distanceY, newValue);
     this.rect.targetDistanceY = clamped;
