@@ -20,8 +20,8 @@ interface Props {
 }
 
 const Front = ({ children, page }: Props) => {
-  const hasInit = useRef(false);
-  const [hasPreloaded, setHasPreloaded] = useState(false);
+  const hasInit = useRef<boolean>(false);
+  const [hasPreloaded, setHasPreloaded] = useState<boolean>(false);
 
   const {
     shared: { socials },
@@ -29,7 +29,7 @@ const Front = ({ children, page }: Props) => {
 
   const init = useCallback(async () => {
     // check if device is mobile
-    const ismobile = deviceType() === "mobile";
+    const ismobile: boolean = deviceType() === "mobile";
 
     // import animations
     const App = (await import("@/animations")).App;
@@ -109,9 +109,26 @@ const Front = ({ children, page }: Props) => {
               Copyright &copy; 2021 Jobbox Limited. All rights reserved.
             </p>
             <div className={styles.footer_socials}>
-              <img src={socials.fb} width="20" height="20" alt="facebook" />
-              <img src={socials.tw} width="20" height="20" alt="twitter" />
-              <img src={socials.ig} width="20" height="20" alt="instagram" />
+              <Link href="/">
+                <a className={styles.footer_social}>
+                  <img src={socials.fb} width="20" height="20" alt="facebook" />
+                </a>
+              </Link>
+              <Link href="/">
+                <a className={styles.footer_social}>
+                  <img src={socials.tw} width="20" height="20" alt="twitter" />
+                </a>
+              </Link>
+              <Link href="/">
+                <a className={styles.footer_social}>
+                  <img
+                    src={socials.ig}
+                    width="20"
+                    height="20"
+                    alt="instagram"
+                  />
+                </a>
+              </Link>
             </div>
           </footer>
         </div>

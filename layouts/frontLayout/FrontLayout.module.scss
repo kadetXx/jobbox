@@ -31,6 +31,11 @@
 
   .header_menuItem {
     margin: 0 1.5rem;
+    transition: transform 0.2s ease-out;
+
+    &:hover {
+      transform: scale(0.95);
+    }
   }
 
   .header_menuLink {
@@ -39,8 +44,8 @@
     transition: all 0.1s ease-out;
 
     &:hover {
-      color: $col-secondary;
-      filter: grayscale(100%);
+      transform: scale(2);
+      filter: grayscale(90%);
     }
   }
 
@@ -119,5 +124,11 @@
     @include respondMax("tablet") {
       order: 2;
     }
+  }
+
+  .footer_social:hover {
+    transition: all 0.2s ease-out;
+    filter: grayscale(100%);
+    transform: scale(1.05);
   }
 }

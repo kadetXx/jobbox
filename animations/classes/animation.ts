@@ -53,7 +53,11 @@ export class Animation extends Component {
     const { y, height }: DOMRect = this.element.getBoundingClientRect();
     const newValue: number = y + height / 2 - endPoint;
 
-    const clamped: number = gsap.utils.clamp(0, this.rect.distanceY + 50, newValue);
+    const clamped: number = gsap.utils.clamp(
+      0,
+      this.rect.distanceY + 50,
+      newValue
+    );
     this.rect.targetDistanceY = clamped;
 
     this.frameII = window.requestAnimationFrame(
@@ -65,7 +69,7 @@ export class Animation extends Component {
     this.rect.currentDistanceY = gsap.utils.interpolate(
       this.rect.currentDistanceY,
       this.rect.targetDistanceY,
-      globalThis.ismobile ? 0.1 : 0.05
+      0.1
     );
 
     this.frame = window.requestAnimationFrame(
