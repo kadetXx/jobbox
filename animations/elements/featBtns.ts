@@ -14,7 +14,6 @@ export class FeatBtn extends Animation {
 
   mapDistanceToAnimation() {
     this.displacement = 250;
-
     this.mapped = this.displacement / this.rect.targetDistanceY;
 
     gsap.set(this.elements.btns, {
@@ -25,15 +24,15 @@ export class FeatBtn extends Animation {
   }
 
   animateButtons() {
-    const [first, second] = this.elements.btns;
-
     const mappedvalue = this.rect.currentDistanceY * this.mapped;
 
-    gsap.set([first, second], {
+    gsap.set(this.elements.btns, {
       y: mappedvalue,
       stagger: 0.1,
     });
 
-    this.frameIII = window.requestAnimationFrame(this.animateButtons.bind(this));
+    this.frameIII = window.requestAnimationFrame(
+      this.animateButtons.bind(this)
+    );
   }
 }
