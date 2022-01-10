@@ -33,14 +33,7 @@
 
 .feature:nth-of-type(even) {
   direction: rtl;
-
-  & .feature_title,
-  .feature_description {
-    direction: ltr;
-    text-align: right;
-  }
 }
-
 
 .feature_tag {
   column-gap: 0.65rem;
@@ -66,6 +59,11 @@
   }
 }
 
+.feature:nth-of-type(even) .feature_title {
+  direction: ltr;
+  text-align: right;
+}
+
 .feature_description {
   font-size: 1.25rem;
   line-height: 150%;
@@ -79,6 +77,11 @@
     line-height: 200%;
     margin: 2.5rem 0;
   }
+}
+
+.feature:nth-of-type(even) .feature_description {
+  direction: ltr;
+  text-align: right;
 }
 
 .feature_cta {
@@ -126,6 +129,15 @@
     width: 55.565rem;
     position: relative;
     bottom: -1.9rem;
+  }
+}
+
+.feature:nth-of-type(odd) .feature_imgBg {
+  position: relative;
+  bottom: 0.05rem;
+
+  @include respondMax("tablet") {
+    bottom: -1.8rem;
   }
 }
 
