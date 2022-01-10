@@ -52,7 +52,7 @@ export class Preloader extends Component implements PreloaderType {
 
     if (this.percentage === 100) {
       // emit event to next js mount page
-      nextEmitter.emit("preloader-finish");
+      nextEmitter.emit("preloading-completed");
 
       // set loading to completed so animations can start
       this.onLoadingComplete();

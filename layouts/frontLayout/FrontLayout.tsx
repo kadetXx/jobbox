@@ -43,7 +43,7 @@ const Front = ({ children, page }: Props) => {
     hasInit.current = true;
 
     // add event emmitter
-    eventEmitter.once("preloader-finish", () => {
+    eventEmitter.once("preloading-completed", () => {
       setHasPreloaded(true);
     });
   }, []);
