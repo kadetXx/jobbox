@@ -3,6 +3,7 @@ import { each } from "lodash";
 import NormalizeWheel from "normalize-wheel";
 import gsap from "gsap";
 import Prefix from "prefix";
+
 export class Page extends EventEmitter {
   components: any;
   elements: any;
