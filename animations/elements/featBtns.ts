@@ -1,21 +1,22 @@
-import { Animation } from "../classes/animation";
+import { Parallax } from "../classes/parallax";
 import gsap from "gsap";
-export class FeatBtn extends Animation {
+export class FeatBtn extends Parallax {
   frameIII: any;
   mapped: number;
   scroll: any;
   displacement: any;
 
   constructor({ element, elements }) {
-    super({ element, elements });
-
-    this.mapDistanceToAnimation();
+    super({
+      element,
+      elements,
+      params: {
+        displacement: 250,
+      },
+    });
   }
 
-  mapDistanceToAnimation() {
-    this.displacement = 250;
-    this.mapped = this.displacement / this.rect.targetDistanceY;
-
+  init() {
     gsap.set(this.elements.btns, {
       y: this.displacement,
     });

@@ -6,11 +6,11 @@
   @extend %page-section;
 
   @include respondMax("tablet") {
-    padding-top: 12rem;
+    padding-top: 7rem;
     padding-bottom: 12rem;
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 18rem;
+    row-gap: 9rem;
   }
 }
 
@@ -41,9 +41,6 @@
   }
 }
 
-// .feature_textContainer {
-
-// }
 
 .feature_tag {
   column-gap: 0.65rem;
