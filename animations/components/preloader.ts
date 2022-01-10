@@ -1,8 +1,3 @@
-interface PreloaderType {
-  progress: number;
-  percentage: number;
-}
-
 import { Component } from "../classes/component";
 import { each } from "lodash";
 import gsap from "gsap";
@@ -10,7 +5,7 @@ import gsap from "gsap";
 import { flattenObj, eventEmitter as nextEmitter } from "@/utils";
 import { media } from "@/mock";
 
-export class Preloader extends Component implements PreloaderType {
+export class Preloader extends Component {
   progress: number;
   percentage: number;
   allMedia: string[];
@@ -28,7 +23,7 @@ export class Preloader extends Component implements PreloaderType {
     this.progress = 0;
   }
 
-  startLoad() {
+  startLoad(): void {
     this.allMedia = flattenObj(media);
 
     each(this.allMedia, (url: any) => {
@@ -42,7 +37,7 @@ export class Preloader extends Component implements PreloaderType {
     });
   }
 
-  async onAssetLoaded() {
+  onAssetLoaded(): void {
     this.progress++;
 
     this.percentage = Math.round((this.progress / this.allMedia.length) * 100);
@@ -58,8 +53,8 @@ export class Preloader extends Component implements PreloaderType {
     }
   }
 
-  onLoadingComplete() {
-    const tl = gsap.timeline({ delay: 1.4 });
+  onLoadingComplete(): void {
+    const tl: GSAPTimeline = gsap.timeline({ delay: 1.4 });
 
     tl.call(() => {
       this.emit("preloading-completed");
@@ -73,7 +68,7 @@ export class Preloader extends Component implements PreloaderType {
     });
   }
 
-  kill() {
+  kill(): void {
     gsap.to(this.element, {
       autoAlpha: 0,
       duration: 1,

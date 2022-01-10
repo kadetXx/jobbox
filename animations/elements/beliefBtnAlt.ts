@@ -12,7 +12,7 @@ export class BeliefBtnAlt extends Parallax {
     });
   }
 
-  init() {
+  init(): void {
     gsap.set(this.element, {
       y: this.displacement,
     });
@@ -20,8 +20,8 @@ export class BeliefBtnAlt extends Parallax {
     this.animateButton();
   }
 
-  animateButton() {
-    const mappedvalue = this.rect.currentDistanceY * this.mapped;
+  animateButton(): void {
+    const mappedvalue: number = this.rect.currentDistanceY * this.mapped;
 
     gsap.set(this.element, {
       y: mappedvalue,
