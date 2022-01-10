@@ -1,6 +1,5 @@
 import { Component } from "./component";
 import gsap from "gsap";
-import NormalizeWheel from "normalize-wheel";
 export class Animation extends Component {
   observe: any;
   observer: any;
@@ -46,11 +45,12 @@ export class Animation extends Component {
   }
 
   updateCurrentDistanceY() {
-    this.rect.currentPosition = gsap.utils.interpolate(
-      this.rect.currentPosition,
-      this.rect.targetPosition,
+    this.rect.currentDistanceY = gsap.utils.interpolate(
+      this.rect.currentDistanceY,
+      this.rect.targetDistanceY,
       globalThis.ismobile ? 0.1 : 0.05
     );
+    
 
     this.frame = window.requestAnimationFrame(
       this.updateCurrentDistanceY.bind(this)

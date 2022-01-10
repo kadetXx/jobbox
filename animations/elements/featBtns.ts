@@ -1,37 +1,40 @@
 import { Animation } from "../classes/animation";
 import gsap from "gsap";
 export class FeatBtn extends Animation {
-  frame: any;
+  frameIII: any;
   mapped: number;
   scroll: any;
+  displacement: any;
 
   constructor({ element, elements }) {
     super({ element, elements });
 
-    // this.mapScroll();
+    this.mapDistanceToAnimation();
   }
 
-  // mapScroll() {
-  //   const [first, second] = this.elements.btns;
+  mapDistanceToAnimation() {
+    this.displacement = 250;
 
-  //   const displacement = 250;
-  //   this.mapped = displacement / this.scroll.limit;
+    this.mapped = this.displacement / this.rect.targetDistanceY;
 
-  //   gsap.set([first, second], {
-  //     y: displacement,
-  //   });
+    gsap.set(this.elements.btns, {
+      y: this.displacement,
+    });
 
-  //   this.animateButtons();
-  // }
+    this.animateButtons();
+  }
 
-  // animateButtons() {
-  //   const [first, second] = this.elements.btns;
+  animateButtons() {
+    const [first, second] = this.elements.btns;
 
-  //   gsap.set([first, second], {
-  //     y: -this.scroll.current * this.mapped + 250,
-  //     stagger: 0.2,
-  //   });
+    const mappedvalue = this.rect.currentDistanceY * this.mapped;
+    const clamped = gsap.utils.clamp(-50, this.displacement + 100, mappedvalue);
 
-  //   this.frame = window.requestAnimationFrame(this.animateButtons.bind(this));
-  // }
+    gsap.set([first, second], {
+      y: clamped,
+      stagger: 0.2,
+    });
+
+    this.frameIII = window.requestAnimationFrame(this.animateButtons.bind(this));
+  }
 }
