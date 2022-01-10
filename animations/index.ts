@@ -34,7 +34,7 @@ export class App implements AppInterface {
 
   createPreloader() {
     this.preloader = new Preloader();
-    this.preloader.once("start-pre-anim", this.onPreloaded.bind(this));
+    this.preloader.once("preloading-completed", this.onPreloaded.bind(this));
   }
 
   createPages(page: string) {

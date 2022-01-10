@@ -63,7 +63,7 @@ export class Preloader extends Component implements PreloaderType {
     const tl = gsap.timeline({ delay: 1.4 });
 
     tl.call(() => {
-      this.emit("start-pre-anim");
+      this.emit("preloading-completed");
     });
 
     tl.to(this.elements.percentage, {
