@@ -12,6 +12,8 @@ export class FeatBtn extends Parallax {
   }
 
   init(): void {
+    super.init();
+    
     gsap.set(this.elements.btns, {
       y: this.displacement,
     });

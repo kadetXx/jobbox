@@ -73,8 +73,8 @@ export class Home extends Page {
 
   startPreAnimation(): void {
     // move image to center of viewport
-    const heroImage = this.components?.heroImage[0];
-    const { x, y, width, height } = heroImage?.getBoundingClientRect();
+    const heroImage: HTMLElement = this.components?.heroImage[0];
+    const { x, y, width, height }: DOMRect = heroImage?.getBoundingClientRect();
 
     if (!heroImage) {
       setTimeout(() => {

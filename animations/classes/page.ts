@@ -1,14 +1,9 @@
-interface PageInterface {
-  components: any;
-  create(components: any): void;
-}
-
 import { EventEmitter } from "events";
 import { each } from "lodash";
 import NormalizeWheel from "normalize-wheel";
 import gsap from "gsap";
 import Prefix from "prefix";
-export class Page extends EventEmitter implements PageInterface {
+export class Page extends EventEmitter {
   components: any;
   elements: any;
   frame: number;
@@ -53,8 +48,8 @@ export class Page extends EventEmitter implements PageInterface {
   onTouchMove(event: any): void {
     if (!this.touch.isDown) return;
 
-    const y = event.touches ? event.touches[0].clientY : event.clientY;
-    const distance = (this.touch.start - y) * 2;
+    const y: number = event.touches ? event.touches[0].clientY : event.clientY;
+    const distance: number = (this.touch.start - y) * 2;
 
     this.scroll.target = this.scroll.position + distance;
   }

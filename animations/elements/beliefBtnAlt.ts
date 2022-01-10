@@ -13,6 +13,8 @@ export class BeliefBtnAlt extends Parallax {
   }
 
   init(): void {
+    super.init();
+    
     gsap.set(this.element, {
       y: this.displacement,
     });

@@ -27,7 +27,7 @@ export class Preloader extends Component {
     this.allMedia = flattenObj(media);
 
     each(this.allMedia, (url: any) => {
-      const fakeImage = new Image();
+      const fakeImage: HTMLImageElement = new Image();
 
       fakeImage.src = url;
 

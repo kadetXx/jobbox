@@ -13,6 +13,8 @@ export class FeatText extends Parallax {
   }
 
   init(): void {
+    super.init();
+    
     gsap.set(this.elements.texts, {
       y: this.displacement,
     });
