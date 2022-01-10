@@ -4,13 +4,12 @@ interface PreloaderType {
 }
 
 import { Component } from "../classes/component";
-import { each, throttle } from "lodash";
+import { each } from "lodash";
 import gsap from "gsap";
 
-import { flattenObj } from "@/helpers";
+import { flattenObj, eventEmitter as nextEmitter } from "@/utils";
 import { media } from "@/mock";
 
-import { eventEmitter as nextEmitter } from "@/helpers";
 export class Preloader extends Component implements PreloaderType {
   progress: number;
   percentage: number;
@@ -69,8 +68,8 @@ export class Preloader extends Component implements PreloaderType {
     tl.to(this.elements.percentage, {
       filter: "blur(2px) grayscale(100%)",
       autoAlpha: 0,
-      ease: 'expo.out',
-      duration: 1.6
+      ease: "expo.out",
+      duration: 1.6,
     });
   }
 
