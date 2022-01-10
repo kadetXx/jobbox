@@ -1,37 +1,39 @@
-import { Animation } from "../classes/animation";
+import { Parallax } from "../classes/parallax";
 import gsap from "gsap";
-export class FeatBtn extends Animation {
-  frame: any;
+export class FeatBtn extends Parallax {
+  frameIII: any;
   mapped: number;
   scroll: any;
+  displacement: any;
 
   constructor({ element, elements }) {
-    super({ element, elements });
-
-    this.mapScroll();
+    super({
+      element,
+      elements,
+      params: {
+        displacement: 250,
+      },
+    });
   }
 
-  mapScroll() {
-    const [first, second] = this.elements.btns;
-
-    const displacement = 250;
-    this.mapped = displacement / this.scroll.limit;
-
-    gsap.set([first, second], {
-      y: displacement,
+  init() {
+    gsap.set(this.elements.btns, {
+      y: this.displacement,
     });
 
     this.animateButtons();
   }
 
   animateButtons() {
-    const [first, second] = this.elements.btns;
+    const mappedvalue = this.rect.currentDistanceY * this.mapped;
 
-    gsap.set([first, second], {
-      y: -this.scroll.current * this.mapped + 250,
-      stagger: 0.2,
+    gsap.set(this.elements.btns, {
+      y: mappedvalue,
+      stagger: 0.1,
     });
 
-    this.frame = window.requestAnimationFrame(this.animateButtons.bind(this));
+    this.frameIII = window.requestAnimationFrame(
+      this.animateButtons.bind(this)
+    );
   }
 }
