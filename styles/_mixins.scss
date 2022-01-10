@@ -1,6 +1,4 @@
-
 // flexbox
-
 @mixin flex($justify: flex-start, $align: flex-start, $flow: row wrap,) {
   flex-flow: $flow;
   display: flex;
@@ -10,7 +8,6 @@
 
 
 // breakpoints
-
 $breakpoints: (
   "mobile": 600px,
   "tablet": 900px,
@@ -20,17 +17,11 @@ $breakpoints: (
 ) !default;
 
 @mixin respondMin($breakpoint) {
-
-  // If the key exists in the map
   @if map-has-key($breakpoints, $breakpoint) {
-
-    // Prints a media query based on the value
     @media (min-width: map-get($breakpoints, $breakpoint)) {
       @content;
     }
   }
-
-  // If the key doesn't exist in the map
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
       + "Available breakpoints are: #{map-keys($breakpoints)}.";
@@ -38,17 +29,11 @@ $breakpoints: (
 }
 
 @mixin respondMax($breakpoint) {
-
-  // If the key exists in the map
   @if map-has-key($breakpoints, $breakpoint) {
-
-    // Prints a media query based on the value
     @media (max-width: map-get($breakpoints, $breakpoint)) {
       @content;
     }
   }
-
-  // If the key doesn't exist in the map
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
       + "Available breakpoints are: #{map-keys($breakpoints)}.";

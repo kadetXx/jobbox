@@ -3,7 +3,7 @@ import gsap from "gsap";
 
 export class BeliefBtn extends Animation {
   shouldAnimate: boolean;
-  tl: any;
+  tl: GSAPTimeline;
 
   constructor({ element, elements }) {
     super({ element, elements });
@@ -17,7 +17,7 @@ export class BeliefBtn extends Animation {
   animateIn() {
     super.animateIn();
 
-    const tl = gsap.timeline();
+    const tl: GSAPTimeline = gsap.timeline();
 
     tl.set(this.element, {
       autoAlpha: 0,

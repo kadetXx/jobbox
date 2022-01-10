@@ -4,9 +4,9 @@ const isIntersecting = (
   ref: React.MutableRefObject<Element>,
   threshold?: number,
   root?: Element,
-  rootMargin?: string,
+  rootMargin?: string
 ) => {
-  const [intersecting, setIntersecting] = useState(false);
+  const [intersecting, setIntersecting] = useState<boolean>(false);
 
   const options = {
     root: root || null,
@@ -19,17 +19,15 @@ const isIntersecting = (
       setIntersecting(entry.isIntersecting);
     };
 
-    const target = ref.current
-
+    const target = ref.current;
     const observer = new IntersectionObserver(checkIntersect, options);
 
     target && observer.observe(target);
 
-    return () => observer.unobserve(target)
-
+    return () => observer.unobserve(target);
   }, [ref, intersecting]);
 
-  return intersecting
+  return intersecting;
 };
 
 export default isIntersecting;

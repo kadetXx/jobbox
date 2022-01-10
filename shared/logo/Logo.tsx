@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styles from "./logo.module.scss";
 import Image from "next/image";
 import { media } from "@/mock";
@@ -15,7 +15,7 @@ const Logo: React.FC<LogoProps> = ({
   height = "56",
   type = "default",
   className,
-}) => {
+}): ReactElement => {
   const { shared } = media;
 
   return (
@@ -23,7 +23,7 @@ const Logo: React.FC<LogoProps> = ({
       <Image
         src={type === "blue" ? shared.logoBlue : shared.logo}
         width={width && width}
-        height={height && height}
+        height={width && height}
         layout={!width ? "fill" : "intrinsic"}
         alt="jobbox logo"
       />

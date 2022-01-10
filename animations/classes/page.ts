@@ -1,19 +1,20 @@
-interface PageInterface {
-  components: any;
-  create(components: any): void;
-}
-
 import { EventEmitter } from "events";
 import { each } from "lodash";
 import NormalizeWheel from "normalize-wheel";
 import gsap from "gsap";
 import Prefix from "prefix";
-export class Page extends EventEmitter implements PageInterface {
+export class Page extends EventEmitter {
   components: any;
   elements: any;
-  scroll: any;
-  frame: any;
+  frame: number;
   transformPrefix: any;
+  scroll: {
+    target: number;
+    current: number;
+    limit: number;
+    position?: number;
+  };
+
   touch: {
     isDown: boolean;
     position?: number;
@@ -36,7 +37,7 @@ export class Page extends EventEmitter implements PageInterface {
     };
   }
 
-  create() {
+  create(): void {
     this.components = {};
     // for each of the data type passed in, select all and then save it as an item in this.elements
     each(this.elements, (component: any, key: any) => {
@@ -44,20 +45,20 @@ export class Page extends EventEmitter implements PageInterface {
     });
   }
 
-  onTouchMove(event: any) {
+  onTouchMove(event: any): void {
     if (!this.touch.isDown) return;
 
-    const y = event.touches ? event.touches[0].clientY : event.clientY;
-    const distance = (this.touch.start - y) * 2;
+    const y: number = event.touches ? event.touches[0].clientY : event.clientY;
+    const distance: number = (this.touch.start - y) * 2;
 
     this.scroll.target = this.scroll.position + distance;
   }
 
-  onTouchUp(event: any) {
+  onTouchUp(event: any): void {
     this.touch.isDown = false;
   }
 
-  onTouchDown(event: any) {
+  onTouchDown(event: any): void {
     this.touch.isDown = true;
 
     this.scroll.position = this.scroll.current;
@@ -65,17 +66,17 @@ export class Page extends EventEmitter implements PageInterface {
   }
 
   // add general page methods here like event listeners, show and hide
-  onMouseWheel(e: WheelEvent) {
+  onMouseWheel(e: WheelEvent): void {
     const { pixelY } = NormalizeWheel(e);
     this.scroll.target += pixelY;
   }
 
-  onResize() {
+  onResize(): void {
     this.scroll.limit =
       this.components.scrollContainer[0].clientHeight - window.innerHeight - 1;
   }
 
-  updateScroll() {
+  updateScroll(): void {
     this.scroll.target = gsap.utils.clamp(
       0,
       this.scroll.limit,
@@ -93,7 +94,7 @@ export class Page extends EventEmitter implements PageInterface {
     ] = `translateY(-${this.scroll.current}px)`;
   }
 
-  initSmoothScroll() {
+  initSmoothScroll(): void {
     // set body :overflow to hidden
     document.body.style.overflow = "hidden";
     document.body.style.position = "fixed";
@@ -102,7 +103,7 @@ export class Page extends EventEmitter implements PageInterface {
     this.frame = window.requestAnimationFrame(this.initSmoothScroll.bind(this));
   }
 
-  addEventListeners() {
+  addEventListeners(): void {
     window.addEventListener("mousewheel", this.onMouseWheel.bind(this));
     window.addEventListener("resize", this.onResize.bind(this));
     window.addEventListener("touchstart", this.onTouchDown.bind(this));

@@ -6,10 +6,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import "@/styles/index.scss";
 
-import { Provider } from "react-redux";
-import { createWrapper } from "next-redux-wrapper";
-import store from "@/store";
-
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -34,14 +30,10 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <title>Jobbox</title>
         <meta name="description" content="Find Jobs Easily" />
       </Head>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
+
+      <Component {...pageProps} />
     </React.Fragment>
   );
 }
 
-const makeStore = () => store;
-const wrapper = createWrapper(makeStore);
-
-export default wrapper.withRedux(MyApp);
+export default MyApp;
