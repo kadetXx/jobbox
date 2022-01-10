@@ -8,30 +8,30 @@ export class FeatBtn extends Animation {
   constructor({ element, elements }) {
     super({ element, elements });
 
-    this.mapScroll();
+    // this.mapScroll();
   }
 
-  mapScroll() {
-    const [first, second] = this.elements.btns;
+  // mapScroll() {
+  //   const [first, second] = this.elements.btns;
 
-    const displacement = 250;
-    this.mapped = displacement / this.scroll.limit;
+  //   const displacement = 250;
+  //   this.mapped = displacement / this.scroll.limit;
 
-    gsap.set([first, second], {
-      y: displacement,
-    });
+  //   gsap.set([first, second], {
+  //     y: displacement,
+  //   });
 
-    this.animateButtons();
-  }
+  //   this.animateButtons();
+  // }
 
-  animateButtons() {
-    const [first, second] = this.elements.btns;
+  // animateButtons() {
+  //   const [first, second] = this.elements.btns;
 
-    gsap.set([first, second], {
-      y: -this.scroll.current * this.mapped + 250,
-      stagger: 0.2,
-    });
+  //   gsap.set([first, second], {
+  //     y: -this.scroll.current * this.mapped + 250,
+  //     stagger: 0.2,
+  //   });
 
-    this.frame = window.requestAnimationFrame(this.animateButtons.bind(this));
-  }
+  //   this.frame = window.requestAnimationFrame(this.animateButtons.bind(this));
+  // }
 }
