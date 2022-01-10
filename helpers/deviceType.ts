@@ -1,4 +1,4 @@
-const deviceType = () => {
+const deviceType = (): string => {
   //store user agent to variable
   const ua = navigator.userAgent;
 

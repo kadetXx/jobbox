@@ -1,11 +1,10 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styles from "./Features.module.scss";
 
 import Link from "next/link";
-
 import { features } from "@/mock";
 
-const Features = () => {
+const Features = (): ReactElement => {
   return (
     <div className={styles.features}>
       {features.map((item, index) => (
