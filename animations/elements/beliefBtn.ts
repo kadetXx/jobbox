@@ -10,8 +10,8 @@ export class BeliefBtn extends Animation {
     super({ element, elements });
     this.shouldAnimate = true;
 
-    if ('IntersectionObserver' in window) {
-      this.animateOut()
+    if ("IntersectionObserver" in window) {
+      this.animateOut();
     }
   }
 
@@ -37,17 +37,17 @@ export class BeliefBtn extends Animation {
       }
     );
 
-    tl.to(
-      this.elements.floaters,
-      // { y: "-100%", autoAlpha: 0 },
-      {
-        y: 0,
-        stagger: 0.2,
-        ease: "sine.out",
-        autoAlpha: 1,
-      },
-      0.5
-    );
+    !globalThis.ismobile &&
+      tl.to(
+        this.elements.floaters,
+        {
+          y: 0,
+          stagger: 0.2,
+          ease: "sine.out",
+          autoAlpha: 1,
+        },
+        0.5
+      );
   }
 
   animateOut() {
@@ -57,9 +57,10 @@ export class BeliefBtn extends Animation {
       autoAlpha: 0,
     });
 
-    gsap.set(this.elements.floaters, {
-      autoAlpha: 0,
-      y: "-80%",
-    });
+    !globalThis.ismobile &&
+      gsap.set(this.elements.floaters, {
+        autoAlpha: 0,
+        y: "-80%",
+      });
   }
 }

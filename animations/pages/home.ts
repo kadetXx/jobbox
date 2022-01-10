@@ -64,7 +64,7 @@ export class Home extends Page {
       item.style.position = "fixed";
       item.style.inset = "0";
       item.style.margin = "auto";
-      item.style.transform = 'scale(0.8)'
+      item.style.transform = "scale(0.8)";
 
       parent.appendChild(item);
     });
