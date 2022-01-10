@@ -7,7 +7,7 @@ export class BeliefBtnAlt extends Parallax {
       element,
       elements,
       params: {
-        displacement: 100,
+        displacement: 50,
       },
     });
   }
