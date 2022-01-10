@@ -78,7 +78,6 @@ export class Preloader extends Component implements PreloaderType {
     gsap.to(this.element, {
       autoAlpha: 0,
       duration: 1,
-      // ease:",
     });
   }
 }
