@@ -107,9 +107,26 @@ const Front = ({ children, page }: Props) => {
               Copyright &copy; 2021 Jobbox Limited. All rights reserved.
             </p>
             <div className={styles.footer_socials}>
-              <img src={socials.fb} width="20" height="20" alt="facebook" />
-              <img src={socials.tw} width="20" height="20" alt="twitter" />
-              <img src={socials.ig} width="20" height="20" alt="instagram" />
+              <Link href="/">
+                <a className={styles.footer_social}>
+                  <img src={socials.fb} width="20" height="20" alt="facebook" />
+                </a>
+              </Link>
+              <Link href="/">
+                <a className={styles.footer_social}>
+                  <img src={socials.tw} width="20" height="20" alt="twitter" />
+                </a>
+              </Link>
+              <Link href="/">
+                <a className={styles.footer_social}>
+                  <img
+                    src={socials.ig}
+                    width="20"
+                    height="20"
+                    alt="instagram"
+                  />
+                </a>
+              </Link>
             </div>
           </footer>
         </div>
