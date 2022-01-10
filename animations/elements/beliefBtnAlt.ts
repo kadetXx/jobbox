@@ -1,34 +1,33 @@
 import { Parallax } from "../classes/parallax";
 import gsap from "gsap";
-export class FeatBtn extends Parallax {
+
+export class BeliefBtnAlt extends Parallax {
   constructor({ element, elements }) {
     super({
       element,
       elements,
       params: {
-        displacement: 250,
+        displacement: 100,
       },
     });
   }
 
   init() {
-    gsap.set(this.elements.btns, {
+    gsap.set(this.element, {
       y: this.displacement,
     });
 
-    this.animateButtons();
+    this.animateButton();
   }
 
-  animateButtons() {
+  animateButton() {
     const mappedvalue = this.rect.currentDistanceY * this.mapped;
 
-    gsap.set(this.elements.btns, {
+    gsap.set(this.element, {
       y: mappedvalue,
       stagger: 0.1,
     });
 
-    this.frameIII = window.requestAnimationFrame(
-      this.animateButtons.bind(this)
-    );
+    this.frameIII = window.requestAnimationFrame(this.animateButton.bind(this));
   }
 }

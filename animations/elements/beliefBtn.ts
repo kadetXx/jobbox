@@ -1,6 +1,5 @@
 import { Animation } from "../classes/animation";
 import gsap from "gsap";
-import { each } from "lodash";
 
 export class BeliefBtn extends Animation {
   shouldAnimate: boolean;

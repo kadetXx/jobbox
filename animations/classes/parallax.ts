@@ -1,6 +1,8 @@
 import { Animation } from "./animation";
 
 export class Parallax extends Animation {
+  displacement: any;
+  frameIII: any;
   mapped: number;
   params: {
     displacement: number;
