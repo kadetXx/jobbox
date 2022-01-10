@@ -2,11 +2,6 @@ import { Parallax } from "../classes/parallax";
 import gsap from "gsap";
 
 export class FeatText extends Parallax {
-  frameIII: any;
-  mapped: number;
-  scroll: any;
-  displacement: number;
-
   constructor({ element, elements }) {
     super({
       element,

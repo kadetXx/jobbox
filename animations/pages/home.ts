@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { each } from "lodash";
 
 import { BeliefBtn } from "../elements/beliefBtn";
+import { BeliefBtnAlt } from "../elements/beliefBtnAlt";
 import { FeatBtn } from "../elements/featBtns";
 import { FeatText } from "../elements/featText";
 
@@ -221,10 +222,15 @@ export class Home extends Page {
   }
 
   createComponentAnimations() {
-    new BeliefBtn({
-      element: this.elements.beliefImg,
-      elements: { floaters: this.elements.beliefBtn },
-    });
+    globalThis.ismobile
+      ? new BeliefBtnAlt({
+          element: this.elements.beliefImg,
+          elements: { floaters: this.elements.beliefBtn },
+        })
+      : new BeliefBtn({
+          element: this.elements.beliefImg,
+          elements: { floaters: this.elements.beliefBtn },
+        });
 
     each(this.components.texts, (text) => {
       new FeatText({
