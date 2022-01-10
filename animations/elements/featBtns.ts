@@ -1,5 +1,6 @@
 import { Parallax } from "../classes/parallax";
 import gsap from "gsap";
+
 export class FeatBtn extends Parallax {
   constructor({ element, elements }) {
     super({

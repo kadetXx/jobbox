@@ -1,5 +1,6 @@
 import { Component } from "./component";
 import gsap from "gsap";
+
 export class Animation extends Component {
   observer: IntersectionObserver;
   observerOptions: {
