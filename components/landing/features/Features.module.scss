@@ -136,6 +136,10 @@
   display: grid;
   row-gap: 0.5rem;
 
+  @include respondMax("tablet") {
+    row-gap: 1rem;
+  }
+
   .feature_floater {
     position: relative;
     width: 10rem;

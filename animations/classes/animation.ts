@@ -1,12 +1,21 @@
 import { Component } from "./component";
 import gsap from "gsap";
 export class Animation extends Component {
-  observe: any;
-  observer: any;
-  observerOptions: any;
-  rect: any;
-  frame: any;
-  frameII: any;
+  observer: IntersectionObserver;
+  observerOptions: {
+    root?: Element | null;
+    rootMargin?: string;
+    threshold?: number;
+  };
+
+  rect: {
+    distanceY: number;
+    targetDistanceY: number;
+    currentDistanceY: number;
+  };
+
+  frame: number;
+  frameII: number;
 
   constructor({ element, elements }) {
     // call methods here
@@ -28,22 +37,22 @@ export class Animation extends Component {
     this.updateCurrentDistanceY();
   }
 
-  calculateDistanceY() {
-    const { y, height } = this.element.getBoundingClientRect();
+  calculateDistanceY(): void {
+    const { y, height }: DOMRect = this.element.getBoundingClientRect();
     this.rect.distanceY = y + height / 2 - window.innerHeight / 2;
 
     this.updateTargetDistanceY();
   }
 
-  updateTargetDistanceY() {
-    const endPoint = globalThis.ismobile
+  updateTargetDistanceY(): void {
+    const endPoint: number = globalThis.ismobile
       ? window.innerHeight / 4
       : window.innerHeight / 3;
 
-    const { y, height } = this.element.getBoundingClientRect();
-    const newValue = y + height / 2 - endPoint;
+    const { y, height }: DOMRect = this.element.getBoundingClientRect();
+    const newValue: number = y + height / 2 - endPoint;
 
-    const clamped = gsap.utils.clamp(0, this.rect.distanceY + 50, newValue);
+    const clamped: number = gsap.utils.clamp(0, this.rect.distanceY + 50, newValue);
     this.rect.targetDistanceY = clamped;
 
     this.frameII = window.requestAnimationFrame(
@@ -51,7 +60,7 @@ export class Animation extends Component {
     );
   }
 
-  updateCurrentDistanceY() {
+  updateCurrentDistanceY(): void {
     this.rect.currentDistanceY = gsap.utils.interpolate(
       this.rect.currentDistanceY,
       this.rect.targetDistanceY,
@@ -64,7 +73,7 @@ export class Animation extends Component {
   }
 
   // create intersection observer method to animate in and out
-  createObserver() {
+  createObserver(): void {
     this.observer = new window.IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -78,6 +87,6 @@ export class Animation extends Component {
     this.element && this.observer.observe(this.element);
   }
 
-  animateIn() {}
-  animateOut() {}
+  animateIn(): void {}
+  animateOut(): void {}
 }

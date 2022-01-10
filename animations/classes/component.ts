@@ -1,14 +1,8 @@
-interface CompInterface {
-  element: any;
-  elements: any;
-  create(element: string, elements: string): void;
-}
-
 import { EventEmitter } from "events";
 import { each } from "lodash";
 
-export class Component extends EventEmitter implements CompInterface {
-  element: any;
+export class Component extends EventEmitter {
+  element: HTMLElement;
   elements: any;
 
   constructor({ element, elements }) {
@@ -16,7 +10,7 @@ export class Component extends EventEmitter implements CompInterface {
     this.create(element, elements);
   }
 
-  create(element: any, elements: any) {
+  create(element: any, elements: any): void {
     if (element instanceof window.HTMLElement) {
       this.element = element;
     } else {
@@ -25,7 +19,7 @@ export class Component extends EventEmitter implements CompInterface {
 
     this.elements = {};
 
-    each(elements, (item: any, key: any) => {
+    each(elements, (item: any, key: any): void => {
       if (item instanceof window.HTMLElement) {
         this.elements[key] = item;
       } else {
@@ -33,6 +27,4 @@ export class Component extends EventEmitter implements CompInterface {
       }
     });
   }
-
-  // add general component methods here like destroy, etc
 }

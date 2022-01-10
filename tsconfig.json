@@ -22,9 +22,6 @@
       "@/*": [
         "*"
       ],
-      "@/api/*": [
-        "pages/api/*"
-      ]
     },
     "incremental": true
   },

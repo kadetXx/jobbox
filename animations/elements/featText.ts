@@ -12,7 +12,9 @@ export class FeatText extends Parallax {
     });
   }
 
-  init() {
+  init(): void {
+    super.init();
+    
     gsap.set(this.elements.texts, {
       y: this.displacement,
     });
@@ -20,8 +22,8 @@ export class FeatText extends Parallax {
     this.animateText();
   }
 
-  animateText() {
-    const mappedvalue = this.rect.currentDistanceY * this.mapped;
+  animateText(): void {
+    const mappedvalue: number = this.rect.currentDistanceY * this.mapped;
 
     gsap.set(this.elements.texts, {
       y: mappedvalue,

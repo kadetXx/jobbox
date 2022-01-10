@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styles from "./Button.module.scss";
 
 interface Props {
@@ -17,7 +17,7 @@ const Button = ({
   prefixIcon,
   suffixIcon,
   className,
-}: Props) => {
+}: Props): ReactElement => {
   return (
     <button
       onClick={onClick}

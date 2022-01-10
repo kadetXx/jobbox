@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styles from "./Hero.module.scss";
 
 import dynamic from "next/dynamic";
@@ -8,7 +8,7 @@ import { brands, media } from "@/mock";
 
 const [Button] = [dynamic(() => import("@/shared/button/Button"))];
 
-const Hero = () => {
+const Hero = (): ReactElement => {
   const {
     landing: { hero },
     shared,

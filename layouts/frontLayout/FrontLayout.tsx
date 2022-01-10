@@ -6,7 +6,7 @@ import styles from "./FrontLayout.module.scss";
 import Link from "next/link";
 import { navLinks, media } from "@/mock";
 
-import { deviceType, eventEmitter } from "@/helpers";
+import { deviceType, eventEmitter } from "@/utils";
 
 const [Logo, Button, Preloader] = [
   dynamic(() => import("@/shared/logo/Logo")),

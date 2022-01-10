@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styles from "./Belief.module.scss";
 
 import { media } from "@/mock";
 
-const Belief = () => {
+const Belief = (): ReactElement => {
   const {
     landing: { belief },
   } = media;
