@@ -52,7 +52,7 @@ export class Preloader extends Component implements PreloaderType {
 
     if (this.percentage === 100) {
       // emit event to next js mount page
-      nextEmitter.emit("preloader-finish");
+      nextEmitter.emit("preloading-completed");
 
       // set loading to completed so animations can start
       this.onLoadingComplete();
@@ -63,7 +63,7 @@ export class Preloader extends Component implements PreloaderType {
     const tl = gsap.timeline({ delay: 1.4 });
 
     tl.call(() => {
-      this.emit("start-pre-anim");
+      this.emit("preloading-completed");
     });
 
     tl.to(this.elements.percentage, {
@@ -78,7 +78,6 @@ export class Preloader extends Component implements PreloaderType {
     gsap.to(this.element, {
       autoAlpha: 0,
       duration: 1,
-      // ease:",
     });
   }
 }

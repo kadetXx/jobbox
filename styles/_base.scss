@@ -11,6 +11,7 @@ html {
   margin: 0;
   height: 100%;
   font-size: calc(100vw / 1440 * 16);
+  overflow: hidden;
 
   @include flex(stretch, stretch, column);
 

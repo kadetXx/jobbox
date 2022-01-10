@@ -70,6 +70,9 @@
   @include respondMax("tablet") {
     flex-wrap: wrap;
     padding-bottom: 0;
+
+    // temporary fix for overflow space bug
+    box-shadow: 0 10px 0 10px $col-primary-300;
   }
 
   .footer_logo {
