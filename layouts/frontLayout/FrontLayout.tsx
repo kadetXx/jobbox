@@ -20,8 +20,8 @@ interface Props {
 }
 
 const Front = ({ children, page }: Props) => {
-  const hasInit = useRef(false);
-  const [hasPreloaded, setHasPreloaded] = useState(false);
+  const hasInit = useRef<boolean>(false);
+  const [hasPreloaded, setHasPreloaded] = useState<boolean>(false);
 
   useEffect(() => {
     !hasInit.current && init();
@@ -31,7 +31,7 @@ const Front = ({ children, page }: Props) => {
 
   const init = useCallback(async () => {
     // check if device is mobile
-    const ismobile = deviceType() === "mobile";
+    const ismobile: boolean = deviceType() === "mobile";
 
     // import animations
     const App = (await import("@/animations")).App;
