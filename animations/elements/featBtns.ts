@@ -28,11 +28,10 @@ export class FeatBtn extends Animation {
     const [first, second] = this.elements.btns;
 
     const mappedvalue = this.rect.currentDistanceY * this.mapped;
-    const clamped = gsap.utils.clamp(-50, this.displacement + 100, mappedvalue);
 
     gsap.set([first, second], {
-      y: clamped,
-      stagger: 0.2,
+      y: mappedvalue,
+      stagger: 0.1,
     });
 
     this.frameIII = window.requestAnimationFrame(this.animateButtons.bind(this));
