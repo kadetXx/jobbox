@@ -85,7 +85,7 @@ export class Page extends EventEmitter implements PageInterface {
     this.scroll.current = gsap.utils.interpolate(
       this.scroll.current,
       this.scroll.target,
-      window.innerWidth < 600 ? 0.1 : 0.05
+      globalThis.ismobile ? 0.1 : 0.05
     );
 
     this.components.smoothScroll[0].style[

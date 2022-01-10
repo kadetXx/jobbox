@@ -65,7 +65,7 @@ export class Animation extends Component {
     this.scroll.target = this.scroll.position + distance;
   }
 
-  onTouchUp(event: any) {
+  onTouchUp() {
     this.touch.isDown = false;
   }
 
@@ -100,7 +100,7 @@ export class Animation extends Component {
     this.scroll.current = gsap.utils.interpolate(
       this.scroll.current,
       this.scroll.target,
-      window.innerWidth < 600 ? 0.1 : 0.05
+      globalThis.ismobile ? 0.1 : 0.05
     );
 
     this.frame = window.requestAnimationFrame(
